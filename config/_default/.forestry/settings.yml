@@ -1,8 +1,8 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: 
-webhook_url: 
+admin_path: ''
+webhook_url: https://hooks.slack.com/services/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
 sections:
 - type: directory
   path: content
@@ -19,7 +19,7 @@ sections:
   label: config
   create: documents
   match: "**/*"
-  new_doc_ext: ".toml"
+  new_doc_ext: toml
 upload_dir: config/_default/static/uploads
 public_path: "/uploads"
 front_matter_path: ''
