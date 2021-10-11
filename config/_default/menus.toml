@@ -17,10 +17,10 @@ weight = 2
 # url = "categories/"
 # weight = 3
 
-[[main]]
-name = "contact"
-url = "contact/"
-weight = 5
+# [[main]]
+# name = "contact"
+# url = "contact/"
+# weight = 5
 
 [[main]]
 name = "blog"
