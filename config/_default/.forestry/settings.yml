@@ -20,7 +20,7 @@ sections:
   create: documents
   match: "**/*"
   new_doc_ext: toml
-upload_dir: config/_default/static/uploads
+upload_dir: static/uploads
 public_path: "/uploads"
 front_matter_path: ''
 use_front_matter_path: false
