@@ -4,22 +4,35 @@ auto_deploy: false
 admin_path: ''
 webhook_url: https://hooks.slack.com/services/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
 sections:
-- type: directory
-  path: content
-  label: Pages
-  create: documents
-  match: "*"
+- type: heading
+  label: Contents
+- type: document
+  path: content/contact.md
+  label: Contact
+  match: "**/*"
+- type: document
+  path: content/about
+  label: About
+  match: "**/*"
 - type: directory
   path: content/blog
   label: blog
   create: documents
   match: "**/*"
-- type: directory
-  path: config/_default
-  label: config
-  create: documents
+- type: heading
+  label: Configurations
+- type: document
+  path: config/_default/config.toml
+  label: General
   match: "**/*"
-  new_doc_ext: toml
+- type: document
+  path: config/_default/params.toml
+  label: Parameters
+  match: "**/*"
+- type: document
+  path: config/_default/menu.toml
+  label: Menu
+  match: "**/*"
 upload_dir: static/uploads
 public_path: "/uploads"
 front_matter_path: ''
