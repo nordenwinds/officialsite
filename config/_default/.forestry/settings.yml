@@ -2,18 +2,16 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: ''
-webhook_url: https://hooks.slack.com/services/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
+webhook_url: ''
 sections:
 - type: heading
   label: Contents
 - type: document
   path: content/contact.md
   label: Contact
-  match: "**/*"
 - type: document
   path: content/about.md
   label: About
-  match: "**/*"
 - type: directory
   path: content/blog
   label: blog
@@ -27,11 +25,9 @@ sections:
 - type: document
   path: config/_default/params.toml
   label: Parameters
-  match: "**/*"
 - type: document
   path: config/_default/menu.toml
   label: Menu
-  match: "**/*"
 upload_dir: assets/images
 public_path: "/images"
 front_matter_path: ''
