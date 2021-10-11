@@ -1,0 +1,52 @@
+#################### default parameters ################################
+# favicon
+favicon = "images/favicon.png"
+# logo
+logo = "images/logo.png"
+# use `x` with logo_width, example: "100x"
+logo_width = "150px"
+# logo text will only show when logo is missing.
+logo_text = "Norden Wind Ensemble"
+# OpenGraph / Twitter Card metadata
+description = "Norden Wind Ensemble: 神奈川県茅ヶ崎市を中心に活動する吹奏楽団"
+author = "NordenWindEnsemble"
+image = "images/logo.png" # this image will be used as fallback if a page has no image of its own
+# main sections
+mainSections = ["blog"]
+# contact form action
+contact_form_action = "#" # contact form works with https://formspree.io
+# copyright text
+copyright = "Copyright (c) 2021 Norden Wind Ensemble All rights reserved."
+# custom script on header, example: custom_script= "<script>console.log(\"Hello World\")</script>"
+custom_script= ""
+
+# author
+[author_block]
+title= "WELCOME TO Nowden Winds"
+image= "images/author.jpg"
+content= "Norden Wind Ensembleは神奈川県茅ヶ崎市を中心に活動する吹奏楽団です。"
+
+# Preloader
+[preloader]
+enable = false
+preloader = "" # use jpg, png, svg or gif format.
+
+# cookies
+[cookies]
+enable = false
+expire_days = 2
+content = "This site uses cookies. By continuing to use this website, you agree to their use."
+button = "I Accept"
+
+############################# social site ########################
+[[social]]
+icon = "fab fa-facebook-f"
+link = "https://www.facebook.com/nordenwinds/"
+
+[[social]]
+icon = "fab fa-twitter"
+link = "https://twitter.com/nordenwinds"
+
+[[social]]
+icon = "fab fa-instagram"
+link = "https://www.instagram.com/nordenwinds/"
