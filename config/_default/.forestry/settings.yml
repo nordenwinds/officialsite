@@ -1,27 +1,35 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: 
-webhook_url: 
+admin_path: ''
+webhook_url: ''
 sections:
-- type: directory
-  path: content
-  label: Pages
-  create: documents
-  match: "*"
+- type: heading
+  label: Contents
+- type: document
+  path: content/contact.md
+  label: Contact
+- type: document
+  path: content/about.md
+  label: About
 - type: directory
   path: content/blog
   label: blog
   create: documents
   match: "**/*"
-- type: directory
-  path: config/_default
-  label: config
-  create: documents
-  match: "**/*"
-  new_doc_ext: ".toml"
-upload_dir: config/_default/static/uploads
-public_path: "/uploads"
+- type: heading
+  label: Configurations
+- type: document
+  path: config/_default/config.toml
+  label: General
+- type: document
+  path: config/_default/params.toml
+  label: Parameters
+- type: document
+  path: config/_default/menus.toml
+  label: Menu
+upload_dir: assets/images
+public_path: "/images"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
