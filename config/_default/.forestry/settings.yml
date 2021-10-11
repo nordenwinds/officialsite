@@ -11,7 +11,7 @@ sections:
   label: Contact
   match: "**/*"
 - type: document
-  path: content/about
+  path: content/about.md
   label: About
   match: "**/*"
 - type: directory
@@ -24,7 +24,6 @@ sections:
 - type: document
   path: config/_default/config.toml
   label: General
-  match: "**/*"
 - type: document
   path: config/_default/params.toml
   label: Parameters
@@ -33,8 +32,8 @@ sections:
   path: config/_default/menu.toml
   label: Menu
   match: "**/*"
-upload_dir: static/uploads
-public_path: "/uploads"
+upload_dir: assets/images
+public_path: "/images"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
