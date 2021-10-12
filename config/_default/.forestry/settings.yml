@@ -28,6 +28,10 @@ sections:
 - type: document
   path: config/_default/menus.toml
   label: Menu
+- type: document
+  path: netlify.toml
+  label: Netlify
+  match: "**/*"
 upload_dir: assets/images
 public_path: "/images"
 front_matter_path: ''
