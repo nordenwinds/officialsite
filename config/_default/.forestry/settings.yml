@@ -31,7 +31,6 @@ sections:
 - type: document
   path: netlify.toml
   label: Netlify
-  match: "**/*"
 upload_dir: assets/images
 public_path: "/images"
 front_matter_path: ''
