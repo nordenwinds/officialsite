@@ -5,7 +5,7 @@
       <div class="col-md-10 mx-auto">
         <div class="text-center">
           <h1 class="mb-4">{{ .Title }}</h1>
-          <form action="{{site.Params.contact_form_action}}" method="post">
+          <form action="{{site.Params.contact_form_action}}" method="post" data-netlify="true">
             <div class="row g-4">
               <div class="col-md-6 mb-3">
                 <input type="text" class="form-control" placeholder="First Name" aria-label="First name" name="first-name">
