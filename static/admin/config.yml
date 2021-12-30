@@ -1,0 +1,83 @@
+backend:
+  name: git-gateway
+  branch: master
+
+# Run netlify-cms locally
+local_backend: true
+
+locale: "ja"
+
+publish_mode: editorial_workflow
+media_folder: "assets/images"
+
+show_preview_links: true
+
+## See: https://www.netlifycms.org/docs/configuration-options/#collections
+collections:
+  - name: "blog"                  # Used in routes
+    label: "Blog"                 # Used in the UI
+    folder: "content/blog"        # The path to the folder
+    create: true                  # Allow users to create new documents
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    preview_path: "blog/{{slug}}"
+    fields:
+      - label: "タイトル"
+        name: "title"
+        required: true
+        widget: "string"
+      - label: "公開日"
+        name: "date"
+        required: true
+        widget: "datetime"
+      - label: "アイキャッチ画像"
+        name: "image"
+        required: false
+        widget: "image"
+      - label: "トップページに表示する"
+        name: "featured"
+        required: true
+        widget: "boolean"
+        default: true
+      - label: "カテゴリー"
+        name: "categories"
+        required: false
+        widget: "select"
+        multiple: true
+        options:
+          - "Concert"
+        default:
+          - "Concert"
+      - label: "本文"
+        name: "body"
+        required: true
+        widget: "markdown"
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "about"
+        label: "About"
+        file: "content/about.md"
+        extension: "md"
+        format: "frontmatter"
+        preview_path: "about"
+        fields:
+          - label: "タイトル"
+            name: "title"
+            required: true
+            widget: "string"
+          - label: "アイキャッチ画像"
+            name: "image"
+            required: false
+            widget: "image"
+          - label: "Description（検索用）"
+            name: "description"
+            required: false
+            widget: "string"
+          - label: "本文"
+            name: "body"
+            required: true
+            widget: "markdown"
+
