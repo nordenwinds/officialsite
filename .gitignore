@@ -11,6 +11,11 @@ hugo.exe
 hugo.darwin
 hugo.linux
 
+### Netlify ###
+# Generated files by netlify-cli
+.netlify
+.hugo_build.lock
+
 ### macOS ###
 # General
 .DS_Store
