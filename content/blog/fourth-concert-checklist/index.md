@@ -2,15 +2,15 @@
 title: "第4回演奏会: 感染防止チェックリスト"
 date: 2022-01-10T00:00:00+09:00
 image: "images/information.png"
-featured: false
+featured: true
 categories: ["Information"]
 draft: false
 ---
 
 会場の感染拡大防止措置に基づき、第4回演奏会での感染防止チェックリストを以下に公表します。
 
-![](./images/checklist-1.jpg)
-![](./images/checklist-2.jpg)
+![](blog/fourth-concert-checklist/images/checklist-1.jpg)
+![](blog/fourth-concert-checklist/images/checklist-2.jpg)
 
 [出典：感染防止策チェックリスト【第1版（令和3年11月版）】](http://www.city.hiratsuka.kanagawa.jp/common/200098115.pdf)
 
