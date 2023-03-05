@@ -1,0 +1,46 @@
+---
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/cms/**"
+  pull_request:
+    paths:
+      - "apps/cms/**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Resolve Dependencies
+        run: npm ci
+
+      - name: Check code
+        run: npm run lint --workspace apps/cms
+
+  migration:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs:
+      - lint
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Resolve Dependencies
+        run: npm ci
+
+      - name: Run migration
+        run: npm run migrate --workspace apps/cms

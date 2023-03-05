@@ -1,0 +1,4 @@
+---
+'**/*.{astro,html,js,md,mdx,ts,tsx}':
+    - 'eslint'
+    - 'prettier --check'
