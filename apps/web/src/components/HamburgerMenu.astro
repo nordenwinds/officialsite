@@ -1,0 +1,68 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import type { MenuItem } from './Header.astro';
+
+type Props = { items: MenuItem[] } & HTMLAttributes<'div'>;
+
+const { items, class: className } = Astro.props;
+---
+
+<hamburger-menu data-menu="closed" class:list={['group', className]}>
+    <section class="w-full overflow-auto">
+        <button class="relative right-0 top-0 z-40 flex h-12 w-12 items-center bg-white px-1.5">
+            <div
+                class="relative flex h-6 w-9 flex-col justify-between group-data-[menu=open]:left-1.5 group-data-[menu=open]:h-7"
+            >
+                <span
+                    class="block h-0.5 w-full origin-top-left rounded bg-black transition-transform duration-500 ease-in-out group-data-[menu=open]:rotate-45"
+                ></span>
+                <span class="block h-0.5 w-full bg-black transition-transform duration-200 group-data-[menu=open]:scale-y-0"
+                ></span>
+                <span
+                    class="block h-0.5 w-full origin-bottom-left bg-black transition-transform duration-500 ease-in-out group-data-[menu=open]:-rotate-45"
+                ></span>
+            </div>
+        </button>
+        <div
+            class="fixed left-0 top-0 z-10 flex w-full -translate-y-full flex-col divide-y divide-solid divide-gray-300 bg-white pt-20 text-center transition-transform duration-500 ease-in-out group-data-[menu=open]:h-screen group-data-[menu=open]:translate-y-0"
+        >
+            <ul>
+                {
+                    items.map((item) => (
+                        <li class="list-none p-4 text-lg">
+                            <a href={item.link}>{item.text}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
+</hamburger-menu>
+
+<script>
+    type MenuState = 'open' | 'closed';
+
+    class HamgurgerMenu extends HTMLElement {
+        constructor() {
+            super();
+
+            this.addEventListener('click', () => {
+                const state = this.dataset.menu as MenuState;
+                this.toggleState(state);
+            });
+        }
+
+        private toggleState(state: MenuState) {
+            switch (state) {
+                case 'open':
+                    this.dataset.menu = 'closed';
+                    break;
+                case 'closed':
+                    this.dataset.menu = 'open';
+                    break;
+            }
+        }
+    }
+
+    customElements.define('hamburger-menu', HamgurgerMenu);
+</script>

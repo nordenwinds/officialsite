@@ -1,25 +1,33 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import Container from './Container.astro';
+import HamburgerMenu from './HamburgerMenu.astro';
+import { MENU_ITEMS as menu } from '../consts';
+
+export type MenuItem = {
+    text: string;
+    link: string;
+};
 ---
 
-<header>
-    <h2>
-        {SITE_TITLE}
-    </h2>
-    <nav>
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/blog">Blog</HeaderLink>
-        <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-        <HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-    </nav>
+<header class="h-16">
+    <Container class="h-full">
+        <div class="flex h-full flex-row items-center justify-between gap-2 p-0">
+            <div class="flex h-full flex-row items-start justify-between gap-1">
+                <a href="/" class="h-full">
+                    <img class="h-full w-auto" src="/nordenwinds-yoko.png" alt="logo" />
+                </a>
+            </div>
+
+            <nav class="hidden flex-row items-center justify-between gap-4 md:flex">
+                {
+                    menu.map((item) => (
+                        <a href={item.link} class="font-bold">
+                            {item.text}
+                        </a>
+                    ))
+                }
+            </nav>
+            <HamburgerMenu class="block md:hidden" items={menu} />
+        </div>
+    </Container>
 </header>
-<style>
-    header {
-        margin: 0em 0 2em;
-    }
-    h2 {
-        margin: 0.5em 0;
-    }
-</style>
