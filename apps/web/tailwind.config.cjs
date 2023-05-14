@@ -18,6 +18,19 @@ module.exports = {
 			fontFamily: {
 				sans: ['Noto Sans JP', ...defaultTheme.fontFamily.sans],
 			},
+			colors: {
+				primary: {
+					light: '#3B82F6',
+					DEFAULT: '#1D4ED8',
+					dark: '#1E3A8A',
+				},
+				secondary: {
+					light: '#F5D0FE',
+					DEFAULT: '#E879F9',
+					dark: '#C026D3',
+				},
+				black: '#121212',
+			},
 		},
 	},
 	plugins: [],
