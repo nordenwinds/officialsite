@@ -1,0 +1,92 @@
+---
+import { strict as assert } from 'assert';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Container from '../../components/Container.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageTitle from '../../components/PageTitle.astro';
+import Label from '../../components/Label.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import RitchText from '../../components/RitchText.astro';
+import Footer from '../../components/Footer.astro';
+import { contentfulClient } from '../../lib/contentful';
+import type { TypeInformationSkeleton } from '../../types/contentful';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+
+export const getStaticPaths = (async () => {
+    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeInformationSkeleton>({
+        content_type: 'information',
+    });
+
+    const pages = items.map((item) => {
+        const { slug, title, publishedAt, category, content } = item.fields;
+        assert(category);
+
+        const { updatedAt } = item.sys;
+
+        const breadcrumbs = [
+            {
+                text: 'トップ',
+                href: '/',
+            },
+            {
+                text: 'お知らせ',
+                href: '/information',
+            },
+            { text: title },
+        ];
+
+        return {
+            params: { slug },
+            props: {
+                breadcrumbs,
+                title,
+                publishedAt: new Date(publishedAt),
+                modifiedAt: new Date(updatedAt),
+                category: category.fields,
+                content,
+            },
+        };
+    });
+
+    return pages;
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { breadcrumbs, title, publishedAt, modifiedAt, content, category } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <BaseHead title={title} description={documentToPlainTextString(content)} />
+    </head>
+    <body class="flex min-h-screen flex-col">
+        <Header />
+        <main class="flex grow">
+            <Container class="my-8 flex flex-col gap-4">
+                <Breadcrumbs parts={breadcrumbs} />
+                <PageTitle>{title}</PageTitle>
+                <div class="flex flex-col space-y-2">
+                    <div class="w-24">
+                        <Label text={category.name} color={category.color} />
+                    </div>
+                    <div class="flex flex-col md:flex-row md:space-x-4">
+                        <span class="w-36">
+                            公開日:
+                            <FormattedDate date={publishedAt} />
+                        </span>
+                        <span class="w-36">
+                            更新日:
+                            <FormattedDate date={modifiedAt} />
+                        </span>
+                    </div>
+                </div>
+                <RitchText content={content} />
+            </Container>
+        </main>
+        <Footer />
+    </body>
+</html>

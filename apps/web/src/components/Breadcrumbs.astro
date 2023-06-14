@@ -1,0 +1,22 @@
+---
+interface Props {
+    parts: {
+        text: string;
+        href?: string;
+    }[];
+}
+
+const { parts } = Astro.props;
+---
+
+<nav>
+    <ol class="text-sm">
+        {
+            parts.map((item) => (
+                <li class="inline before:mx-1 before:content-['>'] first:before:mx-0 first:before:content-['']">
+                    {item.href ? <a href={item.href}>{item.text}</a> : item.text}
+                </li>
+            ))
+        }
+    </ol>
+</nav>

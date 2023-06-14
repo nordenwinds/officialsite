@@ -1,0 +1,38 @@
+---
+import { BLOCKS, Document, Node } from '@contentful/rich-text-types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+/**
+ * NOTE: RichTextの中の画像を表示するためには、解釈するタグを指定しなければならない
+ * see: https://www.contentful.com/blog/rich-text-field-tips-and-tricks/
+ */
+const renderOptions = {
+    renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: (node: Node) => {
+            const assetType = node.data.target.fields.file.contentType;
+
+            switch (assetType) {
+                case 'image/png':
+                case 'image/jpeg':
+                    return `
+                        <img
+                            src=${node.data.target.fields.file.url}
+                            height=${node.data.target.fields.file.details.image.height}
+                            width=${node.data.target.fields.file.details.image.width}
+                            alt=${node.data.target.fields.description}
+                        />`;
+                default:
+                    return '';
+            }
+        },
+    },
+};
+
+interface Props {
+    content: Document;
+}
+
+const { content } = Astro.props;
+---
+
+<article class="prose" set:html={documentToHtmlString(content, renderOptions)} />
