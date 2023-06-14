@@ -1,0 +1,80 @@
+---
+import { strict as assert } from 'assert';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Container from '../../components/Container.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Label from '../../components/Label.astro';
+import { contentfulClient } from '../../lib/contentful';
+import type { TypeInformationSkeleton } from '../../types/contentful/TypeInformation';
+import type { GetStaticPaths, Page } from 'astro';
+import Pagination from '../../components/Pagination.astro';
+
+const PAGE_TITLE = 'お知らせ';
+const PAGE_DESCRIPTION = 'Norden Wind Ensembleのお知らせ一覧';
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeInformationSkeleton>({
+        content_type: 'information',
+        order: ['-fields.publishedAt'],
+    });
+
+    const informations = items.map((item) => {
+        const { slug, title, publishedAt, category } = item.fields;
+        assert(category);
+
+        return {
+            slug,
+            title,
+            publishedAt: new Date(publishedAt),
+            category: category.fields,
+        };
+    });
+
+    return paginate(informations, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+type Props = {
+    page: Page;
+};
+
+const { page } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <BaseHead title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
+    </head>
+    <body class="flex min-h-screen flex-col">
+        <Header />
+        <main class="flex grow">
+            <Container class="my-8 flex flex-col gap-4">
+                <SectionTitle subtitle="information">お知らせ</SectionTitle>
+                <div class="flex flex-col gap-4">
+                    {
+                        page.data.map((info) => (
+                            <a href={`/information/${info.slug}/`}>
+                                <div class="flex flex-col border-b-2 border-gray-200 pb-2 text-base font-normal md:flex-row">
+                                    <div class="flex flex-row">
+                                        <span class="w-24">
+                                            <FormattedDate date={info.publishedAt} />
+                                        </span>
+                                        <span class="mx-2 w-24 text-center">
+                                            <Label color={info.category.color} text={info.category.name} />
+                                        </span>
+                                    </div>
+                                    <div class="grow">{info.title}</div>
+                                </div>
+                            </a>
+                        ))
+                    }
+                </div>
+                <Pagination page={page} />
+            </Container>
+        </main>
+        <Footer />
+    </body>
+</html>
