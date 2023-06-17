@@ -1,6 +1,7 @@
 ---
 import { BLOCKS, Document, Node } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import type { HTMLAttributes } from 'astro/types';
 
 /**
  * NOTE: RichTextの中の画像を表示するためには、解釈するタグを指定しなければならない
@@ -28,11 +29,11 @@ const renderOptions = {
     },
 };
 
-interface Props {
+interface Props extends HTMLAttributes<'div'> {
     content: Document;
 }
 
-const { content } = Astro.props;
+const { content, class: className } = Astro.props;
 ---
 
-<article class="prose" set:html={documentToHtmlString(content, renderOptions)} />
+<article class:list={['prose', className]} set:html={documentToHtmlString(content, renderOptions)} />

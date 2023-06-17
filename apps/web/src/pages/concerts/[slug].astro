@@ -1,0 +1,118 @@
+---
+import { strict as assert } from 'assert';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Container from '../../components/Container.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageTitle from '../../components/PageTitle.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import FormattedTime from '../../components/FormattedTime.astro';
+import RitchText from '../../components/RitchText.astro';
+import Footer from '../../components/Footer.astro';
+import { contentfulClient } from '../../lib/contentful';
+import type { TypeConcertSkeleton } from '../../types/contentful';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+
+export const getStaticPaths = (async () => {
+    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>({
+        content_type: 'concert',
+    });
+
+    const pages = items.map((item) => {
+        const { slug, flyer, title, startTime, openTime, conductor, place, content } = item.fields;
+        assert(flyer && flyer.fields.file);
+
+        const { createdAt, updatedAt } = item.sys;
+
+        const breadcrumbs = [
+            {
+                text: 'トップ',
+                href: '/',
+            },
+            {
+                text: 'コンサート',
+                href: '/concerts',
+            },
+            { text: title },
+        ];
+
+        return {
+            params: { slug },
+            props: {
+                breadcrumbs,
+                createdAt: new Date(createdAt),
+                modifiedAt: new Date(updatedAt),
+                flyer: flyer.fields.file,
+                title,
+                startTime: new Date(startTime),
+                openTime: openTime ? new Date(openTime) : null,
+                conductor,
+                place,
+                content,
+            },
+        };
+    });
+
+    return pages;
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { breadcrumbs, title, createdAt, modifiedAt, flyer, startTime, openTime, conductor, place, content } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <BaseHead title={title} description={documentToPlainTextString(content)} />
+    </head>
+    <body class="flex min-h-screen flex-col">
+        <Header />
+        <main class="flex grow">
+            <Container class="my-8 flex flex-col gap-4">
+                <Breadcrumbs parts={breadcrumbs} />
+                <PageTitle>{title}</PageTitle>
+                <div class="flex flex-col space-y-2">
+                    <div class="flex flex-col md:flex-row md:space-x-4">
+                        <span class="w-36">
+                            公開日:
+                            <FormattedDate date={createdAt} />
+                        </span>
+                        <span class="w-36">
+                            更新日:
+                            <FormattedDate date={modifiedAt} />
+                        </span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <div>
+                        <img src={flyer.url} alt={flyer.fileName} />
+                    </div>
+                    <div class="space-y-8 md:col-span-2">
+                        <div class="space-y-4">
+                            <p>
+                                日時: <FormattedDate date={startTime} isoFormat={false} dayOfWeek={true} />
+                            </p>
+                            <p>
+                                開演: <FormattedTime date={startTime} />{
+                                    openTime ? (
+                                        <>
+                                            （開場: <FormattedTime date={openTime} />）
+                                        </>
+                                    ) : (
+                                        ''
+                                    )
+                                }
+                            </p>
+                            <p>指揮: {conductor}</p>
+                            <p>会場: {place}</p>
+                        </div>
+                        <RitchText class="text-black" content={content} />
+                    </div>
+                </div>
+            </Container>
+        </main>
+        <Footer />
+    </body>
+</html>

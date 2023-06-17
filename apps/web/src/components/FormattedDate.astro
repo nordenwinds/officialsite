@@ -1,10 +1,11 @@
 ---
 interface Props {
     date: Date;
+    isoFormat?: boolean;
     dayOfWeek?: boolean;
 }
 
-const { date, dayOfWeek = false } = Astro.props;
+const { date, isoFormat = true, dayOfWeek = false } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
@@ -12,8 +13,8 @@ const { date, dayOfWeek = false } = Astro.props;
         date
             .toLocaleDateString('ja-jp', {
                 year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
+                month: isoFormat ? '2-digit' : 'long',
+                day: isoFormat ? '2-digit' : 'numeric',
                 weekday: dayOfWeek ? 'short' : undefined,
             })
             .split('/')
