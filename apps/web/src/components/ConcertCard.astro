@@ -1,0 +1,43 @@
+---
+import FormattedDate from './FormattedDate.astro';
+import FormattedTime from './FormattedTime.astro';
+import type { AssetFile } from 'contentful';
+
+interface Props {
+    cover: AssetFile;
+    title: string;
+    startTime: Date;
+    openTime?: Date;
+    conductor: string;
+    place: string;
+}
+
+const { cover, title, startTime, openTime, conductor, place } = Astro.props;
+---
+
+<div class="max-w-sm overflow-hidden rounded shadow-lg">
+    <img class="w-full" src={cover.url} alt={cover.fileName} />
+    <div class="flex flex-col space-y-4 px-6 py-8">
+        <div class="font-bold text-primary-dark">
+            <div class="text-xl">
+                <FormattedDate date={startTime} dayOfWeek={true} />
+            </div>
+            <div class="text-2xl">{title}</div>
+        </div>
+        <div class="text-base font-normal">
+            <p>
+                開演: <FormattedTime date={startTime} />{
+                    openTime ? (
+                        <>
+                            （開場: <FormattedTime date={openTime} />）
+                        </>
+                    ) : (
+                        ''
+                    )
+                }
+            </p>
+            <p>指揮: {conductor}</p>
+            <p>会場: {place}</p>
+        </div>
+    </div>
+</div>
