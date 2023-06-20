@@ -65,7 +65,7 @@ const { breadcrumbs, title, createdAt, modifiedAt, flyer, startTime, openTime, c
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <BaseHead title={title} description={documentToPlainTextString(content)} />
+        <BaseHead title={title} description={documentToPlainTextString(content)} image={flyer.url} />
     </head>
     <body class="flex min-h-screen flex-col">
         <Header />
