@@ -1,57 +1,158 @@
 ---
+import { strict as assert } from 'assert';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, NWE_DESCRIPTIONS, CONTACT_DESCRIPTIONS, CONTACT_FORM_URL } from '../consts';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import ConcertCard from '../components/ConcertCard.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Label from '../components/Label.astro';
+import Button from '../components/Button.astro';
+import { contentfulClient } from '../lib/contentful';
+import type { TypeConcertSkeleton, TypeInformationSkeleton } from '../types/contentful';
+
+const { items: infoItems } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeInformationSkeleton>({
+    content_type: 'information',
+    order: ['-fields.publishedAt'],
+    limit: 5,
+});
+
+const informations = infoItems.map((item) => {
+    const { slug, title, publishedAt, category } = item.fields;
+    assert(category);
+
+    return {
+        slug,
+        title,
+        publishedAt: new Date(publishedAt),
+        category: category.fields,
+    };
+});
+
+const { items: concertItems } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>({
+    content_type: 'concert',
+    order: ['-fields.startTime'],
+    limit: 3,
+});
+
+const concerts = concertItems.map((item) => {
+    const { slug, flyer, title, startTime, openTime, conductor, place } = item.fields;
+
+    assert(flyer && flyer.fields.file);
+
+    return {
+        slug,
+        cover: flyer.fields.file,
+        title,
+        startTime: new Date(startTime),
+        openTime: openTime ? new Date(openTime) : undefined,
+        conductor,
+        place,
+    };
+});
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
-    <body>
+    <body class="flex min-h-screen flex-col">
         <Header title={SITE_TITLE} />
-        <main>
-            <h1>🧑‍🚀 Hello, Astronaut!</h1>
-            <p>
-                Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template serves as
-                a lightweight, minimally-styled starting point for anyone looking to build a personal website, blog, or portfolio
-                with Astro.
-            </p>
-            <p>
-                This template comes with a few integrations already configured in your
-                <code>astro.config.mjs</code> file. You can customize your setup with
-                <a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind, React, or Vue to
-                your project.
-            </p>
-            <p>Here are a few ideas on how to get started with the template:</p>
-            <ul>
-                <li>Edit this page in <code>src/pages/index.astro</code></li>
-                <li>
-                    Edit the site header items in <code>src/components/Header.astro</code>
-                </li>
-                <li>
-                    Add your name to the footer in <code>src/components/Footer.astro</code>
-                </li>
-                <li>
-                    Check out the included blog posts in <code>src/pages/blog/</code>
-                </li>
-                <li>
-                    Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code>
-                </li>
-            </ul>
-            <p>
-                Have fun! If you get stuck, remember to <a href="https://docs.astro.build/">read the docs</a> or <a
-                    href="https://astro.build/chat">join us on Discord</a
-                > to ask questions.
-            </p>
-            <p>
-                Looking for a blog template with a bit more personality? Check out <a
-                    href="https://github.com/Charca/astro-blog-template"
-                    >astro-blog-template
-                </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-            </p>
+        <main class="flex grow flex-col">
+            <section id="eyecatch" class="md:max-h-[80vh]">
+                <img src="/images/eyecatch.jpg" alt="Norden Wind Ensemble" class="h-auto w-full overflow-hidden" />
+            </section>
+            <section id="information" class="bg-white">
+                <Container class="my-8 flex flex-col gap-8">
+                    <div class="flex flex-row items-center">
+                        <SectionTitle subtitle="information">お知らせ</SectionTitle>
+                        <div class="grow"></div>
+                        <a class="hidden text-sm font-bold text-primary-dark md:block" href="/information">すべて見る</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        {
+                            informations.map((information) => (
+                                <a href={`/information/${information.slug}/`}>
+                                    <div class="flex flex-col border-b-2 border-gray-200 pb-2 text-base font-normal md:flex-row">
+                                        <div class="flex flex-row">
+                                            <span class="w-24">
+                                                <FormattedDate date={information.publishedAt} />
+                                            </span>
+                                            <span class="mx-2 w-24 text-center">
+                                                <Label color={information.category.color} text={information.category.name} />
+                                            </span>
+                                        </div>
+                                        <div class="grow">{information.title}</div>
+                                    </div>
+                                </a>
+                            ))
+                        }
+                    </div>
+                    <div class="mx-auto md:hidden">
+                        <Button text="もっと見る" color="primary.light" href="/information" />
+                    </div>
+                </Container>
+            </section>
+
+            <section id="concert" class="bg-gray-200">
+                <Container class="my-8 flex flex-col gap-8">
+                    <div class="flex flex-row items-center">
+                        <SectionTitle subtitle="concert">コンサート</SectionTitle>
+                        <div class="grow"></div>
+                        <a class="hidden text-sm font-bold text-primary-dark md:block" href="/concerts">すべて見る</a>
+                    </div>
+                    <div class="grid grid-cols-1 place-items-center gap-4 md:grid-cols-3">
+                        {
+                            concerts.map((concert) => (
+                                <a href={`/concerts/${concert.slug}/`}>
+                                    <ConcertCard
+                                        cover={concert.cover}
+                                        title={concert.title}
+                                        startTime={concert.startTime}
+                                        openTime={concert.openTime}
+                                        conductor={concert.conductor}
+                                        place={concert.place}
+                                    />
+                                </a>
+                            ))
+                        }
+                    </div>
+                    <div class="mx-auto md:hidden">
+                        <Button text="もっと見る" color="primary.light" href="/concerts" />
+                    </div>
+                </Container>
+            </section>
+
+            <section id="about-us">
+                <Container class="my-8 flex flex-col gap-8">
+                    <SectionTitle subtitle="about us">Norden Wind Ensembleとは</SectionTitle>
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div>
+                            <img src="/images/aboutus.jpg" alt="Norden Wind Ensemble" class="w-full" />
+                        </div>
+                        <div class="break-words text-base leading-loose text-black">
+                            {NWE_DESCRIPTIONS.map((line) => <p>{line}</p>)}
+                        </div>
+                    </div>
+                </Container>
+            </section>
+
+            <section id="contact" class="bg-gray-200">
+                <Container class="my-8 flex flex-col gap-8">
+                    <SectionTitle subtitle="contact">お問い合わせ</SectionTitle>
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div class="break-words text-base leading-loose text-black md:col-span-2">
+                            {CONTACT_DESCRIPTIONS.map((line) => <p>{line}</p>)}
+                        </div>
+                        <div class="mx-auto">
+                            <Button text="お問い合わせ" color="primary" href={CONTACT_FORM_URL} newTab />
+                        </div>
+                    </div>
+                </Container>
+            </section>
         </main>
         <Footer />
     </body>
