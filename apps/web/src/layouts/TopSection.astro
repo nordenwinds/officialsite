@@ -1,0 +1,15 @@
+---
+import Container from '../components/Container.astro';
+
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="odd:bg-slate-200 even:bg-white">
+    <Container class="my-8 flex flex-col gap-8">
+        <slot />
+    </Container>
+</section>
