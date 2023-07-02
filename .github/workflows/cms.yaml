@@ -12,35 +12,47 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
 
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
 
       - name: Resolve Dependencies
-        run: npm ci
+        run: pnpm install --filter cms
 
       - name: Check code
-        run: npm run lint --workspace apps/cms
+        run: pnpm run lint --filter cms
 
-  migration:
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs:
-      - lint
+  # migration:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [18]
 
-    steps:
-      - uses: actions/checkout@v3
+  #   if: ${{ github.ref == 'refs/heads/main' }}
+  #   needs:
+  #     - lint
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "16"
+  #   steps:
+  #     - uses: actions/checkout@v3
 
-      - name: Resolve Dependencies
-        run: npm ci
+  #     - uses: pnpm/action-setup@v2
+  #       with:
+  #         version: 8
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         cache: "pnpm"
 
-      - name: Run migration
-        run: npm run migrate --workspace apps/cms
+  #     - name: Run migration
+  #       run: pnpm run migrate --filter cms
