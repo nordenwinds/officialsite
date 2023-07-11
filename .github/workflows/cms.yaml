@@ -28,10 +28,10 @@ jobs:
           cache: "pnpm"
 
       - name: Resolve Dependencies
-        run: pnpm install --filter cms
+        run: pnpm --filter cms install --frozen-lockfile
 
       - name: Check code
-        run: pnpm run lint --filter cms
+        run: pnpm --filter cms run lint
 
   # migration:
   #   runs-on: ubuntu-latest
@@ -55,4 +55,4 @@ jobs:
   #         cache: "pnpm"
 
   #     - name: Run migration
-  #       run: pnpm run migrate --filter cms
+  #       run: pnpm --filter cms run migrate
