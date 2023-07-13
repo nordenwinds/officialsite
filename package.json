@@ -9,10 +9,6 @@
     "author": "Norden Wind Ensemble",
     "license": "MIT",
     "private": true,
-    "engines": {
-        "pnpm": ">=8.6.5",
-        "npm": "use_pnpm_instead"
-    },
     "packageManager": "pnpm@8.6.5",
     "devDependencies": {
         "depcheck": "^1.4.3",
