@@ -18,7 +18,7 @@ export default (function (migration: Migration) {
         category
             .createField('color')
             .name('Color')
-            .type('Text')
+            .type('Symbol')
             .required(true)
             .validations([
                 { in: ['primary', 'secondary', 'primary.dark', 'primary.light', 'secondary.dark', 'secondary.light'] },
@@ -36,7 +36,7 @@ export default (function (migration: Migration) {
 
         news.createField('slug')
             .name('Slug')
-            .type('Text')
+            .type('Symbol')
             .required(true)
             .validations([
                 { unique: true },
@@ -82,7 +82,7 @@ export default (function (migration: Migration) {
         concert
             .createField('slug')
             .name('Slug')
-            .type('Text')
+            .type('Symbol')
             .required(true)
             .validations([
                 { unique: true },
@@ -96,9 +96,9 @@ export default (function (migration: Migration) {
 
         concert.createField('openTime').name('Open Time').type('Date').required(false);
 
-        concert.createField('conductor').name('Conductor').type('Text').required(true);
+        concert.createField('conductor').name('Conductor').type('Symbol').required(true);
 
-        concert.createField('place').name('Place').type('Text').required(true);
+        concert.createField('place').name('Place').type('Symbol').required(true);
 
         concert.createField('content').name('Content').type('RichText').required(true);
     }
