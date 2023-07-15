@@ -20,6 +20,12 @@ importers:
 
   apps/cms:
     devDependencies:
+      '@nordenwinds/eslint-config':
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
+      '@nordenwinds/prettier-config':
+        specifier: workspace:^
+        version: link:../../packages/prettier-config
       '@types/node':
         specifier: ^18.16.19
         version: 18.16.19

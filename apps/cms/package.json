@@ -11,6 +11,8 @@
   "author": "Norden Wind Ensemble",
   "license": "MIT",
   "devDependencies": {
+    "@nordenwinds/eslint-config": "workspace:^",
+    "@nordenwinds/prettier-config": "workspace:^",
     "@types/node": "^18.16.19",
     "contentful-cli": "^2.6.24",
     "contentful-migration": "^4.14.0",
