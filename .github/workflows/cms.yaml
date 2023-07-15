@@ -33,26 +33,26 @@ jobs:
       - name: Check code
         run: pnpm --filter=cms run lint
 
-  # migration:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [18]
+  migration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
 
-  #   if: ${{ github.ref == 'refs/heads/main' }}
-  #   needs:
-  #     - lint
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs:
+      - lint
 
-  #   steps:
-  #     - uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v3
 
-  #     - uses: pnpm/action-setup@v2
-  #       with:
-  #         version: 8
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #         cache: "pnpm"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
 
-  #     - name: Run migration
-  #       run: pnpm --filter=cms run migrate
+      - name: Run migration
+        run: pnpm --filter=cms run migrate
