@@ -15,6 +15,7 @@
     "@nordenwinds/prettier-config": "workspace:^",
     "@types/node": "^18.16.19",
     "contentful-cli": "^2.6.24",
+    "contentful-management": "^10.39.1",
     "contentful-migration": "^4.14.0",
     "dotenv": "^16.3.1",
     "ts-node": "^10.9.1",
