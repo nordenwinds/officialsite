@@ -29,9 +29,9 @@ jobs:
           cache: "pnpm"
 
       - name: Resolve Dependencies
-        run: pnpm --filter web install --frozen-lockfile
+        run: pnpm --filter=web install --frozen-lockfile
       - name: Check code
-        run: pnpm --filter web run lint
+        run: pnpm --filter=web run lint
 
       - name: Build
-        run: pnpm --filter web run build
+        run: pnpm --filter=web run build
