@@ -10,13 +10,13 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import RitchText from '../../components/RitchText.astro';
 import Footer from '../../components/Footer.astro';
 import { contentfulClient } from '../../lib/contentful';
-import type { TypeInformationSkeleton } from '../../types/contentful';
+import type { TypeNewsSkeleton } from '../../types/contentful';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 export const getStaticPaths = (async () => {
-    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeInformationSkeleton>({
-        content_type: 'information',
+    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>({
+        content_type: 'news',
     });
 
     const pages = items.map((item) => {
@@ -32,7 +32,7 @@ export const getStaticPaths = (async () => {
             },
             {
                 text: 'お知らせ',
-                href: '/information',
+                href: '/news',
             },
             { text: title },
         ];

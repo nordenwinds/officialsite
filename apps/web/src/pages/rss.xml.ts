@@ -1,13 +1,13 @@
 import rss, { RSSOptions } from '@astrojs/rss';
 import { contentfulClient } from '../lib/contentful';
-import type { TypeConcertSkeleton, TypeInformationSkeleton } from '../types/contentful';
+import type { TypeConcertSkeleton, TypeNewsSkeleton } from '../types/contentful';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 export async function get(context: RSSOptions) {
-    const [{ items: informations }, { items: concerts }] = await Promise.all([
-        contentfulClient.withoutUnresolvableLinks.getEntries<TypeInformationSkeleton>({
-            content_type: 'information',
+    const [{ items: newses }, { items: concerts }] = await Promise.all([
+        contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>({
+            content_type: 'news',
             order: ['-fields.publishedAt'],
         }),
         contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>({
@@ -21,11 +21,11 @@ export async function get(context: RSSOptions) {
         description: SITE_DESCRIPTION,
         site: context.site,
         items: [
-            ...informations.map(({ fields: information }) => ({
-                title: information.title,
-                pubDate: new Date(information.publishedAt),
-                content: documentToPlainTextString(information.content),
-                link: `/information/${information.slug}`,
+            ...newses.map(({ fields: news }) => ({
+                title: news.title,
+                pubDate: new Date(news.publishedAt),
+                content: documentToPlainTextString(news.content),
+                link: `/news/${news.slug}`,
             })),
             ...concerts.map(({ fields: concert }) => ({
                 title: concert.title,

@@ -11,15 +11,15 @@ import Label from '../components/Label.astro';
 import Button from '../components/Button.astro';
 import TopSection from '../layouts/TopSection.astro';
 import { contentfulClient } from '../lib/contentful';
-import type { TypeConcertSkeleton, TypeInformationSkeleton } from '../types/contentful';
+import type { TypeConcertSkeleton, TypeNewsSkeleton } from '../types/contentful';
 
-const { items: infoItems } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeInformationSkeleton>({
-    content_type: 'information',
+const { items: newsItems } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>({
+    content_type: 'news',
     order: ['-fields.publishedAt'],
     limit: 5,
 });
 
-const informations = infoItems.map((item) => {
+const newses = newsItems.map((item) => {
     const { slug, title, publishedAt, category } = item.fields;
     assert(category);
 
@@ -65,33 +65,33 @@ const concerts = concertItems.map((item) => {
             <section id="eyecatch" class="overflow-hidden md:max-h-[80vh]">
                 <img src="/images/eyecatch.jpg" alt="Norden Wind Ensemble" class="w-full object-cover object-bottom" />
             </section>
-            <TopSection id="information">
+            <TopSection id="news">
                 <div class="flex flex-row items-center">
-                    <SectionTitle subtitle="information">お知らせ</SectionTitle>
+                    <SectionTitle subtitle="news">お知らせ</SectionTitle>
                     <div class="grow"></div>
-                    <a class="hidden text-sm font-bold text-primary-dark md:block" href="/information">すべて見る</a>
+                    <a class="hidden text-sm font-bold text-primary-dark md:block" href="/news">すべて見る</a>
                 </div>
                 <div class="flex flex-col gap-4">
                     {
-                        informations.map((information) => (
-                            <a href={`/information/${information.slug}/`}>
+                        newses.map((news) => (
+                            <a href={`/news/${news.slug}/`}>
                                 <div class="flex flex-col border-b-2 border-gray-200 pb-2 text-base font-normal md:flex-row">
                                     <div class="flex flex-row">
                                         <span class="w-24">
-                                            <FormattedDate date={information.publishedAt} />
+                                            <FormattedDate date={news.publishedAt} />
                                         </span>
                                         <span class="mx-2 w-24 text-center">
-                                            <Label color={information.category.color} text={information.category.name} />
+                                            <Label color={news.category.color} text={news.category.name} />
                                         </span>
                                     </div>
-                                    <div class="grow">{information.title}</div>
+                                    <div class="grow">{news.title}</div>
                                 </div>
                             </a>
                         ))
                     }
                 </div>
                 <div class="mx-auto md:hidden">
-                    <Button text="もっと見る" color="primary.light" href="/information" />
+                    <Button text="もっと見る" color="primary.light" href="/news" />
                 </div>
             </TopSection>
 

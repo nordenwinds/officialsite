@@ -17,7 +17,7 @@ export const CONTACT_DESCRIPTIONS = [
 ];
 
 export const MENU_ITEMS = [
-    { text: 'お知らせ', link: '/#information' },
+    { text: 'お知らせ', link: '/#news' },
     { text: 'コンサート', link: '/#concert' },
     { text: '私たちについて', link: '/#about-us' },
     { text: 'お問い合わせ', link: '/#contact' },
