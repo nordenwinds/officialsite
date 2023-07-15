@@ -5,7 +5,7 @@
     "description": "Frontend of officialsite",
     "scripts": {
         "typegen:contentful": "source .env && cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $APP_ENV --out src/types/contentful",
-        "typegen": "npm run typegen:contentful",
+        "typegen": "pnpm run typegen:contentful",
         "lint": "eslint src && prettier --check src && astro check && tsc --noEmit",
         "lint:fix": "eslint --fix src && prettier --write src",
         "dev": "astro dev --host",
