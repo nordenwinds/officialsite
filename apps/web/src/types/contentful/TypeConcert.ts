@@ -1,8 +1,8 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from 'contentful';
 
 export interface TypeConcertFields {
-    flyer: EntryFieldTypes.AssetLink;
     title: EntryFieldTypes.Symbol;
+    flyer: EntryFieldTypes.AssetLink;
     slug: EntryFieldTypes.Symbol;
     startTime: EntryFieldTypes.Date;
     openTime?: EntryFieldTypes.Date;
