@@ -15,6 +15,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+    env:
+      DEV: true
+      APP_ENV: ${{ vars.APP_ENV }}
+      CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
 
     steps:
       - uses: actions/checkout@v3
@@ -38,8 +42,11 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+    env:
+      DEV: true
+      APP_ENV: ${{ vars.APP_ENV }}
+      CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
 
-    if: ${{ github.ref == 'refs/heads/main' }}
     needs:
       - lint
 
@@ -56,3 +63,5 @@ jobs:
 
       - name: Run migration
         run: pnpm --filter=cms run migrate
+        env:
+          CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
