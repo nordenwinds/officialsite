@@ -1,20 +1,13 @@
 ---
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "apps/web/**"
-  pull_request:
-    paths:
-      - "apps/web/**"
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+ workflow_run:
+    workflows:
+      - cms
+    types:
+      - completed
 
 jobs:
-  build:
+  checkTypegen:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,13 +17,15 @@ jobs:
       APP_ENV: ${{ vars.APP_ENV }}
       CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
 
+    needs:
+      - migration
+
     steps:
       - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
           version: 8
-
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -38,10 +33,9 @@ jobs:
 
       - name: Resolve Dependencies
         run: pnpm --filter=web install --frozen-lockfile
-      - name: Check code
-        run: pnpm --filter=web run lint
 
-      - name: Build
-        run: pnpm --filter=web run build
+      - name: Check type of content model is generated
+        run: |
+          pnpm --filter=web run typegen && git diff --exit-code apps/web/src/types
         env:
-          CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
+          CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}

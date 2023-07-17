@@ -9,12 +9,20 @@ on:
     paths:
       - "apps/cms/**"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18]
+    env:
+      DEV: true
+      APP_ENV: ${{ vars.APP_ENV }}
+      CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
 
     steps:
       - uses: actions/checkout@v3
@@ -38,8 +46,11 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+    env:
+      DEV: true
+      APP_ENV: ${{ vars.APP_ENV }}
+      CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
 
-    if: ${{ github.ref == 'refs/heads/main' }}
     needs:
       - lint
 
@@ -54,5 +65,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
+      - name: Resolve Dependencies
+        run: pnpm --filter=cms install --frozen-lockfile
+
       - name: Run migration
         run: pnpm --filter=cms run migrate
+        env:
+          CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
