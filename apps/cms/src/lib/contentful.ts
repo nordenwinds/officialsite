@@ -1,7 +1,7 @@
 import { strict as assert } from 'assert';
 import contentful, { Environment, Space } from 'contentful-management';
 
-const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
+const accessToken = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
 assert(accessToken);
 
 export const contentfulClient = contentful.createClient({

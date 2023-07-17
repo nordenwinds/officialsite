@@ -8,7 +8,7 @@ const migrate = async (space: Space, environment: Environment) => {
     const options = {
         environmentId: environment.sys.id,
         spaceId: space.sys.id,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        accessToken: process.env.CONTENTFUL_MANAGEMENT_TOKEN,
         yes: true,
     };
 
@@ -28,7 +28,7 @@ const switchAlias = async (space: Space, environment: Environment, contentfulEnv
 };
 
 const main = async () => {
-    const contentfulEnv = process.env.CONTENTFUL_ENV;
+    const contentfulEnv = process.env.APP_ENV;
     assert(contentfulEnv === 'develop' || contentfulEnv === 'production');
     const spaceId = process.env.CONTENTFUL_SPACE_ID;
     assert(spaceId);
