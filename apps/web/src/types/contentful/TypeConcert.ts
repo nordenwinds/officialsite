@@ -1,4 +1,4 @@
-import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from 'contentful';
+import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 
 export interface TypeConcertFields {
     title: EntryFieldTypes.Symbol;
@@ -11,15 +11,9 @@ export interface TypeConcertFields {
     content: EntryFieldTypes.RichText;
 }
 
-export type TypeConcertSkeleton = EntrySkeletonType<TypeConcertFields, 'concert'>;
-export type TypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<
-    TypeConcertSkeleton,
-    Modifiers,
-    Locales
->;
+export type TypeConcertSkeleton = EntrySkeletonType<TypeConcertFields, "concert">;
+export type TypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode> = Entry<TypeConcertSkeleton, Modifiers, Locales>;
 
-export function isTypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode>(
-    entry: Entry<EntrySkeletonType, Modifiers, Locales>
-): entry is TypeConcert<Modifiers, Locales> {
-    return entry.sys.contentType.sys.id === 'concert';
+export function isTypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeConcert<Modifiers, Locales> {
+    return entry.sys.contentType.sys.id === 'concert'
 }
