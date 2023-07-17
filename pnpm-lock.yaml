@@ -88,10 +88,10 @@ importers:
         version: 3.3.3
     devDependencies:
       '@nordenwinds/eslint-config':
-        specifier: workspace:^
+        specifier: ^1.0.0
         version: link:../../packages/eslint-config
       '@nordenwinds/prettier-config':
-        specifier: workspace:^
+        specifier: ^1.0.0
         version: link:../../packages/prettier-config
       cf-content-types-generator:
         specifier: ^2.12.2
