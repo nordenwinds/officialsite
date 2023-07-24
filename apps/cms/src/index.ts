@@ -39,7 +39,7 @@ const main = async () => {
     await migrate(space, environment);
 
     if (contentfulEnv === 'production') {
-        await switchAlias(space, environment, contentfulEnv);
+        await switchAlias(space, environment, 'master');
     }
 };
 
