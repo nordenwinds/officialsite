@@ -13,7 +13,7 @@
   "devDependencies": {
     "@nordenwinds/eslint-config": "workspace:^",
     "@nordenwinds/prettier-config": "workspace:^",
-    "@types/node": "^18.16.19",
+    "@types/node": "^20.4.4",
     "contentful-cli": "^2.6.24",
     "contentful-management": "^10.39.1",
     "contentful-migration": "^4.14.1",
