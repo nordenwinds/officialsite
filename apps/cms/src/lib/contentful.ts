@@ -20,7 +20,7 @@ export const createEnvironment = async (space: Space, contentfulEnv: 'production
     }
 
     const environment = await space.createEnvironmentWithId(environmentId, {
-        name: contentfulEnv,
+        name: environmentId,
     });
 
     console.log('Waiting for environment is ready...');
