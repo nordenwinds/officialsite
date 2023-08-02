@@ -28,8 +28,8 @@ const switchAlias = async (space: Space, environment: Environment, contentfulEnv
 };
 
 const main = async () => {
-    const contentfulEnv = process.env.APP_ENV;
-    assert(contentfulEnv === 'develop' || contentfulEnv === 'production');
+    const contentfulEnv = process.env.CONTENTFUL_ENV;
+    assert(contentfulEnv === 'develop' || contentfulEnv === 'master');
     const spaceId = process.env.CONTENTFUL_SPACE_ID;
     assert(spaceId);
 
@@ -38,7 +38,7 @@ const main = async () => {
 
     await migrate(space, environment);
 
-    if (contentfulEnv === 'production') {
+    if (contentfulEnv === 'master') {
         await switchAlias(space, environment, 'master');
     }
 };

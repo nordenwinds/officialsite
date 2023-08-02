@@ -8,13 +8,13 @@ export const contentfulClient = contentful.createClient({
     accessToken: accessToken,
 });
 
-export const createEnvironment = async (space: Space, contentfulEnv: 'production' | 'develop'): Promise<Environment> => {
+export const createEnvironment = async (space: Space, contentfulEnv: 'master' | 'develop'): Promise<Environment> => {
     console.log(`Running on ${contentfulEnv}.`);
 
-    const environmentId = contentfulEnv === 'production' ? `${contentfulEnv}-${new Date().getTime()}` : contentfulEnv;
+    const environmentId = contentfulEnv === 'master' ? `${contentfulEnv}-${new Date().getTime()}` : contentfulEnv;
     console.log('Environment ID', environmentId);
 
-    if (contentfulEnv !== 'production') {
+    if (contentfulEnv !== 'master') {
         console.log('Delete current environment.', environmentId);
         await (await space.getEnvironment(environmentId)).delete();
     }
