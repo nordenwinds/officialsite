@@ -30,8 +30,8 @@ importers:
         specifier: ^20.4.4
         version: 20.4.4
       contentful-cli:
-        specifier: ^2.6.24
-        version: 2.6.24
+        specifier: ^2.6.30
+        version: 2.6.30
       contentful-management:
         specifier: ^10.39.1
         version: 10.39.1
@@ -2693,8 +2693,8 @@ packages:
       - supports-color
     dev: true
 
-  /contentful-cli@2.6.24:
-    resolution: {integrity: sha512-huYZV70KaYiaVKZ35Is5Wz5s8vPh88V5cyOzE7qPF0xi7F4VxfV4Ynogi9DZTuaP0I3s1c0D0YvhCvgwga6N9Q==}
+  /contentful-cli@2.6.30:
+    resolution: {integrity: sha512-MUxr4CM32Js4Xu2IYnWxEdi3GnHffpJfoJzwgibseZkszEGeN2w+oCKjXB4MapxRhlpxbz4DcGr3mw1L0NStGA==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
