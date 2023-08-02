@@ -1,8 +1,8 @@
 import { strict as assert } from 'assert';
 import { runMigration } from 'contentful-migration';
 import { contentfulClient, createEnvironment } from './lib/contentful';
-import InitModels from './migrations/1-init_content_models.js';
-import { Environment, Space } from 'contentful-management';
+import InitModels from './migrations/1-init_content_models';
+import { Entry, Environment, Space } from 'contentful-management';
 
 const migrate = async (space: Space, environment: Environment) => {
     const options = {
@@ -27,6 +27,26 @@ const switchAlias = async (space: Space, environment: Environment, contentfulEnv
     (await space.getEnvironment(currentEnvironmentId)).delete();
 };
 
+const getVersionEntry = async (environment: Environment): Promise<Entry> => {
+    const { items: versions } = await environment.getEntries({
+        content_type: 'versionTracking',
+    });
+
+    if (!versions.length || versions.length > 1) {
+        throw new Error('There should only be one entry of type "versionTracking".');
+    }
+
+    return versions[0];
+};
+
+const updateVersion = async (currentVersionEntry: Entry, targetVersion: number): Promise<void> => {
+    currentVersionEntry.fields.version = targetVersion;
+    currentVersionEntry = await currentVersionEntry.update();
+    currentVersionEntry = await currentVersionEntry.publish();
+
+    console.info(`Update version entry to ${targetVersion}`);
+};
+
 const main = async () => {
     const contentfulEnv = process.env.CONTENTFUL_ENV;
     assert(contentfulEnv === 'develop' || contentfulEnv === 'master');
@@ -36,7 +56,18 @@ const main = async () => {
     const space = await contentfulClient.getSpace(spaceId);
     const environment = await createEnvironment(space, contentfulEnv);
 
-    await migrate(space, environment);
+    const TARGET_VERSION = 1;
+    const targetVersion = TARGET_VERSION;
+
+    const currentVersionEntry = await getVersionEntry(environment);
+    const shouldRunMigration = currentVersionEntry.fields.version < targetVersion;
+
+    if (shouldRunMigration) {
+        await migrate(space, environment);
+        await updateVersion(currentVersionEntry, targetVersion);
+    } else {
+        console.info('There is nothing to need to migrate.');
+    }
 
     if (contentfulEnv === 'master') {
         await switchAlias(space, environment, 'master');
