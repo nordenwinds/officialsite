@@ -65,6 +65,6 @@ jobs:
         run: pnpm --filter=cms run migrate
         env:
           DEV: true
-          APP_ENV: ${{ github.ref == 'refs/heads/main' && 'production' || 'develop' }}
+          CONTENTFUL_ENV: ${{ github.ref == 'refs/heads/main' && 'master' || 'develop' }}
           CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}

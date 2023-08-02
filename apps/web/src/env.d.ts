@@ -3,7 +3,7 @@
 
 interface ImportMetaEnv {
     readonly DEV?: boolean;
-    readonly APP_ENV: 'develop' | 'production';
+    readonly CONTENTFUL_ENV: 'develop' | 'master';
     readonly CONTENTFUL_SPACE_ID: string;
     readonly CONTENTFUL_DELIVERY_TOKEN: string;
     readonly CONTENTFUL_PREVIEW_TOKEN: string;
