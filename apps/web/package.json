@@ -19,7 +19,7 @@
     "dependencies": {
         "@astrojs/mdx": "^0.19.7",
         "@astrojs/rss": "^2.4.3",
-        "@astrojs/sitemap": "^2.0.1",
+        "@astrojs/sitemap": "^3.0.0",
         "@astrojs/tailwind": "^4.0.0",
         "@contentful/rich-text-html-renderer": "^16.1.0",
         "@contentful/rich-text-plain-text-renderer": "^16.0.5",
