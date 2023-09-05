@@ -63,8 +63,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(astro@2.9.2)(tailwindcss@3.3.3)
       '@contentful/rich-text-html-renderer':
-        specifier: ^16.1.0
-        version: 16.1.0
+        specifier: ^16.1.1
+        version: 16.1.1
       '@contentful/rich-text-plain-text-renderer':
         specifier: ^16.0.5
         version: 16.0.5
@@ -541,11 +541,11 @@ packages:
       - debug
     dev: true
 
-  /@contentful/rich-text-html-renderer@16.1.0:
-    resolution: {integrity: sha512-U50mWxWysQQYWWL2fL1ExUA2r+543LaggNizb3O61ay2Y0ypyf+D6+oxGIx56WHRffwzXW0dSoP/giXmOvWB/w==}
+  /@contentful/rich-text-html-renderer@16.1.1:
+    resolution: {integrity: sha512-WQUn7g57AZs3JGNC8fCeby3UZVCrAsCsP215ndJL4y2TUg50FIiYIebi7SyNJX4Zd7uwL0Dh2JsW5Itq3rg3tw==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@contentful/rich-text-types': 16.2.0
+      '@contentful/rich-text-types': 16.2.1
       escape-html: 1.0.3
     dev: false
 
@@ -558,6 +558,10 @@ packages:
 
   /@contentful/rich-text-types@16.2.0:
     resolution: {integrity: sha512-4BHC+mfa50JB70epzpnas4EkiuB3mGdBZ5Rp8w7R5wXvswEf8TLg5yGau2FxmZeEjrAkDrt4vzBLVQ8v3Y//Jw==}
+    engines: {node: '>=6.0.0'}
+
+  /@contentful/rich-text-types@16.2.1:
+    resolution: {integrity: sha512-fBxqYcyG3Nw33DhifuE7Ndw3xlrWlOMjwsOvhLmVP4LO475Qyy9ioRChtEt6DPUdH2SFpobvM0qqC/fVe0MNDA==}
     engines: {node: '>=6.0.0'}
 
   /@cspotcode/source-map-support@0.8.1:
@@ -2862,7 +2866,7 @@ packages:
     resolution: {integrity: sha512-AMZJKcaXY5gSNjBs55iZqH3PwzJIrpaZ+ZDwkPj27db1zlJeaqJRNzDTWNXFWjBrLEvshav5U4K+SyU7QV0rwA==}
     engines: {node: '>=14'}
     dependencies:
-      '@contentful/rich-text-types': 16.2.0
+      '@contentful/rich-text-types': 16.2.1
       '@types/json-patch': 0.0.30
       axios: 0.27.2
       contentful-sdk-core: 7.1.0
@@ -2969,7 +2973,7 @@ packages:
     engines: {node: '>=12'}
     requiresBuild: true
     dependencies:
-      '@contentful/rich-text-types': 16.2.0
+      '@contentful/rich-text-types': 16.2.1
       axios: 0.27.2
       contentful-resolve-response: 1.7.0
       contentful-sdk-core: 7.1.0
