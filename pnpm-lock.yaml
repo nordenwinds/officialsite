@@ -33,8 +33,8 @@ importers:
         specifier: ^2.6.30
         version: 2.6.30
       contentful-management:
-        specifier: ^10.39.1
-        version: 10.39.1
+        specifier: ^10.46.4
+        version: 10.46.4
       contentful-migration:
         specifier: ^4.15.1
         version: 4.15.1
@@ -568,7 +568,7 @@ packages:
     resolution: {integrity: sha512-slxWA6ow83dNuHs2r+fTzllx8dl7J2oAr10actbtfiDLUrU630qGxTvTonSoAWGoX0tj/12gMBKhFOyaMgt9sA==}
     engines: {node: '>=16.13'}
     dependencies:
-      contentful-management: 10.39.1
+      contentful-management: 10.46.4
     transitivePeerDependencies:
       - debug
     dev: true
@@ -595,6 +595,12 @@ packages:
   /@contentful/rich-text-types@16.2.1:
     resolution: {integrity: sha512-fBxqYcyG3Nw33DhifuE7Ndw3xlrWlOMjwsOvhLmVP4LO475Qyy9ioRChtEt6DPUdH2SFpobvM0qqC/fVe0MNDA==}
     engines: {node: '>=6.0.0'}
+    dev: false
+
+  /@contentful/rich-text-types@16.3.0:
+    resolution: {integrity: sha512-OfQmAu5bxE0CgQA3WlUleVej+ifFG/iXmB2DmUl4EyWyFue1aiIvfjxQhcDRSH4n1jUNMJ6L1wInZL8uV5m3TQ==}
+    engines: {node: '>=6.0.0'}
+    dev: true
 
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -2440,7 +2446,7 @@ packages:
       '@oclif/plugin-help': 5.2.11(@types/node@20.4.4)(typescript@4.9.5)
       contentful: 10.4.0
       contentful-export: 7.19.62
-      contentful-management: 10.39.1
+      contentful-management: 10.46.4
       fs-extra: 11.1.1
       lodash: 4.17.21
       ts-morph: 17.0.1
@@ -2806,7 +2812,7 @@ packages:
       contentful-collection: 0.0.4
       contentful-export: 7.19.62
       contentful-import: 8.5.60
-      contentful-management: 10.39.1
+      contentful-management: 10.46.4
       contentful-migration: 4.15.1
       emojic: 1.1.17
       execa: 5.1.1
@@ -2855,7 +2861,7 @@ packages:
       cli-table3: 0.6.3
       contentful: 9.3.5
       contentful-batch-libs: 9.5.0
-      contentful-management: 10.39.1
+      contentful-management: 10.46.4
       date-fns: 2.30.0
       figures: 3.2.0
       jsonwebtoken: 9.0.0
@@ -2883,7 +2889,7 @@ packages:
       bluebird: 3.7.2
       cli-table3: 0.6.3
       contentful-batch-libs: 9.5.0
-      contentful-management: 10.39.1
+      contentful-management: 10.46.4
       date-fns: 2.30.0
       joi: 17.9.2
       listr: 0.14.3
@@ -2899,17 +2905,17 @@ packages:
       - zenObservable
     dev: true
 
-  /contentful-management@10.39.1:
-    resolution: {integrity: sha512-AMZJKcaXY5gSNjBs55iZqH3PwzJIrpaZ+ZDwkPj27db1zlJeaqJRNzDTWNXFWjBrLEvshav5U4K+SyU7QV0rwA==}
+  /contentful-management@10.46.4:
+    resolution: {integrity: sha512-swOTlKO6AeCRnD5w237ey6wKDXty8shFVm0AisKO2w5seQINlFytgCkZd89E0lxjg4zgjb9maa7AScUtyQUd5w==}
     engines: {node: '>=14'}
     dependencies:
-      '@contentful/rich-text-types': 16.2.1
+      '@contentful/rich-text-types': 16.3.0
       '@types/json-patch': 0.0.30
-      axios: 0.27.2
-      contentful-sdk-core: 7.1.0
+      axios: 1.4.0
+      contentful-sdk-core: 8.1.0
       fast-copy: 3.0.1
       lodash.isplainobject: 4.0.6
-      type-fest: 3.12.0
+      type-fest: 4.0.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -3010,7 +3016,7 @@ packages:
     engines: {node: '>=12'}
     requiresBuild: true
     dependencies:
-      '@contentful/rich-text-types': 16.2.1
+      '@contentful/rich-text-types': 16.3.0
       axios: 0.27.2
       contentful-resolve-response: 1.7.0
       contentful-sdk-core: 7.1.0
@@ -7692,11 +7698,6 @@ packages:
   /type-fest@2.19.0:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
-
-  /type-fest@3.12.0:
-    resolution: {integrity: sha512-qj9wWsnFvVEMUDbESiilKeXeHL7FwwiFcogfhfyjmvT968RXSvnl23f1JOClTHYItsi7o501C/7qVllscUP3oA==}
-    engines: {node: '>=14.16'}
-    dev: true
 
   /type-fest@4.0.0:
     resolution: {integrity: sha512-d/oYtUnPM9zar2fqqGLYPzgcY0qUlYK0evgNVti93xpzfjGkMgZHu9Lvgrkn0rqGXTgsFRxFamzjGoD9Uo+dgw==}
