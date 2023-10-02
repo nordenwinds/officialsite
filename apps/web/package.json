@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Frontend of officialsite",
     "scripts": {
-        "typegen:contentful": "source .env && cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
+        "typegen:contentful": "cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
         "typegen": "bun run typegen:contentful",
         "lint": "eslint src && prettier --check src && astro check && tsc --noEmit",
         "lint:fix": "eslint --fix src && prettier --write src",
