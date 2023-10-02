@@ -1,0 +1,55 @@
+---
+name: build-and-deploy
+
+on:
+  pull_request: ~
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        required: true
+        description: Environment for deployment
+
+run-name: |-
+  ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Automatic' }} build and deploy for ${{ inputs.environment || 'Development' }} environment
+
+jobs:
+  update:
+    timeout-minutes: 5
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment || 'Development' }}
+      url: ${{ steps.deploy.outputs.url }}
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Resolve Dependencies
+        run: bun install --frozen-lockfile
+        env:
+          HUSKY: 0
+
+      - name: Build application
+        run: bun --cwd=apps/web run build
+        env:
+          CONTENTFUL_ENV: ${{ vars.CONTENTFUL_ENV }}
+          CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
+
+      - name: Publish to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: nordenwinds
+          directory: apps/web/dist
+          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
