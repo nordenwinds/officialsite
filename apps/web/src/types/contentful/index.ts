@@ -4,3 +4,5 @@ export { isTypeConcert } from "./TypeConcert";
 export type { TypeConcert, TypeConcertFields, TypeConcertSkeleton } from "./TypeConcert";
 export { isTypeNews } from "./TypeNews";
 export type { TypeNews, TypeNewsFields, TypeNewsSkeleton } from "./TypeNews";
+export { isTypeVersionTracking } from "./TypeVersionTracking";
+export type { TypeVersionTracking, TypeVersionTrackingFields, TypeVersionTrackingSkeleton } from "./TypeVersionTracking";
