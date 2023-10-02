@@ -17,29 +17,19 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+      - uses: oven-sh/setup-bun@v1
 
       - name: Resolve Dependencies
-        run: pnpm --filter=web install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: Check code
-        run: pnpm --filter=web run lint
+        run: bun --cwd=apps/web run lint
 
       - name: Build
-        run: pnpm --filter=web run build
+        run: bun --cwd=apps/web run build
         env:
           DEV: true
           CONTENTFUL_ENV: ${{ github.ref == 'refs/heads/main' && 'master' || 'develop' }}

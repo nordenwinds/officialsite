@@ -9,10 +9,13 @@
     "author": "Norden Wind Ensemble",
     "license": "MIT",
     "private": true,
-    "packageManager": "pnpm@8.6.9",
     "devDependencies": {
         "depcheck": "^1.4.3",
         "husky": "^8.0.3",
         "lint-staged": "^14.0.1"
-    }
+    },
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ]
 }

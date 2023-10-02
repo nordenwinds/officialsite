@@ -9,9 +9,6 @@ on:
 jobs:
   checkTypegen:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
     env:
       DEV: true
       CONTENTFUL_ENV: ${{ vars.CONTENTFUL_ENV }}
@@ -23,19 +20,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+      - uses: oven-sh/setup-bun@v1
 
       - name: Resolve Dependencies
-        run: pnpm --filter=web install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Check type of content model is generated
         run: |
-          pnpm --filter=web run typegen && git diff --exit-code apps/web/src/types
+          bun --cwd=apps/web run typegen && git diff --exit-code apps/web/src/types
         env:
           CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}

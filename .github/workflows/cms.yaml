@@ -17,52 +17,33 @@ concurrency:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+      - uses: oven-sh/setup-bun@v1
 
       - name: Resolve Dependencies
-        run: pnpm --filter=cms install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Check code
-        run: pnpm --filter=cms run lint
+        run: bun --cwd=apps/cms run lint
 
   migration:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
-
     needs:
       - lint
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+      - uses: oven-sh/setup-bun@v1
 
       - name: Resolve Dependencies
-        run: pnpm --filter=cms install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Run migration
-        run: pnpm --filter=cms run migrate
+        run: bun --cwd=apps/cms run migrate
         env:
           DEV: true
           CONTENTFUL_ENV: ${{ github.ref == 'refs/heads/main' && 'master' || 'develop' }}
