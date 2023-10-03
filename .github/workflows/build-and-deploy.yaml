@@ -9,9 +9,14 @@ on:
         type: environment
         required: true
         description: Environment for deployment
+  repository_dispatch:
+    types:
+      - content-updated
 
-run-name: |-
-  ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Automatic' }} build and deploy for ${{ inputs.environment || 'Development' }} environment
+run-name: >-
+  ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Automatic' }}
+  build and deploy for
+  ${{ inputs.environment || github.event.client_payload.environment || 'Development' }} environment
 
 jobs:
   update:
@@ -19,7 +24,7 @@ jobs:
     if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     environment:
-      name: ${{ inputs.environment || 'Development' }}
+      name: ${{ inputs.environment || github.event.client_payload.environment || 'Development' }}
       url: ${{ steps.deploy.outputs.url }}
     permissions:
       contents: read
