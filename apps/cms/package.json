@@ -14,7 +14,7 @@
     "@nordenwinds/eslint-config": "workspace:*",
     "@nordenwinds/prettier-config": "workspace:*",
     "@types/node": "^20.4.4",
-    "contentful-cli": "^2.6.30",
+    "contentful-cli": "^3.1.10",
     "contentful-management": "^10.39.1",
     "contentful-migration": "^4.15.1",
     "dotenv": "^16.3.1",
