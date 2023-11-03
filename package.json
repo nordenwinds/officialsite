@@ -5,7 +5,7 @@
     "devDependencies": {
         "depcheck": "^1.4.3",
         "husky": "^8.0.3",
-        "lint-staged": "^14.0.1",
+        "lint-staged": "^15.0.2",
         "typescript": "^5.2.2"
     },
     "description": ":globe_with_meridians: Officialsite of Norden Wind Ensemble",
