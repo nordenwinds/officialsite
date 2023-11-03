@@ -1,18 +1,19 @@
 {
     "name": "@nordenwinds/officialsite",
     "version": "0.1.0",
-    "description": ":globe_with_meridians: Officialsite of Norden Wind Ensemble",
-    "scripts": {
-        "checkdep": "depcheck",
-        "prepare": "husky install"
-    },
     "author": "Norden Wind Ensemble",
-    "license": "MIT",
-    "private": true,
     "devDependencies": {
         "depcheck": "^1.4.3",
         "husky": "^8.0.3",
-        "lint-staged": "^14.0.1"
+        "lint-staged": "^14.0.1",
+        "typescript": "^5.2.2"
+    },
+    "description": ":globe_with_meridians: Officialsite of Norden Wind Ensemble",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "checkdep": "depcheck",
+        "prepare": "husky install"
     },
     "workspaces": [
         "packages/*",

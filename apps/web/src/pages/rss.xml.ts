@@ -1,4 +1,5 @@
-import rss, { RSSOptions } from '@astrojs/rss';
+import rss from '@astrojs/rss';
+import type { RSSOptions } from '@astrojs/rss';
 import { contentfulClient } from '../lib/contentful';
 import type { TypeConcertSkeleton, TypeNewsSkeleton } from '../types/contentful';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
