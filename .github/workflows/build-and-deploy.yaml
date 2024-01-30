@@ -2,15 +2,15 @@
 name: build-and-deploy
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       environment:
         type: environment
         required: true
         description: Environment for deployment
+  release:
+    types:
+      - published
   repository_dispatch:
     types:
       - content-updated
