@@ -8,6 +8,9 @@ on:
         type: environment
         required: true
         description: Environment for deployment
+  release:
+    types:
+      - published
   repository_dispatch:
     types:
       - content-updated
