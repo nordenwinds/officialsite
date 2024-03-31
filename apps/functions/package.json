@@ -1,0 +1,33 @@
+{
+  "name": "@nordenwinds/functions",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Functions for officialsite",
+  "author": "Norden Wind Ensemble",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "scripts": {
+    "check": "biome check . && tsc --noEmit",
+    "fix": "biome check --apply-unsafe .",
+    "build": "wrangler deploy --dry-run --outdir=dist",
+    "dev": "wrangler dev",
+    "serve": "bun run build && wrangler dev ./dist/index.js"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.6.3",
+    "@cloudflare/workers-types": "^4.20240502.0",
+    "@hono/swagger-ui": "^0.2.1",
+    "@hono/zod-openapi": "^0.10.0",
+    "@slack/types": "^2.11.0",
+    "@slack/webhook": "^7.0.2",
+    "@types/bun": "^1.0.12",
+    "@types/uuid": "^9.0.8",
+    "typescript": "^5.4.3",
+    "wrangler": "^3.37.0"
+  },
+  "dependencies": {
+    "hono": "^4.1.6",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
+  }
+}
