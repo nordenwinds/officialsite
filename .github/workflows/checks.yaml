@@ -6,7 +6,12 @@ on:
   merge_group: ~
 
 jobs:
-  lint-web:
+  check:
+    strategy:
+      matrix:
+        workspace:
+          - "apps/web"
+          - "apps/cms"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,22 +24,7 @@ jobs:
           HUSKY: 0
 
       - name: Check code
-        run: bun --cwd=apps/web run lint
-
-  lint-cms:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: oven-sh/setup-bun@v1
-
-      - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
-        env:
-          HUSKY: 0
-
-      - name: Check code
-        run: bun --cwd=apps/cms run lint
+        run: bun --cwd=${{ matrix.workspace }} check
 
   typegen:
     runs-on: ubuntu-latest
