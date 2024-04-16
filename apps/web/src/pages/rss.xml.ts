@@ -1,9 +1,9 @@
 import rss from '@astrojs/rss';
 import type { RSSOptions } from '@astrojs/rss';
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { contentfulClient } from '../lib/contentful';
 import type { TypeConcertSkeleton, TypeNewsSkeleton } from '../types/contentful';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 
 export async function get(context: RSSOptions) {
     const [{ items: newses }, { items: concerts }] = await Promise.all([
