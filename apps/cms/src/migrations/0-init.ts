@@ -1,6 +1,7 @@
-import Migration, { MigrationFunction } from 'contentful-migration';
+import type Migration from 'contentful-migration';
+import type { MigrationFunction } from 'contentful-migration';
 
-export default (function (migration: Migration) {
+export default ((migration: Migration) => {
     /** Create Version */ {
         const version = migration.createContentType('versionTracking', {
             name: 'VersionTracking',
@@ -10,4 +11,4 @@ export default (function (migration: Migration) {
 
         version.createField('version').name('Version').type('Number').required(true);
     }
-} satisfies MigrationFunction);
+}) satisfies MigrationFunction;

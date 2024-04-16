@@ -1,5 +1,5 @@
-import { strict as assert } from 'assert';
-import contentful, { Environment, Space } from 'contentful-management';
+import { strict as assert } from 'node:assert';
+import contentful, { type Environment, type Space } from 'contentful-management';
 
 const accessToken = process.env.CONTENTFUL_MANAGEMENT_TOKEN;
 assert(accessToken);
@@ -32,7 +32,8 @@ export const createEnvironment = async (space: Space, contentfulEnv: 'master' | 
         if (status === 'ready') {
             console.log('Successfully created new environment.', environmentId);
             break;
-        } else if (status === 'failed') {
+        }
+        if (status === 'failed') {
             console.error('Environment creation failed.');
             process.exit(1);
         }
@@ -56,7 +57,7 @@ export const createEnvironment = async (space: Space, contentfulEnv: 'master' | 
                 console.log('Updating api key', key.sys.id);
                 key.environments.push(newEnv);
                 return key.update();
-            })
+            }),
     );
 
     return environment;

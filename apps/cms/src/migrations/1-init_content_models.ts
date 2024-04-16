@@ -1,6 +1,7 @@
-import Migration, { MigrationFunction } from 'contentful-migration';
+import type Migration from 'contentful-migration';
+import type { MigrationFunction } from 'contentful-migration';
 
-export default (function (migration: Migration) {
+export default ((migration: Migration) => {
     /** Create Category */ {
         const category = migration.createContentType('category', {
             name: 'Category',
@@ -102,4 +103,4 @@ export default (function (migration: Migration) {
 
         concert.createField('content').name('Content').type('RichText').required(true);
     }
-} satisfies MigrationFunction);
+}) satisfies MigrationFunction;

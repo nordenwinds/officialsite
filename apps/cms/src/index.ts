@@ -1,8 +1,8 @@
-import { strict as assert } from 'assert';
+import { strict as assert } from 'node:assert';
+import type { Entry, Environment, Space } from 'contentful-management';
 import { runMigration } from 'contentful-migration';
 import { contentfulClient, createEnvironment } from './lib/contentful';
 import InitModels from './migrations/1-init_content_models';
-import { Entry, Environment, Space } from 'contentful-management';
 
 const migrate = async (space: Space, environment: Environment) => {
     const options = {
@@ -41,8 +41,7 @@ const getVersionEntry = async (environment: Environment): Promise<Entry> => {
 
 const updateVersion = async (currentVersionEntry: Entry, targetVersion: number): Promise<void> => {
     currentVersionEntry.fields.version = targetVersion;
-    currentVersionEntry = await currentVersionEntry.update();
-    currentVersionEntry = await currentVersionEntry.publish();
+    await (await currentVersionEntry.update()).publish();
 
     console.info(`Update version entry to ${targetVersion}`);
 };

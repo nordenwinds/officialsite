@@ -16,7 +16,6 @@
         "prepare": "husky install"
     },
     "workspaces": [
-        "packages/*",
         "apps/*"
     ]
 }

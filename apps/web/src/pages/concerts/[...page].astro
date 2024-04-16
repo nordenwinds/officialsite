@@ -1,14 +1,14 @@
 ---
-import { strict as assert } from 'assert';
+import { strict as assert } from 'node:assert';
+import type { GetStaticPaths, Page } from 'astro';
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import ConcertCard from '../../components/ConcertCard.astro';
 import Container from '../../components/Container.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Pagination from '../../components/Pagination.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import { contentfulClient } from '../../lib/contentful';
-import Pagination from '../../components/Pagination.astro';
-import ConcertCard from '../../components/ConcertCard.astro';
-import type { GetStaticPaths, Page } from 'astro';
 import type { TypeConcertSkeleton } from '../../types/contentful';
 
 const PAGE_TITLE = 'コンサート';
@@ -23,7 +23,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     const concerts = items.map((item) => {
         const { slug, flyer, title, startTime, openTime, conductor, place } = item.fields;
 
-        assert(flyer && flyer.fields.file);
+        assert(flyer?.fields.file);
 
         return {
             slug,
