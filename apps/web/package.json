@@ -6,8 +6,8 @@
     "scripts": {
         "typegen:contentful": "cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
         "typegen": "bun run typegen:contentful",
-        "lint": "eslint src && prettier --check src && astro check && tsc --noEmit",
-        "lint:fix": "eslint --fix src && prettier --write src",
+        "check": "biome check . && astro check && tsc --noEmit",
+        "fix": "biome check --apply-unsafe .",
         "dev": "astro dev --host",
         "start": "astro dev",
         "build": "astro build",
@@ -33,14 +33,7 @@
         "tailwindcss": "^3.3.3"
     },
     "devDependencies": {
-        "@nordenwinds/eslint-config": "workspace:*",
-        "@nordenwinds/prettier-config": "workspace:*",
-        "cf-content-types-generator": "^2.12.2",
-        "eslint-plugin-astro": "^0.31.0",
-        "eslint-plugin-jsx-a11y": "^6.7.1",
-        "eslint-plugin-tailwindcss": "^3.13.0",
-        "prettier-plugin-astro": "^0.13.0",
-        "prettier-plugin-tailwindcss": "^0.5.4"
-    },
-    "prettier": "@nordenwinds/prettier-config"
+        "@biomejs/biome": "^1.7.0",
+        "cf-content-types-generator": "^2.12.2"
+    }
 }
