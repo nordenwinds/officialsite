@@ -7,6 +7,14 @@ export const config: Record<Environment, Config> = {
     cors: {
       origins: ['*'],
     },
+    otel: {
+      exporter: {
+        url: 'https://api.honeycomb.io/v1/traces',
+      },
+      service: {
+        name: 'functions',
+      },
+    },
   },
   dev: {
     name: 'develop',
@@ -14,12 +22,28 @@ export const config: Record<Environment, Config> = {
     cors: {
       origins: ['nordenwinds.pages.dev'],
     },
+    otel: {
+      exporter: {
+        url: 'https://api.honeycomb.io/v1/traces',
+      },
+      service: {
+        name: 'functions',
+      },
+    },
   },
   prd: {
     name: 'production',
     baseUrl: 'http://api.nordenwinds.com',
     cors: {
       origins: ['www.nordenwinds.com'],
+    },
+    otel: {
+      exporter: {
+        url: 'https://api.honeycomb.io/v1/traces',
+      },
+      service: {
+        name: 'functions',
+      },
     },
   },
 };

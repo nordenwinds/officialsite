@@ -6,4 +6,12 @@ export type Config = {
   cors: {
     origins: string[];
   };
+  otel: {
+    exporter: {
+      url: string;
+    };
+    service: {
+      name: string;
+    };
+  };
 };
