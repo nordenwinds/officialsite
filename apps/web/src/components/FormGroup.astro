@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'input'> {
+    label: string;
+    name: string;
+    required?: boolean;
+}
+
+const { label, name, required, type } = Astro.props;
+---
+
+<div class="mb-6 leading-6">
+    <div>
+        <label for={name} class="block text-base text-black font-bold mb-1 pr-4">
+            {label}
+            {required ? (<span class="text-red-600">*</span>) : (<></>)}
+        </label>
+    </div>
+    <div>
+        {Astro.slots.has('default') ? (<slot />) :
+        (<input type={type} name={name} required={required} class="w-full rounded-md border border-slate-400" />)}
+    </div>
+</div>
