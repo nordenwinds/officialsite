@@ -2,7 +2,6 @@
 /// <reference types="astro/client" />
 
 interface ImportMetaEnv {
-    readonly DEV?: boolean;
     readonly CONTENTFUL_ENV: 'develop' | 'master';
     readonly CONTENTFUL_SPACE_ID: string;
     readonly CONTENTFUL_DELIVERY_TOKEN: string;
