@@ -1,0 +1,24 @@
+name = "api-nordenwinds"
+main = "src/index.ts"
+compatibility_date = "2024-03-20"
+compatibility_flags = [ "nodejs_compat" ]
+
+[dev]
+port = 8080
+local_protocol = "http"
+
+[vars]
+APP_ENV = "local"
+
+[env.development]
+name = "api-dev-nordenwinds"
+route = { pattern = "api-dev.nordenwinds.com", custom_domain = true }
+
+[env.development.vars]
+APP_ENV = "dev"
+
+[env.production]
+route = { pattern = "api.nordenwinds.com", custom_domain = true }
+
+[env.production.vars]
+APP_ENV = "prd"

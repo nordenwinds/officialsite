@@ -12,6 +12,7 @@ jobs:
         workspace:
           - "apps/web"
           - "apps/cms"
+          - "apps/functions"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,12 +39,17 @@ jobs:
         env:
           HUSKY: 0
 
+      # DONT: `wrangler dev &`. local server does not work on background.
+      - name: Build OpenAPI Document
+        run: |-
+          bun run ./apps/functions/bin/build-openapi.ts /tmp/openapi.json
+
       - name: Check type of content model is generated
         run: >-
           bun --cwd=apps/web run typegen &&
           git diff --exit-code apps/web/src/types
         env:
-          DEV: true
+          API_BASE_URL: /tmp
           CONTENTFUL_ENV: develop
           CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_MANAGEMENT_TOKEN: ${{ secrets.CONTENTFUL_MANAGEMENT_TOKEN }}
@@ -60,10 +66,13 @@ jobs:
         env:
           HUSKY: 0
 
-      - name: Build
+      - name: Build Web
         run: bun --cwd=apps/web run build
         env:
           DEV: true
           CONTENTFUL_ENV: develop
           CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
+
+      - name: Build API
+        run: bun --cwd=apps/functions run build

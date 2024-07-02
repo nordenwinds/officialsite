@@ -10,7 +10,6 @@ export const NWE_DESCRIPTIONS = [
     'Nordenは「北」を意味するドイツ語で、ルーツである北陵を表しています。',
 ];
 
-export const CONTACT_FORM_URL = 'https://airtable.com/shrAMC1f9YZ9BPEpc';
 export const CONTACT_DESCRIPTIONS = [
     'Norden Wind Ensembleへのお問い合わせは、お問い合わせフォームよりお願いいたします。',
     '演奏会に関すること、出演依頼、相談など、お気軽にお問い合わせください。',

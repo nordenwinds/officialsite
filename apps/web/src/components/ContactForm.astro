@@ -1,0 +1,54 @@
+---
+import Button from './Button.astro';
+import FormGroup from './FormGroup.astro';
+---
+
+<form name="contact-form" class="w-full max-w-2xl">
+    <FormGroup type="text" name="name" label="お名前" required />
+    <FormGroup type="email" name="email" label="メールアドレス" required />
+    <FormGroup type="text" name="organization" label="所属" />
+    <FormGroup name="content" label="お問い合わせ内容" required>
+        <textarea rows="5" name="content" required="required" class="w-full rounded-md border border-slate-400"></textarea>
+    </FormGroup>
+    <div class="flex items-center">
+        <div class="mx-auto">
+            <Button type="submit" color="primary" text="送信"></Button>
+        </div>
+    </div>
+</form>
+
+<script>
+    import { client } from '../lib/api';
+    import type { components } from '../types/api/v1';
+    import { getTypedFormData } from '../util/form';
+
+    type ContactRequest = Omit<components["schemas"]["Contact"], 'id'>;
+
+    const form: HTMLFormElement|null = document.querySelector('form[name=contact-form]');
+
+    form?.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+
+        const { data, error } = await client.POST('/contact', {
+            body: Object.fromEntries(
+                getTypedFormData<ContactRequest>(form).entries()
+            ) as ContactRequest
+        });
+
+        if (error) {
+            alert(error.title);
+            console.error(error);
+            return false;
+        }
+
+        console.debug(data);
+        // Thanks
+        alert(
+            "お問い合わせ頂き誠にありがとうございます。"
+            + "\nお送り頂きました内容を確認の上、折り返しご連絡させて頂きます。"
+        );
+        form.reset();
+
+    });
+
+</script>
