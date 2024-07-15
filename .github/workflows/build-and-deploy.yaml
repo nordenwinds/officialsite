@@ -2,6 +2,7 @@
 name: build-and-deploy
 
 on:
+  pull_request: ~
   workflow_dispatch:
     inputs:
       environment:
@@ -27,31 +28,42 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment || github.event.client_payload.environment || 'Development' }}
-      url: ${{ steps.deploy.outputs.url }}
+      url: ${{ steps.deploy_web.outputs.url }}
+    outputs:
+      env: ${{ steps.env.outputs.name }}
     permissions:
       contents: read
       deployments: write
-    name: Publish to Cloudflare Pages
+    name: Publish WEB and API
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - uses: oven-sh/setup-bun@v1
-
       - name: Resolve Dependencies
         run: bun install --frozen-lockfile
         env:
           HUSKY: 0
 
-      - name: Build application
-        run: bun --cwd=apps/web run build
+      # Setup honeymarker
+      - uses: actions/setup-go@v5
+      - name: Install honeymarker
+        run: go install github.com/honeycombio/honeymarker@latest
+
+      - name: Convert environment name
+        id: env
+        run: |-
+          NAME_ORG="${{ inputs.environment || github.event.client_payload.environment || 'Development' }}"
+          NAME_LOWER=$(echo $NAME_ORG | awk '{ print tolower($0) }')
+          echo "name=$NAME_LOWER" >> $GITHUB_OUTPUT
+
+      - name: Build WEB
+        run: bun --cwd=apps/web run build --mode ${{ steps.env.outputs.name }}
         env:
-          CONTENTFUL_ENV: ${{ vars.CONTENTFUL_ENV }}
-          CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
 
-      - name: Publish to Cloudflare Pages
-        id: deploy
+      - name: Publish WEB to Cloudflare Pages
+        id: deploy_web
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -60,3 +72,24 @@ jobs:
           directory: apps/web/dist
           # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: '3'
+
+      - name: Add Honeycomb marker
+        env:
+          API_KEY: ${{ secrets.HONEYCOMB_API_KEY }}
+        run: >-
+          honeymarker
+          -k "$API_KEY"
+          -d ${{ vars.HONEYCOMB_DATASET_NAME_API }}
+          add
+          -t deploy
+          -m ${{ github.run_id }}-${{ job.status }}
+
+      - name: Build and Publish API to Cloudflare Workers
+        id: deploy_api
+        uses: cloudflare/wrangler-action@v3
+        with:
+          command: deploy --env ${{ steps.env.outputs.name }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: apps/functions
+
+

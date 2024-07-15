@@ -5,11 +5,11 @@
     "description": "Frontend of officialsite",
     "scripts": {
         "typegen:contentful": "cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
-        "typegen": "bun run typegen:contentful",
+        "typegen:api": "openapi-typescript ${API_BASE_URL:-http://localhost:8080/v1}/openapi.json -o src/types/api/v1.d.ts",
+        "typegen": "bun typegen:contentful && bun typegen:api",
         "check": "biome check . && astro check && tsc --noEmit",
         "fix": "biome check --apply-unsafe .",
-        "dev": "astro dev --host",
-        "start": "astro dev",
+        "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro"
@@ -30,10 +30,12 @@
         "@tailwindcss/typography": "^0.5.9",
         "astro": "^4.0.8",
         "contentful": "^10.4.0",
+        "openapi-fetch": "^0.9.5",
         "tailwindcss": "^3.3.3"
     },
     "devDependencies": {
         "@biomejs/biome": "^1.7.0",
-        "cf-content-types-generator": "^2.12.2"
+        "cf-content-types-generator": "^2.12.2",
+        "openapi-typescript": "^6.7.5"
     }
 }

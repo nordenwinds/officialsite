@@ -3,12 +3,13 @@ import { strict as assert } from 'node:assert';
 import BaseHead from '../components/BaseHead.astro';
 import Button from '../components/Button.astro';
 import ConcertCard from '../components/ConcertCard.astro';
+import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Label from '../components/Label.astro';
 import SectionTitle from '../components/SectionTitle.astro';
-import { CONTACT_DESCRIPTIONS, CONTACT_FORM_URL, NWE_DESCRIPTIONS, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { CONTACT_DESCRIPTIONS, NWE_DESCRIPTIONS, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import TopSection from '../layouts/TopSection.astro';
 import { contentfulClient } from '../lib/contentful';
 import type { TypeConcertSkeleton, TypeNewsSkeleton } from '../types/contentful';
@@ -136,13 +137,11 @@ const concerts = concertItems.map((item) => {
 
             <TopSection id="contact">
                 <SectionTitle subtitle="contact">お問い合わせ</SectionTitle>
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <div class="break-words text-base leading-loose text-black md:col-span-2">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div class="break-words text-base leading-loose text-black">
                         {CONTACT_DESCRIPTIONS.map((line) => <p>{line}</p>)}
                     </div>
-                    <div class="mx-auto">
-                        <Button text="お問い合わせ" color="primary" href={CONTACT_FORM_URL} newTab />
-                    </div>
+                    <ContactForm></ContactForm>
                 </div>
             </TopSection>
         </main>
