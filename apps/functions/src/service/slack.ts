@@ -43,6 +43,7 @@ export const buildMessage = (title: string, keyValue: KV): Block[] => {
   blocks.push(newHeader(title));
 
   for (const key of Object.keys(keyValue)) {
+    if (keyValue[key] === '') continue;
     blocks.push(newKeyValue(key, keyValue[key]));
     blocks.push(newDivider());
   }
