@@ -16,7 +16,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@cloudflare/workers-types": "^4.20240502.0",
-    "@hono/swagger-ui": "^0.2.1",
+    "@hono/swagger-ui": "^0.4.0",
     "@hono/zod-openapi": "^0.10.0",
     "@slack/types": "^2.11.0",
     "@slack/webhook": "^7.0.2",
