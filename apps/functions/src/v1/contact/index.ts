@@ -22,8 +22,7 @@ const route = app.openapi(postContact, async (c) => {
     blocks: buildMessage('New contact was created!', contact),
   });
 
-  c.status(201);
-  return c.json(contact);
+  return c.json(contact, 201);
 });
 
 export type ContactApp = typeof route;
