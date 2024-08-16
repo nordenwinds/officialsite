@@ -1,6 +1,7 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { v4 as uuid } from 'uuid';
 import type { Bindings } from '../../bindings';
+import { HttpStatus } from '../../lib/http';
 import { buildMessage, sendMessage } from '../../service/slack';
 import type { Contact, ContactRequest } from './contact.model';
 import { postContact } from './contact.path';
@@ -22,7 +23,7 @@ const route = app.openapi(postContact, async (c) => {
     blocks: buildMessage('New contact was created!', contact),
   });
 
-  return c.json(contact, 201);
+  return c.json(contact, HttpStatus.CREATED);
 });
 
 export type ContactApp = typeof route;
