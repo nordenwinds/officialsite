@@ -7,6 +7,7 @@ import type { Environment } from './bindings';
 import { ErrorTypePrefix } from './error/error.const';
 import type { NotFoundError, ValidationError } from './error/error.model';
 import healthCheck from './health';
+import { HttpStatus } from './lib/http';
 import spec from './spec';
 import v1 from './v1';
 
@@ -28,7 +29,7 @@ const app = new OpenAPIHono<{ Bindings: Environment }>({
     } as const satisfies ValidationError;
 
     c.header('Content-Type', 'application/problem+json; charset=UTF-8');
-    c.status(400);
+    c.status(HttpStatus.BAD_REQUEST);
     return c.body(JSON.stringify(res));
   },
 });
@@ -48,7 +49,7 @@ app.use(
 );
 
 app.options((c) => {
-  c.status(204);
+  c.status(HttpStatus.NO_CONTENT);
   return c.body(null);
 });
 
@@ -60,7 +61,7 @@ app.notFound((c) => {
   } as const satisfies NotFoundError;
 
   c.header('Content-Type', 'application/problem+json; charset=UTF-8');
-  c.status(404);
+  c.status(HttpStatus.NOT_FOUND);
   return c.body(JSON.stringify(res));
 });
 
