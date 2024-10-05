@@ -8,7 +8,7 @@
         "typegen:api": "openapi-typescript ${API_BASE_URL:-http://localhost:8080/v1}/openapi.json -o src/types/api/v1.d.ts",
         "typegen": "bun typegen:contentful && bun typegen:api",
         "check": "biome check . && astro check && tsc --noEmit",
-        "fix": "biome check --apply-unsafe .",
+        "fix": "biome check --write --unsafe .",
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
