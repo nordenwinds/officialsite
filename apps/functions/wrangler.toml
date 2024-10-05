@@ -17,8 +17,14 @@ route = { pattern = "api-dev.nordenwinds.com", custom_domain = true }
 [env.development.vars]
 APP_ENV = "dev"
 
+[env.development.observability]
+enabled = true
+
 [env.production]
 route = { pattern = "api.nordenwinds.com", custom_domain = true }
 
 [env.production.vars]
 APP_ENV = "prd"
+
+[env.production.observability]
+enabled = true
