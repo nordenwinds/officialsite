@@ -8,7 +8,7 @@
         "typegen:api": "openapi-typescript ${API_BASE_URL:-http://localhost:8080/v1}/openapi.json -o src/types/api/v1.d.ts",
         "typegen": "bun typegen:contentful && bun typegen:api",
         "check": "biome check . && astro check && tsc --noEmit",
-        "fix": "biome check --apply-unsafe .",
+        "fix": "biome check --write --unsafe .",
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
@@ -34,7 +34,7 @@
         "tailwindcss": "^3.3.3"
     },
     "devDependencies": {
-        "@biomejs/biome": "^1.8.3",
+        "@biomejs/biome": "^1.9.3",
         "cf-content-types-generator": "^2.12.2",
         "openapi-typescript": "^7.4.0"
     }
