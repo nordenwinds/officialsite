@@ -13,11 +13,9 @@
     "private": true,
     "scripts": {
         "checkdep": "depcheck",
-        "prepare": "husky install",
+        "prepare": "husky",
         "check": "bun --filter=* check",
         "fix": "bun --filter=* fix"
     },
-    "workspaces": [
-        "apps/*"
-    ]
+    "workspaces": ["apps/*"]
 }
