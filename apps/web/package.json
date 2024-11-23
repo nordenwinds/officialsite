@@ -34,7 +34,7 @@
         "tailwindcss": "^3.3.3"
     },
     "devDependencies": {
-        "@biomejs/biome": "^1.9.3",
+        "@biomejs/biome": "^1.9.4",
         "cf-content-types-generator": "^2.12.2",
         "openapi-typescript": "^7.4.0"
     }
