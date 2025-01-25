@@ -26,7 +26,7 @@ import FormGroup from './FormGroup.astro';
 
     const form: HTMLFormElement|null = document.querySelector('form[name=contact-form]');
 
-    form?.addEventListener('submit', async (ev) => {
+    form?.addEventListener('submit', async (ev): Promise<boolean> => {
         ev.preventDefault();
 
         const { data, error } = await client.POST('/contact', {
@@ -48,7 +48,7 @@ import FormGroup from './FormGroup.astro';
             + "\nお送り頂きました内容を確認の上、折り返しご連絡させて頂きます。"
         );
         form.reset();
-
+      return true;
     });
 
 </script>
