@@ -1,9 +1,7 @@
 import mdx from '@astrojs/mdx';
-import { defineConfig, envField } from 'astro/config';
-
 import sitemap from '@astrojs/sitemap';
-// https://astro.build/config
 import tailwind from '@astrojs/tailwind';
+import { defineConfig, envField } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,8 +16,8 @@ export default defineConfig({
                 default: 'develop',
             }),
             CONTENTFUL_SPACE_ID: envField.string({ context: 'server', access: 'public' }),
-            CONTENTFUL_DELIVERY_TOKEN: envField.string({ context: 'server', access: 'secret' }),
-            CONTENTFUL_PREVIEW_TOKEN: envField.string({ context: 'server', access: 'secret' }),
+            CONTENTFUL_DELIVERY_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
+            CONTENTFUL_PREVIEW_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
             API_BASE_URL: envField.string({ context: 'client', access: 'public' }),
         },
     },
