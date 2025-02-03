@@ -12,12 +12,12 @@
     "license": "MIT",
     "devDependencies": {
         "@biomejs/biome": "^1.9.4",
-        "@types/node": "^22.7.4",
-        "contentful-cli": "^3.1.10",
-        "contentful-management": "^11.7.3",
-        "contentful-migration": "^4.15.1",
-        "dotenv": "^16.3.1",
-        "ts-node": "^10.9.1",
-        "typescript": "^5.3.2"
+        "@types/node": "^22.10.10",
+        "contentful-cli": "^3.7.3",
+        "contentful-management": "^11.43.2",
+        "contentful-migration": "^4.27.0",
+        "dotenv": "^16.4.7",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.3"
     }
 }

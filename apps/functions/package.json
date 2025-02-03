@@ -15,20 +15,20 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@cloudflare/workers-types": "^4.20240502.0",
-    "@hono/swagger-ui": "^0.4.0",
-    "@hono/zod-openapi": "^0.16.0",
-    "@slack/types": "^2.11.0",
-    "@slack/webhook": "^7.0.2",
-    "@types/bun": "^1.0.12",
+    "@cloudflare/workers-types": "^4.20250124.3",
+    "@hono/swagger-ui": "^0.4.1",
+    "@hono/zod-openapi": "^0.16.4",
+    "@slack/types": "^2.14.0",
+    "@slack/webhook": "^7.0.4",
+    "@types/bun": "^1.2.0",
     "@types/uuid": "^10.0.0",
-    "typescript": "^5.4.3",
-    "wrangler": "^3.80.0"
+    "typescript": "^5.7.3",
+    "wrangler": "^3.105.1"
   },
   "dependencies": {
-    "@microlabs/otel-cf-workers": "^1.0.0-rc.38",
-    "hono": "^4.1.6",
-    "uuid": "^11.0.2",
-    "zod": "^3.22.4"
+    "@microlabs/otel-cf-workers": "^1.0.0-rc.49",
+    "hono": "^4.6.18",
+    "uuid": "^11.0.5",
+    "zod": "^3.24.1"
   }
 }

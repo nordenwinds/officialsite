@@ -24,6 +24,6 @@
         }
     },
     "files": {
-        "ignore": ["dist/**", "types/**"]
+        "ignore": ["dist/**", "types/**", ".astro/**"]
     }
 }
