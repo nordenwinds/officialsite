@@ -53,7 +53,7 @@
         "@astrojs/check": "^0.9.3",
         "@astrojs/mdx": "^3.1.2",
         "@astrojs/rss": "^4.0.4",
-        "@astrojs/sitemap": "^3.0.0",
+        "@astrojs/sitemap": "^3.2.1",
         "@astrojs/tailwind": "^5.0.0",
         "@astrojs/ts-plugin": "^1.3.1",
         "@contentful/rich-text-html-renderer": "^16.1.1",
@@ -96,7 +96,7 @@
 
     "@astrojs/rss": ["@astrojs/rss@4.0.5", "", { "dependencies": { "fast-xml-parser": "^4.2.7", "kleur": "^4.1.5" } }, "sha512-IyJVL6z09AQtxbgLaAwebT3T5YKe4oTHDesqydJv1KLHw+zEzzMCFuuNsEyxjiqu7df9+DDCpDXLj/WRiEUXvw=="],
 
-    "@astrojs/sitemap": ["@astrojs/sitemap@3.1.4", "", { "dependencies": { "sitemap": "^7.1.1", "stream-replace-string": "^2.0.0", "zod": "^3.22.4" } }, "sha512-po8CqDCK14O6phU1mB5C8SyVLyQEa+7pJM8oXxs1mVh8DgvxxaA5E7lak1vzOmBcyyyHBW32jakGqNYc66sBRw=="],
+    "@astrojs/sitemap": ["@astrojs/sitemap@3.2.1", "", { "dependencies": { "sitemap": "^8.0.0", "stream-replace-string": "^2.0.0", "zod": "^3.23.8" } }, "sha512-uxMfO8f7pALq0ADL6Lk68UV6dNYjJ2xGUzyjjVj60JLBs5a6smtlkBYv3tQ0DzoqwS7c9n4FUx5lgv0yPo/fgA=="],
 
     "@astrojs/tailwind": ["@astrojs/tailwind@5.1.0", "", { "dependencies": { "autoprefixer": "^10.4.15", "postcss": "^8.4.28", "postcss-load-config": "^4.0.2" }, "peerDependencies": { "astro": "^3.0.0 || ^4.0.0", "tailwindcss": "^3.0.24" } }, "sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig=="],
 
@@ -1838,7 +1838,7 @@
 
     "sisteransi": ["sisteransi@1.0.5", "", {}, "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="],
 
-    "sitemap": ["sitemap@7.1.1", "", { "dependencies": { "@types/node": "^17.0.5", "@types/sax": "^1.2.1", "arg": "^5.0.0", "sax": "^1.2.4" }, "bin": { "sitemap": "dist/cli.js" } }, "sha512-mK3aFtjz4VdJN0igpIJrinf3EO8U8mxOPsTBzSsy06UtjZQJ3YY3o3Xa7zSc5nMqcMrRwlChHZ18Kxg0caiPBg=="],
+    "sitemap": ["sitemap@8.0.0", "", { "dependencies": { "@types/node": "^17.0.5", "@types/sax": "^1.2.1", "arg": "^5.0.0", "sax": "^1.2.4" }, "bin": { "sitemap": "dist/cli.js" } }, "sha512-+AbdxhM9kJsHtruUF39bwS/B0Fytw6Fr1o4ZAIAEqA6cke2xcoO2GleBw9Zw7nRzILVEgz7zBM5GiTJjie1G9A=="],
 
     "slash": ["slash@2.0.0", "", {}, "sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A=="],
 
