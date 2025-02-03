@@ -1,12 +1,14 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import { defineConfig, envField } from 'astro/config';
+
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://www.nordenwinds.com',
-    integrations: [mdx(), sitemap(), tailwind()],
+    integrations: [mdx(), sitemap()],
+
     env: {
         schema: {
             CONTENTFUL_ENV: envField.enum({
@@ -20,5 +22,9 @@ export default defineConfig({
             CONTENTFUL_PREVIEW_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
             API_BASE_URL: envField.string({ context: 'client', access: 'public' }),
         },
+    },
+
+    vite: {
+        plugins: [tailwindcss()],
     },
 });
