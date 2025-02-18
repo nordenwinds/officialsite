@@ -1,6 +1,5 @@
 ---
 version: 2
-enable-beta-ecosystems: true
 updates:
 
   # Maintain dependencies for GitHub Actions
@@ -10,7 +9,7 @@ updates:
       interval: "monthly"
 
   # Maintain dependencies for npm
-  - package-ecosystem: "npm"
+  - package-ecosystem: "bun"
     directory: "/"
     schedule:
       interval: "monthly"
