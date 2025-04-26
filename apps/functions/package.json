@@ -23,7 +23,7 @@
     "@types/bun": "^1.2.8",
     "@types/uuid": "^10.0.0",
     "typescript": "^5.7.3",
-    "wrangler": "^3.105.1"
+    "wrangler": "^4.0.0"
   },
   "dependencies": {
     "@microlabs/otel-cf-workers": "^1.0.0-rc.49",
