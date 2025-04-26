@@ -64,14 +64,12 @@ jobs:
 
       - name: Publish WEB to Cloudflare Pages
         id: deploy_web
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy ./dist --project-name=nordenwinds
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: nordenwinds
-          directory: apps/web/dist
-          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '3'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: apps/web
 
       - name: Add Honeycomb marker
         env:
