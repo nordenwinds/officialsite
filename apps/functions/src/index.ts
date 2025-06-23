@@ -1,4 +1,4 @@
-import { type ResolveConfigFn, instrument } from '@microlabs/otel-cf-workers';
+import { instrument, type ResolveConfigFn } from '@microlabs/otel-cf-workers';
 import app from './app.ts';
 import type { Bindings, Environment } from './bindings';
 import { config } from './config';

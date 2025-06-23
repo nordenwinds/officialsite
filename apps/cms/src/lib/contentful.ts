@@ -11,7 +11,7 @@ export const contentfulClient = contentful.createClient({
 export const createEnvironment = async (space: Space, contentfulEnv: 'master' | 'develop'): Promise<Environment> => {
     console.log(`Running on ${contentfulEnv}.`);
 
-    const environmentId = contentfulEnv === 'master' ? `${contentfulEnv}-${new Date().getTime()}` : contentfulEnv;
+    const environmentId = contentfulEnv === 'master' ? `${contentfulEnv}-${Date.now()}` : contentfulEnv;
     console.log('Environment ID', environmentId);
 
     if (contentfulEnv !== 'master') {
