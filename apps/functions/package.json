@@ -8,7 +8,7 @@
   "main": "src/index.ts",
   "scripts": {
     "check": "biome check . && tsc --noEmit",
-    "fix": "biome check --apply-unsafe .",
+    "fix": "biome check --write --unsafe .",
     "build": "wrangler deploy --dry-run --outdir=dist",
     "dev": "wrangler dev",
     "serve": "bun run build && wrangler dev ./dist/index.js"
