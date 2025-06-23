@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'bun:test';
 import { testClient } from 'hono/testing';
 import { HttpStatus } from '../lib/http';
-import app from './index';
 import type { HealthCheckApp } from './index';
+import app from './index';
 import { HealthStatus } from './status';
 
 describe('health', () => {
