@@ -14,7 +14,7 @@
     "serve": "bun run build && wrangler dev ./dist/index.js"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.0.6",
+    "@biomejs/biome": "2.1.2",
     "@cloudflare/workers-types": "^4.20250124.3",
     "@hono/swagger-ui": "^0.5.1",
     "@hono/zod-openapi": "^0.19.2",
