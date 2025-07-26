@@ -2,7 +2,6 @@ import { OpenAPIHono } from '@hono/zod-openapi';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { secureHeaders } from 'hono/secure-headers';
-import type { ZodIssue } from 'zod';
 import type { Environment } from './bindings';
 import { ErrorTypePrefix } from './error/error.const';
 import type { NotFoundError, ValidationError } from './error/error.model';
@@ -22,7 +21,7 @@ const app = new OpenAPIHono<{ Bindings: Environment }>({
     const res = {
       type: `${ErrorTypePrefix}/validation-failed`,
       title: 'Your parameters did not validate.',
-      invalidParams: result.error.issues.map((err: ZodIssue) => ({
+      invalidParams: result.error.issues.map((err) => ({
         name: err.code,
         reason: err.message,
       })),
