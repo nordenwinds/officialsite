@@ -46,7 +46,7 @@ jobs:
           HUSKY: 0
 
       # Setup honeymarker
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
       - name: Install honeymarker
         run: go install github.com/honeycombio/honeymarker@latest
 
