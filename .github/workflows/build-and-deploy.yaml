@@ -37,7 +37,7 @@ jobs:
     name: Publish WEB and API
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: oven-sh/setup-bun@v2
       - name: Resolve Dependencies
