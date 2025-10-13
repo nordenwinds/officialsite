@@ -70,6 +70,7 @@ jobs:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: apps/web
+          packageManager: bun
 
       - name: Add Honeycomb marker
         env:
@@ -89,5 +90,6 @@ jobs:
           command: deploy --env ${{ steps.env.outputs.name }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: apps/functions
+          packageManager: bun
 
 
