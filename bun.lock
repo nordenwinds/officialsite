@@ -4,6 +4,7 @@
     "": {
       "name": "@nordenwinds/officialsite",
       "devDependencies": {
+        "@socketsecurity/bun-security-scanner": "^1.1.0",
         "depcheck": "^1.4.3",
         "husky": "^9.1.7",
         "lint-staged": "^16.0.0",
@@ -465,6 +466,8 @@
     "@slack/types": ["@slack/types@2.14.0", "", {}, "sha512-n0EGm7ENQRxlXbgKSrQZL69grzg1gHLAVd+GlRVQJ1NSORo0FrApR7wql/gaKdu2n4TO83Sq/AmeUOqD60aXUA=="],
 
     "@slack/webhook": ["@slack/webhook@7.0.4", "", { "dependencies": { "@slack/types": "^2.9.0", "@types/node": ">=18.0.0", "axios": "^1.7.8" } }, "sha512-JDJte2dbJCcq1/GCMBYJH6fj+YS4n5GuPjT4tF3O1NPN6pFPCR9yA/apRh9sdfhdFG7hadiRgmiQqC4GLgNkZg=="],
+
+    "@socketsecurity/bun-security-scanner": ["@socketsecurity/bun-security-scanner@1.1.0", "", {}, "sha512-kbZubfWPJzjohHBJjbT/vNRWh8y2hPnHjU3Qv5jxjZN0UvwetsJrfivixRwVZ+kZvIskkijXZTcyk0duYw/8WQ=="],
 
     "@swc/helpers": ["@swc/helpers@0.5.17", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A=="],
 

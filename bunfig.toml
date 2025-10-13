@@ -1,0 +1,2 @@
+[install.security]
+provider = "@socketsecurity/bun-security-scanner"
