@@ -21,7 +21,7 @@
         "@astrojs/mdx": "4.3.4",
         "@astrojs/rss": "4.0.12",
         "@astrojs/sitemap": "3.5.1",
-        "@astrojs/ts-plugin": "1.10.4",
+        "@astrojs/ts-plugin": "1.10.5",
         "@contentful/rich-text-html-renderer": "^17.0.0",
         "@contentful/rich-text-plain-text-renderer": "^17.0.0",
         "@contentful/rich-text-types": "^17.0.0",
