@@ -17,36 +17,46 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
 
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         env:
           HUSKY: 0
 
       - name: Check code
-        run: bun --cwd=${{ matrix.workspace }} check
+        run: pnpm --dir=${{ matrix.workspace }} check
 
   typegen:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
 
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         env:
           HUSKY: 0
 
       # DONT: `wrangler dev &`. local server does not work on background.
       - name: Build OpenAPI Document
         run: |-
-          bun run ./apps/functions/bin/build-openapi.ts /tmp/openapi.json
+          pnpm run ./apps/functions/bin/build-openapi.ts /tmp/openapi.json
 
       - name: Check type of content model is generated
         run: >-
-          bun --cwd=apps/web run typegen &&
+          pnpm --dir=apps/web run typegen &&
           git diff --exit-code apps/web/src/types
         env:
           API_BASE_URL: /tmp
@@ -59,15 +69,20 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
 
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         env:
           HUSKY: 0
 
       - name: Build Web
-        run: bun --cwd=apps/web run build
+        run: pnpm --dir=apps/web run build
         env:
           DEV: true
           CONTENTFUL_ENV: develop
@@ -75,4 +90,4 @@ jobs:
           CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
 
       - name: Build API
-        run: bun --cwd=apps/functions run build
+        run: pnpm --dir=apps/functions run build

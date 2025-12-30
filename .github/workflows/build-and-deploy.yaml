@@ -39,9 +39,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
+
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         env:
           HUSKY: 0
 
@@ -58,7 +64,7 @@ jobs:
           echo "name=$NAME_LOWER" >> $GITHUB_OUTPUT
 
       - name: Build WEB
-        run: bun --cwd=apps/web run build --mode ${{ steps.env.outputs.name }}
+        run: pnpm --dir=apps/web run build --mode ${{ steps.env.outputs.name }}
         env:
           CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
 
@@ -70,7 +76,7 @@ jobs:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: apps/web
-          packageManager: bun
+          packageManager: pnpm
 
       - name: Add Honeycomb marker
         env:
@@ -90,6 +96,6 @@ jobs:
           command: deploy --env ${{ steps.env.outputs.name }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: apps/functions
-          packageManager: bun
+          packageManager: pnpm
 
 
