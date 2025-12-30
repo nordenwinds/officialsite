@@ -1,8 +1,10 @@
 {
   "name": "@nordenwinds/web",
+  "description": "Frontend of officialsite",
+  "author": "Norden Wind Ensemble",
+  "license": "MIT",
   "type": "module",
   "version": "1.0.0",
-  "description": "Frontend of officialsite",
   "scripts": {
     "typegen:contentful": "cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
     "typegen:api": "openapi-typescript ${API_BASE_URL:-http://localhost:8080/v1}/openapi.json -o src/types/api/v1.d.ts",
@@ -13,8 +15,6 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "author": "Norden Wind Ensemble",
-  "license": "MIT",
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.3.4",

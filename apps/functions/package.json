@@ -1,10 +1,10 @@
 {
   "name": "@nordenwinds/functions",
-  "type": "module",
-  "version": "0.1.0",
   "description": "Functions for officialsite",
   "author": "Norden Wind Ensemble",
   "license": "MIT",
+  "type": "module",
+  "version": "0.1.0",
   "main": "src/index.ts",
   "scripts": {
     "check": "tsc --noEmit",
