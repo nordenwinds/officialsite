@@ -48,8 +48,6 @@ jobs:
 
       - name: Resolve Dependencies
         run: pnpm install --frozen-lockfile
-        env:
-          HUSKY: 0
 
       # Setup honeymarker
       - uses: actions/setup-go@v6

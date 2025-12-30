@@ -7,14 +7,11 @@
     "version": "0.1.0",
     "scripts": {
         "checkdep": "depcheck",
-        "prepare": "husky",
         "check": "pnpm -r check",
         "fix": "pnpm -r fix"
     },
     "devDependencies": {
         "depcheck": "^1.4.3",
-        "husky": "^9.1.7",
-        "lint-staged": "^16.0.0",
         "typescript": "^5.7.3"
     },
     "engines": {

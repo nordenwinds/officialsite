@@ -26,8 +26,6 @@ jobs:
 
       - name: Resolve Dependencies
         run: pnpm install --frozen-lockfile
-        env:
-          HUSKY: 0
 
       - name: Check code
         run: pnpm --dir=${{ matrix.workspace }} check
@@ -46,8 +44,6 @@ jobs:
 
       - name: Resolve Dependencies
         run: pnpm install --frozen-lockfile
-        env:
-          HUSKY: 0
 
       # DONT: `wrangler dev &`. local server does not work on background.
       - name: Build OpenAPI Document
@@ -78,8 +74,6 @@ jobs:
 
       - name: Resolve Dependencies
         run: pnpm install --frozen-lockfile
-        env:
-          HUSKY: 0
 
       - name: Build Web
         run: pnpm --dir=apps/web run build
