@@ -1,65 +1,88 @@
 ---
-import { strict as assert } from 'node:assert';
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
-import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
-import BaseHead from '../../components/BaseHead.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Container from '../../components/Container.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import FormattedTime from '../../components/FormattedTime.astro';
-import Header from '../../components/Header.astro';
-import PageTitle from '../../components/PageTitle.astro';
-import RitchText from '../../components/RitchText.astro';
-import { contentfulClient } from '../../lib/contentful';
-import type { TypeConcertSkeleton } from '../../types/contentful';
+import { strict as assert } from "node:assert";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Container from "../../components/Container.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import FormattedTime from "../../components/FormattedTime.astro";
+import Header from "../../components/Header.astro";
+import PageTitle from "../../components/PageTitle.astro";
+import RitchText from "../../components/RitchText.astro";
+import { contentfulClient } from "../../lib/contentful";
+import type { TypeConcertSkeleton } from "../../types/contentful";
 
 export const getStaticPaths = (async () => {
-    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>({
-        content_type: 'concert',
-    });
+	const { items } =
+		await contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>(
+			{
+				content_type: "concert",
+			},
+		);
 
-    const pages = items.map((item) => {
-        const { slug, flyer, title, startTime, openTime, conductor, place, content } = item.fields;
-        assert(flyer?.fields.file);
+	const pages = items.map((item) => {
+		const {
+			slug,
+			flyer,
+			title,
+			startTime,
+			openTime,
+			conductor,
+			place,
+			content,
+		} = item.fields;
+		assert(flyer?.fields.file);
 
-        const { createdAt, updatedAt } = item.sys;
+		const { createdAt, updatedAt } = item.sys;
 
-        const breadcrumbs = [
-            {
-                text: 'トップ',
-                href: '/',
-            },
-            {
-                text: 'コンサート',
-                href: '/concerts',
-            },
-            { text: title },
-        ];
+		const breadcrumbs = [
+			{
+				text: "トップ",
+				href: "/",
+			},
+			{
+				text: "コンサート",
+				href: "/concerts",
+			},
+			{ text: title },
+		];
 
-        return {
-            params: { slug },
-            props: {
-                breadcrumbs,
-                createdAt: new Date(createdAt),
-                modifiedAt: new Date(updatedAt),
-                flyer: flyer.fields.file,
-                title,
-                startTime: new Date(startTime),
-                openTime: openTime ? new Date(openTime) : null,
-                conductor,
-                place,
-                content,
-            },
-        };
-    });
+		return {
+			params: { slug },
+			props: {
+				breadcrumbs,
+				createdAt: new Date(createdAt),
+				modifiedAt: new Date(updatedAt),
+				flyer: flyer.fields.file,
+				title,
+				startTime: new Date(startTime),
+				openTime: openTime ? new Date(openTime) : null,
+				conductor,
+				place,
+				content,
+			},
+		};
+	});
 
-    return pages;
+	return pages;
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { breadcrumbs, title, createdAt, modifiedAt, flyer, startTime, openTime, conductor, place, content } = Astro.props;
+const {
+	breadcrumbs,
+	title,
+	createdAt,
+	modifiedAt,
+	flyer,
+	startTime,
+	openTime,
+	conductor,
+	place,
+	content,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>

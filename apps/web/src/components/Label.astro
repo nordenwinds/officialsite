@@ -1,18 +1,18 @@
 ---
 interface Props {
-    text: string;
-    color: `${'primary' | 'secondary'}${'.light' | '' | '.dark'}`;
+	text: string;
+	color: `${"primary" | "secondary"}${".light" | "" | ".dark"}`;
 }
 
 const { text, color } = Astro.props;
 
 const bgColor = {
-    primary: 'bg-primary text-white',
-    'primary.light': 'bg-primary-light text-white',
-    'primary.dark': 'bg-primary-dark text-white',
-    secondary: 'bg-secondary text-white',
-    'secondary.light': 'bg-secondary-light text-black',
-    'secondary.dark': 'bg-secondary-dark text-white',
+	primary: "bg-primary text-white",
+	"primary.light": "bg-primary-light text-white",
+	"primary.dark": "bg-primary-dark text-white",
+	secondary: "bg-secondary text-white",
+	"secondary.light": "bg-secondary-light text-black",
+	"secondary.dark": "bg-secondary-dark text-white",
 };
 ---
 

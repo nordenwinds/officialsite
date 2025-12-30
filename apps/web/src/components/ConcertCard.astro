@@ -1,15 +1,15 @@
 ---
-import type { AssetFile } from 'contentful';
-import FormattedDate from './FormattedDate.astro';
-import FormattedTime from './FormattedTime.astro';
+import type { AssetFile } from "contentful";
+import FormattedDate from "./FormattedDate.astro";
+import FormattedTime from "./FormattedTime.astro";
 
 interface Props {
-    cover: AssetFile;
-    title: string;
-    startTime: Date;
-    openTime: Date | undefined;
-    conductor: string;
-    place: string;
+	cover: AssetFile;
+	title: string;
+	startTime: Date;
+	openTime: Date | undefined;
+	conductor: string;
+	place: string;
 }
 
 const { cover, title, startTime, openTime, conductor, place } = Astro.props;

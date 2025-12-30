@@ -1,1 +1,1 @@
-export const ErrorTypePrefix = 'https://api.nordenwinds.com/error';
+export const ErrorTypePrefix = "https://api.nordenwinds.com/error";
