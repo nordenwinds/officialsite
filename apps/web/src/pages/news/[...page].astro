@@ -1,43 +1,46 @@
 ---
-import { strict as assert } from 'node:assert';
-import type { GetStaticPaths, Page } from 'astro';
-import BaseHead from '../../components/BaseHead.astro';
-import Container from '../../components/Container.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import Label from '../../components/Label.astro';
-import Pagination from '../../components/Pagination.astro';
-import SectionTitle from '../../components/SectionTitle.astro';
-import { contentfulClient } from '../../lib/contentful';
-import type { TypeNewsSkeleton } from '../../types/contentful';
+import { strict as assert } from "node:assert";
+import type { GetStaticPaths, Page } from "astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Container from "../../components/Container.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Header from "../../components/Header.astro";
+import Label from "../../components/Label.astro";
+import Pagination from "../../components/Pagination.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import { contentfulClient } from "../../lib/contentful";
+import type { TypeNewsSkeleton } from "../../types/contentful";
 
-const PAGE_TITLE = 'お知らせ';
-const PAGE_DESCRIPTION = 'Norden Wind Ensembleのお知らせ一覧';
+const PAGE_TITLE = "お知らせ";
+const PAGE_DESCRIPTION = "Norden Wind Ensembleのお知らせ一覧";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const { items } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>({
-        content_type: 'news',
-        order: ['-fields.publishedAt'],
-    });
+	const { items } =
+		await contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>(
+			{
+				content_type: "news",
+				order: ["-fields.publishedAt"],
+			},
+		);
 
-    const newses = items.map((item) => {
-        const { slug, title, publishedAt, category } = item.fields;
-        assert(category);
+	const newses = items.map((item) => {
+		const { slug, title, publishedAt, category } = item.fields;
+		assert(category);
 
-        return {
-            slug,
-            title,
-            publishedAt: new Date(publishedAt),
-            category: category.fields,
-        };
-    });
+		return {
+			slug,
+			title,
+			publishedAt: new Date(publishedAt),
+			category: category.fields,
+		};
+	});
 
-    return paginate(newses, { pageSize: 10 });
+	return paginate(newses, { pageSize: 10 });
 }) satisfies GetStaticPaths;
 
 type Props = {
-    page: Page;
+	page: Page;
 };
 
 const { page } = Astro.props;

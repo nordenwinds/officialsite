@@ -6,47 +6,78 @@ on:
   merge_group: ~
 
 jobs:
-  check:
-    strategy:
-      matrix:
-        workspace:
-          - "apps/web"
-          - "apps/cms"
-          - "apps/functions"
+  security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: ''
+          package-manager-cache: false
+
+      - name: Setup @akidosec/safe-chain
+        run: |
+          curl -fsSL "https://github.com/AikidoSec/safe-chain/releases/download/${SAFE_CHAIN_VERSION}/install-safe-chain.sh" | sh -s -- --ci
+        env:
+          SAFE_CHAIN_VERSION: 1.3.3
+
+      - name: Check npm dependencies via installation
+        run: |
+            # Force download because packages are checked on download.
+            rm -rf $(pnpm store path)
+            pnpm install --frozen-lockfile
+
+  check:
+    strategy:
+      matrix:
+        workspace:
+          - web
+          - cms
+          - functions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
 
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
-        env:
-          HUSKY: 0
+        run: pnpm install --frozen-lockfile
 
       - name: Check code
-        run: bun --cwd=${{ matrix.workspace }} check
+        run: pnpm --filter=${{ matrix.workspace }} check
 
   typegen:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
 
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
-        env:
-          HUSKY: 0
+        run: pnpm install --frozen-lockfile
 
       # DONT: `wrangler dev &`. local server does not work on background.
       - name: Build OpenAPI Document
         run: |-
-          bun run ./apps/functions/bin/build-openapi.ts /tmp/openapi.json
+          pnpm run --filter=functions build-openapi -- /tmp/openapi.json
 
       - name: Check type of content model is generated
         run: >-
-          bun --cwd=apps/web run typegen &&
+          pnpm --filter=web run typegen &&
           git diff --exit-code apps/web/src/types
         env:
           API_BASE_URL: /tmp
@@ -59,15 +90,18 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
 
       - name: Resolve Dependencies
-        run: bun install --frozen-lockfile
-        env:
-          HUSKY: 0
+        run: pnpm install --frozen-lockfile
 
       - name: Build Web
-        run: bun --cwd=apps/web run build
+        run: pnpm --filter=web run build
         env:
           DEV: true
           CONTENTFUL_ENV: develop
@@ -75,4 +109,26 @@ jobs:
           CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
 
       - name: Build API
-        run: bun --cwd=apps/functions run build
+        run: pnpm --filter=functions run build
+
+  test:
+    strategy:
+      matrix:
+        workspace:
+          - functions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: 'pnpm'
+
+      - name: Resolve Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run test
+        run: pnpm --filter=${{ matrix.workspace }} test

@@ -1,0 +1,10 @@
+packages:
+  - apps/*
+
+onlyBuiltDependencies:
+  - contentful-cli
+  - esbuild
+  - protobufjs
+  - sharp
+  - spawn-sync
+  - workerd

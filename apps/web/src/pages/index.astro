@@ -1,57 +1,70 @@
 ---
-import { strict as assert } from 'node:assert';
-import BaseHead from '../components/BaseHead.astro';
-import Button from '../components/Button.astro';
-import ConcertCard from '../components/ConcertCard.astro';
-import ContactForm from '../components/ContactForm.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import Label from '../components/Label.astro';
-import SectionTitle from '../components/SectionTitle.astro';
-import { CONTACT_DESCRIPTIONS, NWE_DESCRIPTIONS, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import TopSection from '../layouts/TopSection.astro';
-import { contentfulClient } from '../lib/contentful';
-import type { TypeConcertSkeleton, TypeNewsSkeleton } from '../types/contentful';
+import { strict as assert } from "node:assert";
+import BaseHead from "../components/BaseHead.astro";
+import Button from "../components/Button.astro";
+import ConcertCard from "../components/ConcertCard.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import Label from "../components/Label.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import {
+	CONTACT_DESCRIPTIONS,
+	NWE_DESCRIPTIONS,
+	SITE_DESCRIPTION,
+	SITE_TITLE,
+} from "../consts";
+import TopSection from "../layouts/TopSection.astro";
+import { contentfulClient } from "../lib/contentful";
+import type {
+	TypeConcertSkeleton,
+	TypeNewsSkeleton,
+} from "../types/contentful";
 
-const { items: newsItems } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>({
-    content_type: 'news',
-    order: ['-fields.publishedAt'],
-    limit: 5,
-});
+const { items: newsItems } =
+	await contentfulClient.withoutUnresolvableLinks.getEntries<TypeNewsSkeleton>({
+		content_type: "news",
+		order: ["-fields.publishedAt"],
+		limit: 5,
+	});
 
 const newses = newsItems.map((item) => {
-    const { slug, title, publishedAt, category } = item.fields;
-    assert(category);
+	const { slug, title, publishedAt, category } = item.fields;
+	assert(category);
 
-    return {
-        slug,
-        title,
-        publishedAt: new Date(publishedAt),
-        category: category.fields,
-    };
+	return {
+		slug,
+		title,
+		publishedAt: new Date(publishedAt),
+		category: category.fields,
+	};
 });
 
-const { items: concertItems } = await contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>({
-    content_type: 'concert',
-    order: ['-fields.startTime'],
-    limit: 3,
-});
+const { items: concertItems } =
+	await contentfulClient.withoutUnresolvableLinks.getEntries<TypeConcertSkeleton>(
+		{
+			content_type: "concert",
+			order: ["-fields.startTime"],
+			limit: 3,
+		},
+	);
 
 const concerts = concertItems.map((item) => {
-    const { slug, flyer, title, startTime, openTime, conductor, place } = item.fields;
+	const { slug, flyer, title, startTime, openTime, conductor, place } =
+		item.fields;
 
-    assert(flyer?.fields.file);
+	assert(flyer?.fields.file);
 
-    return {
-        slug,
-        cover: flyer.fields.file,
-        title,
-        startTime: new Date(startTime),
-        openTime: openTime ? new Date(openTime) : undefined,
-        conductor,
-        place,
-    };
+	return {
+		slug,
+		cover: flyer.fields.file,
+		title,
+		startTime: new Date(startTime),
+		openTime: openTime ? new Date(openTime) : undefined,
+		conductor,
+		place,
+	};
 });
 ---
 

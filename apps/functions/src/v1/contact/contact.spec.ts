@@ -1,36 +1,57 @@
-import { beforeEach, describe, expect, it, spyOn } from 'bun:test';
-import { testClient } from 'hono/testing';
-import { HttpStatus } from '../../lib/http';
-import type { ContactApp } from './index';
-import contact from './index';
+import assert from "node:assert/strict";
+import { after, before, beforeEach, describe, it } from "node:test";
+import { testClient } from "hono/testing";
+import { Agent, MockAgent, setGlobalDispatcher } from "undici";
+import { HttpStatus } from "../../lib/http.ts";
+import type { ContactApp } from "./index.ts";
+import contact from "./index.ts";
 
-describe('contact', () => {
-  const client = testClient<ContactApp>(contact, {
-    SLACK_WEBHOOK_URL: 'https://example.com/',
-  });
+describe("contact", () => {
+	const fakeSlackWebhookEndpoint = "https://example.com";
+	const mockedFetch = new MockAgent();
 
-  describe('post /', () => {
-    beforeEach(() => {
-      // Mock request to Slack
-      spyOn(global, 'fetch').mockResolvedValue(new Response('ok'));
-    });
+	const client = testClient<ContactApp>(contact, {
+		SLACK_WEBHOOK_URL: fakeSlackWebhookEndpoint,
+	});
 
-    it('should return created contact', async () => {
-      const req = {
-        name: 'John Doe',
-        email: 'john@example.com',
-        content: 'Testing.',
-      };
-      const res = await client.index.$post({
-        json: req,
-      });
-      expect(res.status).toBe(HttpStatus.CREATED);
-      expect(await res.json()).toEqual({
-        id: expect.any(String),
-        name: 'John Doe',
-        email: 'john@example.com',
-        content: 'Testing.',
-      });
-    });
-  });
+	before(() => {
+		setGlobalDispatcher(mockedFetch);
+		mockedFetch.disableNetConnect();
+	});
+
+	after(async () => {
+		await mockedFetch.close();
+		setGlobalDispatcher(new Agent());
+	});
+
+	describe("post /", () => {
+		beforeEach(() => {
+			// Mock request to Slack
+			// NOTE: Endpoint MUST be without trailing slash.
+			mockedFetch
+				.get(fakeSlackWebhookEndpoint)
+				.intercept({ path: /.*/, method: "POST" })
+				.reply(HttpStatus.OK);
+		});
+
+		it("should return created contact", async () => {
+			const req = {
+				name: "John Doe",
+				email: "john@example.com",
+				content: "Testing.",
+			};
+			const res = await client.index.$post({
+				json: req,
+			});
+			assert.equal(res.status, HttpStatus.CREATED);
+
+			const body = await res.json();
+			assert.equal(typeof body.id, "string");
+			assert.partialDeepStrictEqual(body, {
+				name: "John Doe",
+				email: "john@example.com",
+				content: "Testing.",
+			});
+		});
+	});
 });

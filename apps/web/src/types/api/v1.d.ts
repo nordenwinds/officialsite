@@ -29,7 +29,7 @@ export interface components {
             /**
              * Format: uuid
              * @description ID
-             * @example 123
+             * @example 019b79f7-fdf8-72ae-911c-f32943165a01
              */
             id?: string;
             /**

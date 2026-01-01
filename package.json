@@ -1,22 +1,23 @@
 {
-    "name": "@nordenwinds/officialsite",
-    "version": "0.1.0",
-    "author": "Norden Wind Ensemble",
-    "devDependencies": {
-        "@socketsecurity/bun-security-scanner": "^1.1.0",
-        "depcheck": "^1.4.3",
-        "husky": "^9.1.7",
-        "lint-staged": "^16.0.0",
-        "typescript": "^5.7.3"
-    },
-    "description": ":globe_with_meridians: Officialsite of Norden Wind Ensemble",
-    "license": "MIT",
-    "private": true,
-    "scripts": {
-        "checkdep": "depcheck",
-        "prepare": "husky",
-        "check": "bun --filter=* check",
-        "fix": "bun --filter=* fix"
-    },
-    "workspaces": ["apps/*"]
+  "name": "@nordenwinds/officialsite",
+  "description": ":globe_with_meridians: Officialsite of Norden Wind Ensemble",
+  "author": "Norden Wind Ensemble",
+  "license": "MIT",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "checkdep": "depcheck",
+    "check": "biome check && pnpm -r check",
+    "fix": "biome check --fix --unsafe && pnpm -r fix"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.10",
+    "depcheck": "^1.4.3",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.26.2"
 }

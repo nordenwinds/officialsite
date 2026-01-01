@@ -1,23 +1,20 @@
 {
-    "name": "@nordenwinds/cms",
-    "type": "module",
-    "version": "1.0.0",
-    "description": "Backend of officialsite",
-    "scripts": {
-        "check": "biome check . && tsc --noEmit",
-        "fix": "biome check --write --unsafe .",
-        "migrate": "ts-node -r dotenv/config --esm --experimental-specifier-resolution=node src/index.ts"
-    },
-    "author": "Norden Wind Ensemble",
-    "license": "MIT",
-    "devDependencies": {
-        "@biomejs/biome": "^2.0.0",
-        "@types/node": "^24.0.0",
-        "contentful-cli": "^3.7.3",
-        "contentful-management": "^11.50.1",
-        "contentful-migration": "^4.27.0",
-        "dotenv": "^17.0.0",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.7.3"
-    }
+  "name": "@nordenwinds/cms",
+  "author": "Norden Wind Ensemble",
+  "license": "MIT",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Backend of officialsite",
+  "main": "src/index.ts",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "migrate": "node --env-file=.env --experimental-transform-types src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "contentful-cli": "^3.7.3",
+    "contentful-management": "^11.50.1",
+    "contentful-migration": "^4.27.0",
+    "typescript": "^5.7.3"
+  }
 }

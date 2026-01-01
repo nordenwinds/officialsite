@@ -1,8 +1,8 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import type { MenuItem } from './Header.astro';
+import type { HTMLAttributes } from "astro/types";
+import type { MenuItem } from "./Header.astro";
 
-type Props = { items: MenuItem[] } & HTMLAttributes<'div'>;
+type Props = { items: MenuItem[] } & HTMLAttributes<"div">;
 
 const { items, class: className } = Astro.props;
 ---
