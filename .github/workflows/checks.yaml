@@ -35,9 +35,9 @@ jobs:
     strategy:
       matrix:
         workspace:
-          - "apps/web"
-          - "apps/cms"
-          - "apps/functions"
+          - web
+          - cms
+          - functions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -53,7 +53,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Check code
-        run: pnpm --dir=${{ matrix.workspace }} check
+        run: pnpm --filter=${{ matrix.workspace }} check
 
   typegen:
     runs-on: ubuntu-latest
@@ -73,11 +73,11 @@ jobs:
       # DONT: `wrangler dev &`. local server does not work on background.
       - name: Build OpenAPI Document
         run: |-
-          pnpm run --dir=apps/functions build-openapi -- /tmp/openapi.json
+          pnpm run --filter=functions build-openapi -- /tmp/openapi.json
 
       - name: Check type of content model is generated
         run: >-
-          pnpm --dir=apps/web run typegen &&
+          pnpm --filter=web run typegen &&
           git diff --exit-code apps/web/src/types
         env:
           API_BASE_URL: /tmp
@@ -101,7 +101,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Web
-        run: pnpm --dir=apps/web run build
+        run: pnpm --filter=web run build
         env:
           DEV: true
           CONTENTFUL_ENV: develop
@@ -109,13 +109,13 @@ jobs:
           CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
 
       - name: Build API
-        run: pnpm --dir=apps/functions run build
+        run: pnpm --filter=functions run build
 
   test:
     strategy:
       matrix:
         workspace:
-          - "apps/functions"
+          - functions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -131,4 +131,4 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run test
-        run: pnpm --dir=${{ matrix.workspace }} test
+        run: pnpm --filter=${{ matrix.workspace }} test

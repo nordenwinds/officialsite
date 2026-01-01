@@ -62,7 +62,7 @@ jobs:
           echo "name=$NAME_LOWER" >> $GITHUB_OUTPUT
 
       - name: Build WEB
-        run: pnpm --dir=apps/web run build --mode ${{ steps.env.outputs.name }}
+        run: pnpm --filter=web run build --mode ${{ steps.env.outputs.name }}
         env:
           CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
 
