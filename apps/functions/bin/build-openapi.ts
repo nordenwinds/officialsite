@@ -1,8 +1,12 @@
+import fs from "node:fs";
 import { resolve } from "node:path";
-import app from "../src/v1";
+import { parseArgs } from "node:util";
+import app from "../src/v1/index.ts";
 
 const main = async () => {
-	const dest = Bun.argv[2] ? resolve(Bun.argv[2]) : Bun.stdout;
+	const { positionals: argv } = parseArgs({ allowPositionals: true });
+	const stdout = 1;
+	const dest = argv[0] ? resolve(argv[0]) : stdout;
 
 	// OpenAPI JSON
 	const docs = app.getOpenAPIDocument({
@@ -13,7 +17,7 @@ const main = async () => {
 		},
 	});
 
-	await Bun.write(dest, JSON.stringify(docs));
+	fs.writeFileSync(dest, JSON.stringify(docs, null, 2));
 };
 
 main();

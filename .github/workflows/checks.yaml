@@ -73,7 +73,7 @@ jobs:
       # DONT: `wrangler dev &`. local server does not work on background.
       - name: Build OpenAPI Document
         run: |-
-          pnpm run ./apps/functions/bin/build-openapi.ts /tmp/openapi.json
+          pnpm run --dir=apps/functions build-openapi -- /tmp/openapi.json
 
       - name: Check type of content model is generated
         run: >-

@@ -1,6 +1,6 @@
 import { createRoute } from "@hono/zod-openapi";
-import { ValidationErrorSchema } from "../../error/error.model";
-import { ContactRequestSchema, ContactSchema } from "./contact.model";
+import { ValidationErrorSchema } from "../../error/error.model.ts";
+import { ContactRequestSchema, ContactSchema } from "./contact.model.ts";
 
 const contactTag = "Contact";
 

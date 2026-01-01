@@ -1,10 +1,10 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { v4 as uuid } from "uuid";
 import type { Bindings } from "../../bindings";
-import { HttpStatus } from "../../lib/http";
-import { buildMessage, sendMessage } from "../../service/slack";
+import { HttpStatus } from "../../lib/http.ts";
+import { buildMessage, sendMessage } from "../../service/slack.ts";
 import type { Contact, ContactRequest } from "./contact.model";
-import { postContact } from "./contact.path";
+import { postContact } from "./contact.path.ts";
 
 const app = new OpenAPIHono<{ Bindings: Bindings }>();
 

@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import pkg from "../../package.json";
-import { HttpStatus } from "../lib/http";
-import { HealthStatus } from "./status";
+import pkg from "../../package.json" with { type: "json" };
+import { HttpStatus } from "../lib/http.ts";
+import { HealthStatus } from "./status.ts";
 
 const app = new Hono();
 

@@ -1,6 +1,6 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
 import type { Environment } from "../bindings";
-import contact from "./contact";
+import contact from "./contact/index.ts";
 
 const app = new OpenAPIHono<{ Bindings: Environment }>();
 
