@@ -67,7 +67,7 @@
       }
     },
     {
-      "includes": ["apps/functions/**"],
+      "includes": ["apps/cms/**", "apps/functions/**"],
       "linter": {
         "rules": {
           "correctness": {

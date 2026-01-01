@@ -1,8 +1,8 @@
 import { strict as assert } from "node:assert";
 import type { Entry, Environment, Space } from "contentful-management";
 import { runMigration } from "contentful-migration";
-import { contentfulClient, createEnvironment } from "./lib/contentful";
-import InitModels from "./migrations/1-init_content_models";
+import { contentfulClient, createEnvironment } from "./lib/contentful.ts";
+import InitModels from "./migrations/1-init_content_models.ts";
 
 const migrate = async (space: Space, environment: Environment) => {
 	const options = {
