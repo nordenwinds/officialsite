@@ -1,5 +1,5 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { v4 as uuid } from "uuid";
+import { v7 as uuid } from "uuid";
 import type { Bindings } from "../../bindings";
 import { HttpStatus } from "../../lib/http.ts";
 import { buildMessage, sendMessage } from "../../service/slack.ts";

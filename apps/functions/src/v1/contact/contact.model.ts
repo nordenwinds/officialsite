@@ -8,7 +8,7 @@ export const ContactSchema = z
 			.optional() // FIXME: .readonly()
 			.openapi({
 				description: "ID",
-				example: "123",
+				example: "019b79f7-fdf8-72ae-911c-f32943165a01",
 			}),
 		name: z.string().openapi({
 			description: "Name whom create a contact",
