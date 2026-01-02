@@ -28,7 +28,7 @@ importers:
         version: 3.10.2(@types/node@24.10.4)(eslint-plugin-import@2.32.0(eslint@8.57.1))(eslint-plugin-n@16.6.2(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))
       contentful-management:
         specifier: ^11.50.1
-        version: 11.66.0
+        version: 11.67.0
       contentful-migration:
         specifier: ^4.27.0
         version: 4.31.5(@types/node@24.10.4)
@@ -2207,8 +2207,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  contentful-management@11.66.0:
-    resolution: {integrity: sha512-rMI8LnNljyOBnREIT9V5MDLtxlPctO7dYwIszNZuHdBvd5C10CM8apglCrm87nFTuRGpbJ0q+y7cv/c8IQyfZw==}
+  contentful-management@11.67.0:
+    resolution: {integrity: sha512-Al6Dm9eBoLfBERl1nkYWLHGMSR98CCTPdsh466k2tjjlSGDAT3B2D/BnNTzpzidW5vYGIoVjRezGvcedV3vxfg==}
     engines: {node: '>=18'}
 
   contentful-migration@4.31.5:
@@ -7317,7 +7317,7 @@ snapshots:
       '@oclif/plugin-help': 6.2.36
       contentful: 10.15.1
       contentful-export: 7.22.0
-      contentful-management: 11.66.0
+      contentful-management: 11.67.0
       fs-extra: 11.3.3
       lodash: 4.17.21
       ts-morph: 23.0.0
@@ -7566,7 +7566,7 @@ snapshots:
       contentful-collection: 0.0.4
       contentful-export: 7.22.0
       contentful-import: 9.4.127(eslint-plugin-import@2.32.0(eslint@8.57.1))(eslint-plugin-n@16.6.2(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))
-      contentful-management: 11.66.0
+      contentful-management: 11.67.0
       contentful-migration: 4.31.5(@types/node@24.10.4)
       emojic: 1.1.18
       execa: 5.1.1
@@ -7616,7 +7616,7 @@ snapshots:
       cli-table3: 0.6.5
       contentful: 11.10.1
       contentful-batch-libs: 9.7.0
-      contentful-management: 11.66.0
+      contentful-management: 11.67.0
       date-fns: 4.1.0
       figures: 3.2.0
       jsonwebtoken: 9.0.3
@@ -7638,7 +7638,7 @@ snapshots:
       bluebird: 3.7.2
       cli-table3: 0.6.5
       contentful-batch-libs: 9.7.0
-      contentful-management: 11.66.0
+      contentful-management: 11.67.0
       date-fns: 2.30.0
       eslint: 8.57.1
       eslint-config-standard: 17.1.0(eslint-plugin-import@2.32.0(eslint@8.57.1))(eslint-plugin-n@16.6.2(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))(eslint@8.57.1)
@@ -7658,7 +7658,7 @@ snapshots:
       - zen-observable
       - zenObservable
 
-  contentful-management@11.66.0:
+  contentful-management@11.67.0:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
       axios: 1.13.2
@@ -7676,7 +7676,7 @@ snapshots:
       callsites: 3.1.0
       cardinal: 2.1.1
       chalk: 4.1.2
-      contentful-management: 11.66.0
+      contentful-management: 11.67.0
       didyoumean2: 7.0.4
       https-proxy-agent: 5.0.1
       inquirer: 8.2.7(@types/node@24.10.4)
