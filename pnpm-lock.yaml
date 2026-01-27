@@ -43,7 +43,7 @@ importers:
         version: 1.0.0-rc.52(@opentelemetry/api@1.9.0)
       hono:
         specifier: ^4.6.18
-        version: 4.11.4
+        version: 4.11.7
       uuid:
         specifier: ^13.0.0
         version: 13.0.0
@@ -56,10 +56,10 @@ importers:
         version: 4.20260124.0
       '@hono/swagger-ui':
         specifier: ^0.5.1
-        version: 0.5.3(hono@4.11.4)
+        version: 0.5.3(hono@4.11.7)
       '@hono/zod-openapi':
         specifier: ^1.0.0
-        version: 1.2.0(hono@4.11.4)(zod@4.3.5)
+        version: 1.2.0(hono@4.11.7)(zod@4.3.5)
       '@slack/types':
         specifier: ^2.14.0
         version: 2.19.0
@@ -2923,8 +2923,8 @@ packages:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
 
-  hono@4.11.4:
-    resolution: {integrity: sha512-U7tt8JsyrxSRKspfhtLET79pU8K+tInj5QZXs1jSugO1Vq5dFj3kmZsRldo29mTBfcjDRVRXrEZ6LS63Cog9ZA==}
+  hono@4.11.7:
+    resolution: {integrity: sha512-l7qMiNee7t82bH3SeyUCt9UF15EVmaBvsppY2zQtrbIhl/yzBTny+YUxsVjSjQ6gaqaeVtZmGocom8TzBlA4Yw==}
     engines: {node: '>=16.9.0'}
 
   hoopy@0.1.4:
@@ -5879,21 +5879,21 @@ snapshots:
     dependencies:
       '@hapi/hoek': 11.0.7
 
-  '@hono/swagger-ui@0.5.3(hono@4.11.4)':
+  '@hono/swagger-ui@0.5.3(hono@4.11.7)':
     dependencies:
-      hono: 4.11.4
+      hono: 4.11.7
 
-  '@hono/zod-openapi@1.2.0(hono@4.11.4)(zod@4.3.5)':
+  '@hono/zod-openapi@1.2.0(hono@4.11.7)(zod@4.3.5)':
     dependencies:
       '@asteasolutions/zod-to-openapi': 8.2.0(zod@4.3.5)
-      '@hono/zod-validator': 0.7.6(hono@4.11.4)(zod@4.3.5)
-      hono: 4.11.4
+      '@hono/zod-validator': 0.7.6(hono@4.11.7)(zod@4.3.5)
+      hono: 4.11.7
       openapi3-ts: 4.5.0
       zod: 4.3.5
 
-  '@hono/zod-validator@0.7.6(hono@4.11.4)(zod@4.3.5)':
+  '@hono/zod-validator@0.7.6(hono@4.11.7)(zod@4.3.5)':
     dependencies:
-      hono: 4.11.4
+      hono: 4.11.7
       zod: 4.3.5
 
   '@humanwhocodes/config-array@0.13.0':
@@ -8600,7 +8600,7 @@ snapshots:
     dependencies:
       parse-passwd: 1.0.0
 
-  hono@4.11.4: {}
+  hono@4.11.7: {}
 
   hoopy@0.1.4: {}
 
