@@ -28,7 +28,7 @@ importers:
         version: 3.10.2(@types/node@24.10.9)(eslint-plugin-import@2.32.0(eslint@8.57.1))(eslint-plugin-n@16.6.2(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))
       contentful-management:
         specifier: ^11.50.1
-        version: 11.68.0
+        version: 11.73.0
       contentful-migration:
         specifier: ^4.27.0
         version: 4.31.5(@types/node@24.10.9)
@@ -1259,12 +1259,6 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@rollup/rollup-linux-x64-gnu@4.56.0':
-    resolution: {integrity: sha512-MVC6UDp16ZSH7x4rtuJPAEoE1RwS8N4oK9DLHy3FTEdFoUTCFVzMfJl/BVJ330C+hx8FfprA5Wqx4FhZXkj2Kw==}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     resolution: {integrity: sha512-3AHmtQq/ppNuUspKAlvA8HtLybkDflkMuLK4DPo77DfthRb71V84/c4MlWJXixZz4uruIH4uaa07IqoAkG64fg==}
     cpu: [x64]
@@ -2137,8 +2131,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  contentful-management@11.68.0:
-    resolution: {integrity: sha512-5TYJ0zsfvkGWGPQXMCmJeIrWAdhHu2W8TxOzeSSXpvFlek/+1WeOlv8EoE0Gc9KWxYG11BjM9JKn5g1bypDnkw==}
+  contentful-management@11.73.0:
+    resolution: {integrity: sha512-kalTokUY8eJetqe3OPpY0vB1wQWZwvm4WnrS4Fi1h/dZXsQkJTlcfRT4tTjzMKbMkdG9ZstA7B1vYsM3yxm7Wg==}
     engines: {node: '>=18'}
 
   contentful-migration@4.31.5:
@@ -2152,10 +2146,6 @@ packages:
 
   contentful-sdk-core@8.3.2:
     resolution: {integrity: sha512-L2LNWRXb1/5RLpLemCoP2Lzz6211xyE63GXh2nVXekvM4Dnswo+9N2D6JmWTne9zq89Izo88vOGAzzIAxb4Ukw==}
-    engines: {node: '>=18'}
-
-  contentful-sdk-core@9.4.1:
-    resolution: {integrity: sha512-l/DRjiabawlX4fb5WZoClWZfNynSNeN/+xnP5qaNAxnBZYtDMXQcEvRDKb4S7qn7aBehNWKhhajnidbBL8n7HA==}
     engines: {node: '>=18'}
 
   contentful-sdk-core@9.4.4:
@@ -4255,10 +4245,6 @@ packages:
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
-
-  qs@6.14.1:
-    resolution: {integrity: sha512-4EK3+xJl8Ts67nLYNwqw/dsFVnCf+qR7RgXSK9jEEm9unao3njwMDdmsdvoKBKHzxd7tCYz5e5M+SnMjdtXGQQ==}
-    engines: {node: '>=0.6'}
 
   qs@6.15.0:
     resolution: {integrity: sha512-mAZTtNCeetKMH+pSjrb76NAM8V9a05I9aBZOHztWy/UqcJdQYNsf59vrRKWnojAT9Y+GbIvoTBC++CPHqpDBhQ==}
@@ -6423,9 +6409,6 @@ snapshots:
   '@rollup/rollup-linux-x64-gnu@4.54.0':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.56.0':
-    optional: true
-
   '@rollup/rollup-linux-x64-gnu@4.59.0':
     optional: true
 
@@ -7159,7 +7142,7 @@ snapshots:
       '@oclif/plugin-help': 6.2.36
       contentful: 10.15.1
       contentful-export: 7.22.0
-      contentful-management: 11.68.0
+      contentful-management: 11.73.0
       fs-extra: 11.3.3
       lodash: 4.17.21
       ts-morph: 23.0.0
@@ -7410,7 +7393,7 @@ snapshots:
       contentful-collection: 0.0.4
       contentful-export: 7.22.0
       contentful-import: 9.4.127(eslint-plugin-import@2.32.0(eslint@8.57.1))(eslint-plugin-n@16.6.2(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))
-      contentful-management: 11.68.0
+      contentful-management: 11.73.0
       contentful-migration: 4.31.5(@types/node@24.10.9)
       emojic: 1.1.18
       execa: 5.1.1
@@ -7454,13 +7437,13 @@ snapshots:
 
   contentful-export@7.22.0:
     dependencies:
-      axios: 1.13.2
+      axios: 1.13.6
       bfj: 8.0.0
       bluebird: 3.7.2
       cli-table3: 0.6.5
       contentful: 11.10.5
       contentful-batch-libs: 9.7.0
-      contentful-management: 11.68.0
+      contentful-management: 11.73.0
       date-fns: 4.1.0
       figures: 3.2.0
       jsonwebtoken: 9.0.3
@@ -7482,7 +7465,7 @@ snapshots:
       bluebird: 3.7.2
       cli-table3: 0.6.5
       contentful-batch-libs: 9.7.0
-      contentful-management: 11.68.0
+      contentful-management: 11.73.0
       date-fns: 2.30.0
       eslint: 8.57.1
       eslint-config-standard: 17.1.0(eslint-plugin-import@2.32.0(eslint@8.57.1))(eslint-plugin-n@16.6.2(eslint@8.57.1))(eslint-plugin-promise@6.6.0(eslint@8.57.1))(eslint@8.57.1)
@@ -7502,11 +7485,11 @@ snapshots:
       - zen-observable
       - zenObservable
 
-  contentful-management@11.68.0:
+  contentful-management@11.73.0:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.13.2
-      contentful-sdk-core: 9.4.1
+      axios: 1.13.6
+      contentful-sdk-core: 9.4.4
       fast-copy: 3.0.2
       globals: 15.15.0
     transitivePeerDependencies:
@@ -7520,7 +7503,7 @@ snapshots:
       callsites: 3.1.0
       cardinal: 2.1.1
       chalk: 4.1.2
-      contentful-management: 11.68.0
+      contentful-management: 11.73.0
       didyoumean2: 7.0.4
       https-proxy-agent: 5.0.1
       inquirer: 8.2.7(@types/node@24.10.9)
@@ -7548,15 +7531,6 @@ snapshots:
       lodash.isstring: 4.0.1
       p-throttle: 4.1.1
       qs: 6.15.0
-
-  contentful-sdk-core@9.4.1:
-    dependencies:
-      fast-copy: 3.0.2
-      lodash: 4.17.23
-      process: 0.11.10
-      qs: 6.14.1
-    optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.56.0
 
   contentful-sdk-core@9.4.4:
     dependencies:
@@ -10242,10 +10216,6 @@ snapshots:
   proxy-from-env@1.1.0: {}
 
   punycode@2.3.1: {}
-
-  qs@6.14.1:
-    dependencies:
-      side-channel: 1.1.0
 
   qs@6.15.0:
     dependencies:
