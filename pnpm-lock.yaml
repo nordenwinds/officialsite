@@ -62,7 +62,7 @@ importers:
         version: 1.2.2(hono@4.11.10)(zod@4.3.6)
       '@slack/types':
         specifier: ^2.14.0
-        version: 2.19.0
+        version: 2.20.0
       '@slack/webhook':
         specifier: ^7.0.4
         version: 7.0.7
@@ -1343,8 +1343,8 @@ packages:
     resolution: {integrity: sha512-P1Cz1dWaFfR4IR+U13mqqiGsLFf1KbayybWwdd2vfctdV6hDpUkgCY0nKOLLTMSoRd/jJNjtbqzf13K8DCCXQw==}
     engines: {node: '>=18'}
 
-  '@slack/types@2.19.0':
-    resolution: {integrity: sha512-7+QZ38HGcNh/b/7MpvPG6jnw7mliV6UmrquJLqgdxkzJgQEYUcEztvFWRU49z0x4vthF0ixL5lTK601AXrS8IA==}
+  '@slack/types@2.20.0':
+    resolution: {integrity: sha512-PVF6P6nxzDMrzPC8fSCsnwaI+kF8YfEpxf3MqXmdyjyWTYsZQURpkK7WWUWvP5QpH55pB7zyYL9Qem/xSgc5VA==}
     engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
 
   '@slack/webhook@7.0.7':
@@ -6491,11 +6491,11 @@ snapshots:
 
   '@sindresorhus/is@7.2.0': {}
 
-  '@slack/types@2.19.0': {}
+  '@slack/types@2.20.0': {}
 
   '@slack/webhook@7.0.7':
     dependencies:
-      '@slack/types': 2.19.0
+      '@slack/types': 2.20.0
       '@types/node': 25.3.2
       axios: 1.13.6
     transitivePeerDependencies:
