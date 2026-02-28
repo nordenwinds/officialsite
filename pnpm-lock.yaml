@@ -116,7 +116,7 @@ importers:
         version: 5.18.0(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.54.0)(typescript@5.9.3)(yaml@2.8.2)
       contentful:
         specifier: ^11.4.4
-        version: 11.10.2
+        version: 11.10.5
       openapi-fetch:
         specifier: ^0.15.0
         version: 0.15.0
@@ -1265,6 +1265,12 @@ packages:
     os: [linux]
     libc: [glibc]
 
+  '@rollup/rollup-linux-x64-gnu@4.59.0':
+    resolution: {integrity: sha512-3AHmtQq/ppNuUspKAlvA8HtLybkDflkMuLK4DPo77DfthRb71V84/c4MlWJXixZz4uruIH4uaa07IqoAkG64fg==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
   '@rollup/rollup-linux-x64-musl@4.54.0':
     resolution: {integrity: sha512-JzQmb38ATzHjxlPHuTH6tE7ojnMKM2kYNzt44LO/jJi8BpceEC8QuXYA908n8r3CNuG/B3BV8VR3Hi1rYtmPiw==}
     cpu: [x64]
@@ -1776,6 +1782,9 @@ packages:
   axios@1.13.2:
     resolution: {integrity: sha512-VPk9ebNqPcy5lRGuSlKx752IlDatOjT9paPlm8A7yOuW2Fbvp4X3JznJtT4f0GzGLLiWE9W8onz51SqLYwzGaA==}
 
+  axios@1.13.6:
+    resolution: {integrity: sha512-ChTCHMouEe2kn713WHbQGcuYrr6fXTBiu460OTwWrWob16g1bXn4vtz07Ope7ewMozJAnEquLk5lWQWtBig9DQ==}
+
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
     engines: {node: '>= 0.4'}
@@ -2137,8 +2146,8 @@ packages:
     engines: {node: '>=8.0.0'}
     hasBin: true
 
-  contentful-resolve-response@1.9.5:
-    resolution: {integrity: sha512-1l0iG5avoi+Hy1GVQ7ELoG9MWdbCVJDlOVnLCB0B/6YDQNuD4qAU7EejRki6+skX/Eqswq1KSjqgd51uah3YDA==}
+  contentful-resolve-response@1.9.6:
+    resolution: {integrity: sha512-ymXze1OM0Yc7azlK244CU/1qR1FQBvb5hS5i6WRscuLkGBgOIXU/1SLSr9YP++XFs7wejSPQeSg8X1B4V8Fo0Q==}
     engines: {node: '>=4.7.2'}
 
   contentful-sdk-core@8.3.2:
@@ -2149,12 +2158,16 @@ packages:
     resolution: {integrity: sha512-l/DRjiabawlX4fb5WZoClWZfNynSNeN/+xnP5qaNAxnBZYtDMXQcEvRDKb4S7qn7aBehNWKhhajnidbBL8n7HA==}
     engines: {node: '>=18'}
 
+  contentful-sdk-core@9.4.4:
+    resolution: {integrity: sha512-61MfMyMU23dqCEOTHaHGys16tK2D0tbDe67GPcl6JkfbCcnhtmgTMLUbBnimW5wQse1mNmwS7lK2BNsz+rlFjA==}
+    engines: {node: '>=18'}
+
   contentful@10.15.1:
     resolution: {integrity: sha512-vPgQvpzqWHauroXrhPOW03iz/ZVqZrv6BX2Fk/vMOlMMB7a+zrhUWAuUjY9WFDVMRcAwPhZF2Lvey6Nvyyd6sQ==}
     engines: {node: '>=18'}
 
-  contentful@11.10.2:
-    resolution: {integrity: sha512-D9AXzT/dntrBMRYYAp9/hHNCIcBf6/vqZEimBZrXzaeOr+kgLoilhnx/awWJJpbfB9/d1R2eXJ5l5TCFaPK7eQ==}
+  contentful@11.10.5:
+    resolution: {integrity: sha512-5VtIrJ7X6209Yn25PfFRSz51eAtKJtxXSMSYG8loNMYVd+1lfAFRcw+dMVgnOQLv/TmYRSh1KKjtbwxlzHBm4g==}
     engines: {node: '>=18'}
 
   cookie-es@1.2.2:
@@ -4245,6 +4258,10 @@ packages:
 
   qs@6.14.1:
     resolution: {integrity: sha512-4EK3+xJl8Ts67nLYNwqw/dsFVnCf+qR7RgXSK9jEEm9unao3njwMDdmsdvoKBKHzxd7tCYz5e5M+SnMjdtXGQQ==}
+    engines: {node: '>=0.6'}
+
+  qs@6.15.0:
+    resolution: {integrity: sha512-mAZTtNCeetKMH+pSjrb76NAM8V9a05I9aBZOHztWy/UqcJdQYNsf59vrRKWnojAT9Y+GbIvoTBC++CPHqpDBhQ==}
     engines: {node: '>=0.6'}
 
   queue-microtask@1.2.3:
@@ -6409,6 +6426,9 @@ snapshots:
   '@rollup/rollup-linux-x64-gnu@4.56.0':
     optional: true
 
+  '@rollup/rollup-linux-x64-gnu@4.59.0':
+    optional: true
+
   '@rollup/rollup-linux-x64-musl@4.54.0':
     optional: true
 
@@ -7006,6 +7026,14 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  axios@1.13.6:
+    dependencies:
+      follow-redirects: 1.15.11
+      form-data: 4.0.5
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
+
   axobject-query@4.1.0: {}
 
   bail@2.0.2: {}
@@ -7430,7 +7458,7 @@ snapshots:
       bfj: 8.0.0
       bluebird: 3.7.2
       cli-table3: 0.6.5
-      contentful: 11.10.2
+      contentful: 11.10.5
       contentful-batch-libs: 9.7.0
       contentful-management: 11.68.0
       date-fns: 4.1.0
@@ -7509,7 +7537,7 @@ snapshots:
       - enquirer
       - supports-color
 
-  contentful-resolve-response@1.9.5:
+  contentful-resolve-response@1.9.6:
     dependencies:
       fast-copy: 3.0.2
 
@@ -7519,7 +7547,7 @@ snapshots:
       lodash.isplainobject: 4.0.6
       lodash.isstring: 4.0.1
       p-throttle: 4.1.1
-      qs: 6.14.1
+      qs: 6.15.0
 
   contentful-sdk-core@9.4.1:
     dependencies:
@@ -7530,25 +7558,34 @@ snapshots:
     optionalDependencies:
       '@rollup/rollup-linux-x64-gnu': 4.56.0
 
+  contentful-sdk-core@9.4.4:
+    dependencies:
+      fast-copy: 3.0.2
+      lodash: 4.17.23
+      process: 0.11.10
+      qs: 6.15.0
+    optionalDependencies:
+      '@rollup/rollup-linux-x64-gnu': 4.59.0
+
   contentful@10.15.1:
     dependencies:
       '@contentful/content-source-maps': 0.11.44
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.13.2
-      contentful-resolve-response: 1.9.5
+      axios: 1.13.6
+      contentful-resolve-response: 1.9.6
       contentful-sdk-core: 8.3.2
       json-stringify-safe: 5.0.1
       type-fest: 4.41.0
     transitivePeerDependencies:
       - debug
 
-  contentful@11.10.2:
+  contentful@11.10.5:
     dependencies:
       '@contentful/content-source-maps': 0.11.44
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.13.2
-      contentful-resolve-response: 1.9.5
-      contentful-sdk-core: 9.4.1
+      axios: 1.13.6
+      contentful-resolve-response: 1.9.6
+      contentful-sdk-core: 9.4.4
       json-stringify-safe: 5.0.1
       tslib: 2.8.1
       type-fest: 4.41.0
@@ -10207,6 +10244,10 @@ snapshots:
   punycode@2.3.1: {}
 
   qs@6.14.1:
+    dependencies:
+      side-channel: 1.1.0
+
+  qs@6.15.0:
     dependencies:
       side-channel: 1.1.0
 
