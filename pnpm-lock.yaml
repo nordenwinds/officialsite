@@ -116,7 +116,7 @@ importers:
         version: 5.18.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.54.0)(typescript@5.9.3)(yaml@2.8.2)
       contentful:
         specifier: ^11.4.4
-        version: 11.10.6
+        version: 11.10.7
       openapi-fetch:
         specifier: ^0.17.0
         version: 0.17.0
@@ -2141,8 +2141,8 @@ packages:
     engines: {node: '>=8.0.0'}
     hasBin: true
 
-  contentful-resolve-response@1.9.6:
-    resolution: {integrity: sha512-ymXze1OM0Yc7azlK244CU/1qR1FQBvb5hS5i6WRscuLkGBgOIXU/1SLSr9YP++XFs7wejSPQeSg8X1B4V8Fo0Q==}
+  contentful-resolve-response@1.9.7:
+    resolution: {integrity: sha512-E4V5fj0y7GZ9lHQnYy/9Mff7t7jbkiF9ixclb16nygRFH72u3PEnfBJPceZIKRDCJMLXIQDgx3c7416YcpYczg==}
     engines: {node: '>=4.7.2'}
 
   contentful-sdk-core@8.3.2:
@@ -2153,12 +2153,16 @@ packages:
     resolution: {integrity: sha512-61MfMyMU23dqCEOTHaHGys16tK2D0tbDe67GPcl6JkfbCcnhtmgTMLUbBnimW5wQse1mNmwS7lK2BNsz+rlFjA==}
     engines: {node: '>=18'}
 
+  contentful-sdk-core@9.4.5:
+    resolution: {integrity: sha512-8eGTMO11LXFAiosaiV38bjvW6cjoQFtNE38pNtVilZTXpmGFinClljihH0eriv11Ispd4q82TqtsXMJPYD/C+A==}
+    engines: {node: '>=18'}
+
   contentful@10.15.1:
     resolution: {integrity: sha512-vPgQvpzqWHauroXrhPOW03iz/ZVqZrv6BX2Fk/vMOlMMB7a+zrhUWAuUjY9WFDVMRcAwPhZF2Lvey6Nvyyd6sQ==}
     engines: {node: '>=18'}
 
-  contentful@11.10.6:
-    resolution: {integrity: sha512-HsmxfdYt0ZD23VzhPFWe8JBQiIkPQpLGYSUnhCtSL7xW6qXfNVm9FwJF2ZJ+IfIpcVo+8fBGDZKJaj/qZbVDrw==}
+  contentful@11.10.7:
+    resolution: {integrity: sha512-9GFccrR6ELvsW6/G9thbFJ0Vkg9HuwbTO50WKaRekBu9z5BAt/s955y6aFdnFrwpT3r0C2M9nFtOrp1EBKQdkw==}
     engines: {node: '>=18'}
 
   cookie-es@1.2.2:
@@ -7429,7 +7433,7 @@ snapshots:
       bfj: 8.0.0
       bluebird: 3.7.2
       cli-table3: 0.6.5
-      contentful: 11.10.6
+      contentful: 11.10.7
       contentful-batch-libs: 9.7.0
       contentful-management: 11.74.0
       date-fns: 4.1.0
@@ -7453,7 +7457,7 @@ snapshots:
       bfj: 9.1.3
       bluebird: 3.7.2
       cli-table3: 0.6.5
-      contentful: 11.10.6
+      contentful: 11.10.7
       contentful-batch-libs: 10.1.5
       contentful-management: 11.74.0
       date-fns: 4.1.0
@@ -7532,7 +7536,7 @@ snapshots:
       - enquirer
       - supports-color
 
-  contentful-resolve-response@1.9.6:
+  contentful-resolve-response@1.9.7:
     dependencies:
       fast-copy: 3.0.2
 
@@ -7553,25 +7557,34 @@ snapshots:
     optionalDependencies:
       '@rollup/rollup-linux-x64-gnu': 4.59.0
 
+  contentful-sdk-core@9.4.5:
+    dependencies:
+      fast-copy: 3.0.2
+      lodash: 4.17.23
+      process: 0.11.10
+      qs: 6.15.0
+    optionalDependencies:
+      '@rollup/rollup-linux-x64-gnu': 4.59.0
+
   contentful@10.15.1:
     dependencies:
       '@contentful/content-source-maps': 0.11.44
       '@contentful/rich-text-types': 16.8.5
       axios: 1.13.6
-      contentful-resolve-response: 1.9.6
+      contentful-resolve-response: 1.9.7
       contentful-sdk-core: 8.3.2
       json-stringify-safe: 5.0.1
       type-fest: 4.41.0
     transitivePeerDependencies:
       - debug
 
-  contentful@11.10.6:
+  contentful@11.10.7:
     dependencies:
       '@contentful/content-source-maps': 0.11.44
       '@contentful/rich-text-types': 16.8.5
       axios: 1.13.6
-      contentful-resolve-response: 1.9.6
-      contentful-sdk-core: 9.4.4
+      contentful-resolve-response: 1.9.7
+      contentful-sdk-core: 9.4.5
       json-stringify-safe: 5.0.1
       tslib: 2.8.1
       type-fest: 4.41.0
