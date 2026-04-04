@@ -6,7 +6,7 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "typegen:contentful": "cf-content-types-generator --v10 --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
+    "typegen:contentful": "cf-content-types-generator --typeguard --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN --environment $CONTENTFUL_ENV --out src/types/contentful",
     "typegen:api": "openapi-typescript ${API_BASE_URL:-http://localhost:8080/v1}/openapi.json -o src/types/api/v1.d.ts",
     "typegen": "pnpm typegen:contentful && pnpm typegen:api",
     "check": "astro check && tsc --noEmit",
@@ -33,7 +33,7 @@
     "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
-    "cf-content-types-generator": "^2.15.5",
+    "cf-content-types-generator": "^3.0.0",
     "openapi-typescript": "^7.5.2"
   }
 }
