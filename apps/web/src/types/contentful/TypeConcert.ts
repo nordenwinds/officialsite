@@ -14,6 +14,7 @@ export interface TypeConcertFields {
 export type TypeConcertSkeleton = EntrySkeletonType<TypeConcertFields, "concert">;
 export type TypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode = LocaleCode> = Entry<TypeConcertSkeleton, Modifiers, Locales>;
 
-export function isTypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: Entry<EntrySkeletonType, Modifiers, Locales>): entry is TypeConcert<Modifiers, Locales> {
-    return entry.sys.contentType.sys.id === 'concert'
+export function isTypeConcert<Modifiers extends ChainModifiers, Locales extends LocaleCode>(entry: unknown): entry is TypeConcert<Modifiers, Locales> {
+    const candidate = entry as { sys?: { contentType?: { sys?: { id?: string } } } };
+    return candidate.sys?.contentType?.sys?.id === 'concert'
 }
