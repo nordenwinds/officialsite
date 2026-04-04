@@ -33,7 +33,7 @@
     "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
-    "cf-content-types-generator": "^2.15.5",
+    "cf-content-types-generator": "^3.0.0",
     "openapi-typescript": "^7.5.2"
   }
 }
