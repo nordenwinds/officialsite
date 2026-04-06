@@ -43,7 +43,7 @@ importers:
         version: 1.0.0-rc.52(@opentelemetry/api@1.9.0)
       hono:
         specifier: ^4.6.18
-        version: 4.12.10
+        version: 4.12.11
       uuid:
         specifier: ^13.0.0
         version: 13.0.0
@@ -56,10 +56,10 @@ importers:
         version: 4.20260405.1
       '@hono/swagger-ui':
         specifier: ^0.6.0
-        version: 0.6.1(hono@4.12.10)
+        version: 0.6.1(hono@4.12.11)
       '@hono/zod-openapi':
         specifier: ^1.0.0
-        version: 1.2.4(hono@4.12.10)(zod@4.3.6)
+        version: 1.2.4(hono@4.12.11)(zod@4.3.6)
       '@slack/types':
         specifier: ^2.14.0
         version: 2.20.1
@@ -2762,8 +2762,8 @@ packages:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
 
-  hono@4.12.10:
-    resolution: {integrity: sha512-mx/p18PLy5og9ufies2GOSUqep98Td9q4i/EF6X7yJgAiIopxqdfIO3jbqsi3jRgTgw88jMDEzVKi+V2EF+27w==}
+  hono@4.12.11:
+    resolution: {integrity: sha512-r4xbIa3mGGGoH9nN4A14DOg2wx7y2oQyJEb5O57C/xzETG/qx4c7CVDQ5WMeKHZ7ORk2W0hZ/sQKXTav3cmYBA==}
     engines: {node: '>=16.9.0'}
 
   hoopy@0.1.4:
@@ -5608,21 +5608,21 @@ snapshots:
     dependencies:
       '@hapi/hoek': 11.0.7
 
-  '@hono/swagger-ui@0.6.1(hono@4.12.10)':
+  '@hono/swagger-ui@0.6.1(hono@4.12.11)':
     dependencies:
-      hono: 4.12.10
+      hono: 4.12.11
 
-  '@hono/zod-openapi@1.2.4(hono@4.12.10)(zod@4.3.6)':
+  '@hono/zod-openapi@1.2.4(hono@4.12.11)(zod@4.3.6)':
     dependencies:
       '@asteasolutions/zod-to-openapi': 8.5.0(zod@4.3.6)
-      '@hono/zod-validator': 0.7.6(hono@4.12.10)(zod@4.3.6)
-      hono: 4.12.10
+      '@hono/zod-validator': 0.7.6(hono@4.12.11)(zod@4.3.6)
+      hono: 4.12.11
       openapi3-ts: 4.5.0
       zod: 4.3.6
 
-  '@hono/zod-validator@0.7.6(hono@4.12.10)(zod@4.3.6)':
+  '@hono/zod-validator@0.7.6(hono@4.12.11)(zod@4.3.6)':
     dependencies:
-      hono: 4.12.10
+      hono: 4.12.11
       zod: 4.3.6
 
   '@humanwhocodes/config-array@0.13.0':
@@ -8212,7 +8212,7 @@ snapshots:
     dependencies:
       parse-passwd: 1.0.0
 
-  hono@4.12.10: {}
+  hono@4.12.11: {}
 
   hoopy@0.1.4: {}
 
