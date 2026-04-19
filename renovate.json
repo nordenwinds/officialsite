@@ -3,7 +3,8 @@
   "extends": ["config:recommended"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor"],
+      "minimumReleaseAge": "7 days",
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
   ],
