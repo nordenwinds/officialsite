@@ -15,6 +15,6 @@
     "contentful-cli": "^4.0.0",
     "contentful-management": "^11.50.1",
     "contentful-migration": "^4.27.0",
-    "typescript": "^5.7.3"
+    "typescript": "^6.0.0"
   }
 }
