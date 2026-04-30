@@ -24,8 +24,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(@types/node@24.12.2)
       contentful-management:
-        specifier: ^11.50.1
-        version: 11.76.0
+        specifier: ^12.0.0
+        version: 12.3.2
       contentful-migration:
         specifier: ^4.27.0
         version: 4.32.0(@types/node@24.12.2)
