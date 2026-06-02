@@ -24,8 +24,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1(@types/node@24.12.4)
       contentful-management:
-        specifier: ^11.50.1
-        version: 11.76.0
+        specifier: ^12.0.0
+        version: 12.3.2
       contentful-migration:
         specifier: ^5.0.0
         version: 5.0.0(@types/node@24.12.4)
@@ -5935,12 +5935,13 @@ snapshots:
   contentful-management@11.76.0:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.15.2
+      axios: 1.16.1
       contentful-sdk-core: 9.4.5
       fast-copy: 3.0.2
       globals: 15.15.0
     transitivePeerDependencies:
       - debug
+      - supports-color
 
   contentful-management@12.3.2:
     dependencies:
