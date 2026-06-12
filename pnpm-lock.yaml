@@ -22,7 +22,7 @@ importers:
         version: 24.13.0
       contentful-cli:
         specifier: ^4.0.0
-        version: 4.0.1(@types/node@24.13.0)
+        version: 4.0.2(@types/node@24.13.0)
       contentful-management:
         specifier: ^11.50.1
         version: 11.76.0
@@ -77,7 +77,7 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: 0.9.9
-        version: 0.9.9(prettier@3.8.3)(typescript@5.9.3)
+        version: 0.9.9(prettier@3.8.4)(typescript@5.9.3)
       '@astrojs/mdx':
         specifier: 5.0.6
         version: 5.0.6(astro@6.4.4(@types/node@25.9.3)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.54.0)(yaml@2.9.0))
@@ -219,6 +219,10 @@ packages:
 
   '@babel/runtime@7.29.2':
     resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.29.7':
+    resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.29.0':
@@ -572,8 +576,8 @@ packages:
   '@hapi/pinpoint@2.0.1':
     resolution: {integrity: sha512-EKQmr16tM8s16vTT3cA5L0kZZcTMU5DUOZTuvpnY738m+jyP3JIUj+Mm1xc1rsLkGBQ/gVnfKYPwOmPg1tUR4Q==}
 
-  '@hapi/tlds@1.1.6':
-    resolution: {integrity: sha512-xdi7A/4NZokvV0ewovme3aUO5kQhW9pQ2YD1hRqZGhhSi5rBv4usHYidVocXSi9eihYsznZxLtAiEYYUL6VBGw==}
+  '@hapi/tlds@1.1.7':
+    resolution: {integrity: sha512-MgNjRwy9Ti92yVAixLmDc8dd1bJIKwO9qlWCfFQRwRmUEDPQHYn4G6hwPFvFGUTzAa0FsS+inMjLin7GnyBRhA==}
     engines: {node: '>=14.0.0'}
 
   '@hapi/topo@5.1.0':
@@ -1770,8 +1774,8 @@ packages:
     resolution: {integrity: sha512-nNAycOJIvo2arHbXIgsF1I8xXXJtnTooGJaHwfamFeuXbyp1q5NlNbHYGqWVR5vQjLJsuk48VExLbpa26T9C9g==}
     engines: {node: '>=18'}
 
-  contentful-cli@4.0.1:
-    resolution: {integrity: sha512-Yiad5A3Iupmpd6+5r/ZNUWE8ERk1+OM14doxXZqODmIX9q/2w9xgq66ZvEKOBo5XTiftei1aHADYWXb4zwM8xw==}
+  contentful-cli@4.0.2:
+    resolution: {integrity: sha512-w1CtqZNWC0CcUWqnXr/6W3eERHcmDeVXjbsJ/3rISGYMGnXEsRig7MdtxYwHVKYIVQgJxf12TSLDPhRzfwm9Qg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -1783,8 +1787,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  contentful-export@8.0.0:
-    resolution: {integrity: sha512-wYGY3B1Ly91ecNU+dFEDzkYcSqY0OnSVFOgrJWsOH/9dIT2Lm9vFwLJTM9qESsd3d8a3sCAonE56UgRqmSKbYg==}
+  contentful-export@8.0.1:
+    resolution: {integrity: sha512-y90SRq06KT6TfxakhjGnLR2x30RoxWLtEFxeSlZBTO9Sy3sv6rwRlkqFKlrn0yM3KgzZUynFSeyrVewQG6IcPw==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -1799,6 +1803,10 @@ packages:
 
   contentful-management@12.3.2:
     resolution: {integrity: sha512-HyajRHdfJ3RIsyRZlbv/EJ+2K9w5VNdskP42KTLKSijnkRIZh/SMq06AT0wuVtt2IYj5JiS6lr0ZhfpV828tqQ==}
+    engines: {node: '>=20'}
+
+  contentful-management@12.5.1:
+    resolution: {integrity: sha512-na2GEX2a2KJEEXm+10kWHwA5WT0Iz9F+B/ycWzMBbG1Q/Q5mUiaB/TiABS4np4UOiSO/AxO6+xqlgGIpdsAkdg==}
     engines: {node: '>=20'}
 
   contentful-migration@5.0.0:
@@ -1816,6 +1824,10 @@ packages:
 
   contentful@11.12.4:
     resolution: {integrity: sha512-EoT29gxUIVP8FrQ+XdREmpJA6PJ8UgiNqSmK4H6KrVWiltRyw82mGLwJ9hHdKVC1f5pzqgRZz7d3t2BG1r+cJw==}
+    engines: {node: '>=18'}
+
+  contentful@11.12.5:
+    resolution: {integrity: sha512-uL9KgnGISgkSLSYSYpB9AFV2DtosC/m9M3W8QfZ3qEMYdIGwMMXqsuSLrm8ik7PAwOOocuv+DvaOF8FF0PB3IQ==}
     engines: {node: '>=18'}
 
   cookie-es@1.2.3:
@@ -1868,6 +1880,9 @@ packages:
 
   date-fns@4.1.0:
     resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
+
+  date-fns@4.4.0:
+    resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -2203,8 +2218,8 @@ packages:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  get-east-asian-width@1.5.0:
-    resolution: {integrity: sha512-CQ+bEO+Tva/qlmw24dCejulK5pMzVnUOFOijVogd3KQs07HnRIgp8TGipvCCRT06xeYEbpbgwaCxglFyiuIcmA==}
+  get-east-asian-width@1.6.0:
+    resolution: {integrity: sha512-QRbvDIbx6YklUe6RxeTeleMR0yv3cYH6PsPZHcnVn7xv7zO1BHN8r0XETu8n6Ye3Q+ahtSarc3WgtNWmehIBfA==}
     engines: {node: '>=18'}
 
   get-intrinsic@1.3.0:
@@ -3232,8 +3247,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.8.3:
-    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+  prettier@3.8.4:
+    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3438,6 +3453,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.8.4:
+    resolution: {integrity: sha512-rUCObTnP32Q08R2uuIrt7r9PlEonuTmtuXYcW6s5kjdlj3xbnwe+21yXptAUYcMAABLkYYTtnmzb3w3EDZfueA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
 
@@ -3622,8 +3642,8 @@ packages:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
 
-  tar@7.5.13:
-    resolution: {integrity: sha512-tOG/7GyXpFevhXVh8jOPJrmtRpOTsYqUIkVdVooZYJS/z8WhfQUX8RJILmeuJNinGAMSu1veBr4asSHFt5/hng==}
+  tar@7.5.16:
+    resolution: {integrity: sha512-56adEpPMouktRlBLXiaYFFzZ/3+JXa8P9n7WbR+ibIjtviN55mEaOkiysCnPnWm+7kkui1Dn8J9l+g6zV8731w==}
     engines: {node: '>=18'}
 
   thenify-all@1.6.0:
@@ -4190,9 +4210,9 @@ snapshots:
       openapi3-ts: 4.5.0
       zod: 4.4.3
 
-  '@astrojs/check@0.9.9(prettier@3.8.3)(typescript@5.9.3)':
+  '@astrojs/check@0.9.9(prettier@3.8.4)(typescript@5.9.3)':
     dependencies:
-      '@astrojs/language-server': 2.16.7(prettier@3.8.3)(typescript@5.9.3)
+      '@astrojs/language-server': 2.16.7(prettier@3.8.4)(typescript@5.9.3)
       chokidar: 4.0.3
       kleur: 4.1.5
       typescript: 5.9.3
@@ -4220,7 +4240,7 @@ snapshots:
     dependencies:
       picomatch: 4.0.4
 
-  '@astrojs/language-server@2.16.7(prettier@3.8.3)(typescript@5.9.3)':
+  '@astrojs/language-server@2.16.7(prettier@3.8.4)(typescript@5.9.3)':
     dependencies:
       '@astrojs/compiler': 2.13.1
       '@astrojs/yaml2ts': 0.2.3
@@ -4234,14 +4254,14 @@ snapshots:
       volar-service-css: 0.0.70(@volar/language-service@2.4.28)
       volar-service-emmet: 0.0.70(@volar/language-service@2.4.28)
       volar-service-html: 0.0.70(@volar/language-service@2.4.28)
-      volar-service-prettier: 0.0.70(@volar/language-service@2.4.28)(prettier@3.8.3)
+      volar-service-prettier: 0.0.70(@volar/language-service@2.4.28)(prettier@3.8.4)
       volar-service-typescript: 0.0.70(@volar/language-service@2.4.28)
       volar-service-typescript-twoslash-queries: 0.0.70(@volar/language-service@2.4.28)
       volar-service-yaml: 0.0.70(@volar/language-service@2.4.28)
       vscode-html-languageservice: 5.6.2
       vscode-uri: 3.1.0
     optionalDependencies:
-      prettier: 3.8.3
+      prettier: 3.8.4
     transitivePeerDependencies:
       - typescript
 
@@ -4369,6 +4389,8 @@ snapshots:
       '@babel/types': 7.29.0
 
   '@babel/runtime@7.29.2': {}
+
+  '@babel/runtime@7.29.7': {}
 
   '@babel/types@7.29.0':
     dependencies:
@@ -4599,7 +4621,7 @@ snapshots:
 
   '@hapi/pinpoint@2.0.1': {}
 
-  '@hapi/tlds@1.1.6': {}
+  '@hapi/tlds@1.1.7': {}
 
   '@hapi/topo@5.1.0':
     dependencies:
@@ -5833,7 +5855,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  contentful-cli@4.0.1(@types/node@24.13.0):
+  contentful-cli@4.0.2(@types/node@24.13.0):
     dependencies:
       '@contentful/app-action-utils': 1.4.1
       ast-types: 0.14.2
@@ -5846,9 +5868,9 @@ snapshots:
       command-exists: 1.2.9
       contentful-batch-libs: 11.0.0
       contentful-collection: 0.0.4
-      contentful-export: 8.0.0
+      contentful-export: 8.0.1
       contentful-import: 10.0.0
-      contentful-management: 12.3.2
+      contentful-management: 12.5.1
       contentful-migration: 5.0.0(@types/node@24.13.0)
       emojic: 1.1.18
       execa: 5.1.1
@@ -5870,7 +5892,7 @@ snapshots:
       recast: 0.23.11
       rxjs: 7.8.2
       shell-escape: 0.2.0
-      tar: 7.5.13
+      tar: 7.5.16
       to-ast: 1.0.0
       tree-kill: 1.2.2
       typescript: 5.9.3
@@ -5910,16 +5932,16 @@ snapshots:
       - zen-observable
       - zenObservable
 
-  contentful-export@8.0.0:
+  contentful-export@8.0.1:
     dependencies:
       axios: 1.17.0
       bfj: 9.1.3
       bluebird: 3.7.2
       cli-table3: 0.6.5
-      contentful: 11.12.4
-      contentful-batch-libs: 10.1.6
-      contentful-management: 12.3.2
-      date-fns: 4.1.0
+      contentful: 11.12.5
+      contentful-batch-libs: 11.0.0
+      contentful-management: 12.5.1
+      date-fns: 4.4.0
       figures: 3.2.0
       jsonwebtoken: 9.0.3
       listr: 0.14.3
@@ -5940,7 +5962,7 @@ snapshots:
       bluebird: 3.7.2
       cli-table3: 0.6.5
       contentful-batch-libs: 9.7.0
-      contentful-management: 12.3.2
+      contentful-management: 12.5.1
       date-fns: 2.30.0
       joi: 18.2.1
       listr: 0.14.3
@@ -5966,6 +5988,18 @@ snapshots:
       - debug
 
   contentful-management@12.3.2:
+    dependencies:
+      '@contentful/rich-text-types': 16.8.5
+      axios: 1.17.0
+      contentful-sdk-core: 9.4.5
+      fast-copy: 3.0.2
+      globals: 15.15.0
+      process: 0.11.10
+    transitivePeerDependencies:
+      - debug
+      - supports-color
+
+  contentful-management@12.5.1:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
       axios: 1.17.0
@@ -6029,6 +6063,20 @@ snapshots:
       - debug
       - supports-color
 
+  contentful@11.12.5:
+    dependencies:
+      '@contentful/content-source-maps': 0.11.44
+      '@contentful/rich-text-types': 16.8.5
+      axios: 1.17.0
+      contentful-resolve-response: 1.9.9
+      contentful-sdk-core: 9.4.5
+      json-stringify-safe: 5.0.1
+      tslib: 2.8.1
+      type-fest: 4.41.0
+    transitivePeerDependencies:
+      - debug
+      - supports-color
+
   cookie-es@1.2.3: {}
 
   cookie@1.1.1: {}
@@ -6075,9 +6123,11 @@ snapshots:
 
   date-fns@2.30.0:
     dependencies:
-      '@babel/runtime': 7.29.2
+      '@babel/runtime': 7.29.7
 
   date-fns@4.1.0: {}
+
+  date-fns@4.4.0: {}
 
   debug@4.4.3:
     dependencies:
@@ -6433,7 +6483,7 @@ snapshots:
 
   get-caller-file@2.0.5: {}
 
-  get-east-asian-width@1.5.0: {}
+  get-east-asian-width@1.6.0: {}
 
   get-intrinsic@1.3.0:
     dependencies:
@@ -6817,7 +6867,7 @@ snapshots:
       '@hapi/formula': 3.0.2
       '@hapi/hoek': 11.0.7
       '@hapi/pinpoint': 2.0.1
-      '@hapi/tlds': 1.1.6
+      '@hapi/tlds': 1.1.7
       '@hapi/topo': 6.0.2
       '@standard-schema/spec': 1.1.0
 
@@ -6862,7 +6912,7 @@ snapshots:
       lodash.isstring: 4.0.1
       lodash.once: 4.1.1
       ms: 2.1.3
-      semver: 7.7.4
+      semver: 7.8.4
 
   jwa@2.0.1:
     dependencies:
@@ -7805,7 +7855,7 @@ snapshots:
 
   prettier@2.8.8: {}
 
-  prettier@3.8.3: {}
+  prettier@3.8.4: {}
 
   prismjs@1.30.0: {}
 
@@ -8102,6 +8152,8 @@ snapshots:
 
   semver@7.7.4: {}
 
+  semver@7.8.4: {}
+
   set-blocking@2.0.0: {}
 
   sharp@0.34.5:
@@ -8250,7 +8302,7 @@ snapshots:
   string-width@7.2.0:
     dependencies:
       emoji-regex: 10.6.0
-      get-east-asian-width: 1.5.0
+      get-east-asian-width: 1.6.0
       strip-ansi: 7.2.0
 
   string_decoder@1.1.1:
@@ -8330,7 +8382,7 @@ snapshots:
 
   tapable@2.3.3: {}
 
-  tar@7.5.13:
+  tar@7.5.16:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
@@ -8577,12 +8629,12 @@ snapshots:
     optionalDependencies:
       '@volar/language-service': 2.4.28
 
-  volar-service-prettier@0.0.70(@volar/language-service@2.4.28)(prettier@3.8.3):
+  volar-service-prettier@0.0.70(@volar/language-service@2.4.28)(prettier@3.8.4):
     dependencies:
       vscode-uri: 3.1.0
     optionalDependencies:
       '@volar/language-service': 2.4.28
-      prettier: 3.8.3
+      prettier: 3.8.4
 
   volar-service-typescript-twoslash-queries@0.0.70(@volar/language-service@2.4.28):
     dependencies:
@@ -8742,7 +8794,7 @@ snapshots:
       '@vscode/l10n': 0.0.18
       ajv: 8.18.0
       ajv-draft-04: 1.0.0(ajv@8.18.0)
-      prettier: 3.8.3
+      prettier: 3.8.4
       request-light: 0.5.8
       vscode-json-languageservice: 4.1.8
       vscode-languageserver: 9.0.1
