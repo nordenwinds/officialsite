@@ -15,7 +15,7 @@
     "serve": "pnpm run build && wrangler dev ./dist/index.js"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250124.3",
+    "@cloudflare/workers-types": "^5.0.0",
     "@hono/swagger-ui": "^0.6.0",
     "@hono/zod-openapi": "^1.0.0",
     "@slack/types": "^2.14.0",
