@@ -22,7 +22,7 @@ importers:
         version: 24.13.2
       contentful-cli:
         specifier: ^4.0.0
-        version: 4.0.3(@types/node@24.13.2)
+        version: 4.0.4(@types/node@24.13.2)
       contentful-management:
         specifier: ^11.50.1
         version: 11.76.0
@@ -2009,8 +2009,8 @@ packages:
     resolution: {integrity: sha512-nNAycOJIvo2arHbXIgsF1I8xXXJtnTooGJaHwfamFeuXbyp1q5NlNbHYGqWVR5vQjLJsuk48VExLbpa26T9C9g==}
     engines: {node: '>=18'}
 
-  contentful-cli@4.0.3:
-    resolution: {integrity: sha512-Ht1zFfDdZaXmW8pruMTE09j6zJW0X8FWgZUJ1BtK7Tvl/IQQ9Y9Jn1STqlaQh2FBAB1Wuhs1W037+myDlsdpfA==}
+  contentful-cli@4.0.4:
+    resolution: {integrity: sha512-pz8zhRKdAwTUel5c20PHgXqQyEN5PVw/Vfaw+P7ji9GXZk6N2i75DgRe/a4opXCiEsa10BYe38HX8Xfpsk3eWg==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -6253,7 +6253,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  contentful-cli@4.0.3(@types/node@24.13.2):
+  contentful-cli@4.0.4(@types/node@24.13.2):
     dependencies:
       '@contentful/app-action-utils': 1.4.1
       ast-types: 0.14.2
