@@ -40,7 +40,7 @@ importers:
         version: 1.0.0-rc.52(@opentelemetry/api@1.9.0)
       hono:
         specifier: ^4.6.18
-        version: 4.12.29
+        version: 4.12.30
       uuid:
         specifier: ^14.0.0
         version: 14.0.1
@@ -53,10 +53,10 @@ importers:
         version: 5.20260712.1
       '@hono/swagger-ui':
         specifier: ^0.6.0
-        version: 0.6.1(hono@4.12.29)
+        version: 0.6.1(hono@4.12.30)
       '@hono/zod-openapi':
         specifier: ^1.0.0
-        version: 1.4.0(hono@4.12.29)(zod@4.4.3)
+        version: 1.4.0(hono@4.12.30)(zod@4.4.3)
       '@slack/types':
         specifier: ^2.14.0
         version: 2.22.0
@@ -2553,8 +2553,8 @@ packages:
   highlight.js@10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
 
-  hono@4.12.29:
-    resolution: {integrity: sha512-1hNiRjawYrLq/4m3DQQjPGFg0VZkk4RjQJDff/excI6Dm9BiL75qxGrd7/c6YOxPdq6AscP3LiXhQ6fKFC1Waw==}
+  hono@4.12.30:
+    resolution: {integrity: sha512-emn+JoJjrN9YTpRDS5it/UI2SO9BAE37T6I3d963RxcZ81G9A4pr2SZTEiiaiKbzx+NKRg5BZ89fCL7gCJCUog==}
     engines: {node: '>=16.9.0'}
 
   hoopy@0.1.4:
@@ -4936,21 +4936,21 @@ snapshots:
     dependencies:
       '@hapi/hoek': 11.0.7
 
-  '@hono/swagger-ui@0.6.1(hono@4.12.29)':
+  '@hono/swagger-ui@0.6.1(hono@4.12.30)':
     dependencies:
-      hono: 4.12.29
+      hono: 4.12.30
 
-  '@hono/zod-openapi@1.4.0(hono@4.12.29)(zod@4.4.3)':
+  '@hono/zod-openapi@1.4.0(hono@4.12.30)(zod@4.4.3)':
     dependencies:
       '@asteasolutions/zod-to-openapi': 8.5.0(zod@4.4.3)
-      '@hono/zod-validator': 0.8.0(hono@4.12.29)(zod@4.4.3)
-      hono: 4.12.29
+      '@hono/zod-validator': 0.8.0(hono@4.12.30)(zod@4.4.3)
+      hono: 4.12.30
       openapi3-ts: 4.5.0
       zod: 4.4.3
 
-  '@hono/zod-validator@0.8.0(hono@4.12.29)(zod@4.4.3)':
+  '@hono/zod-validator@0.8.0(hono@4.12.30)(zod@4.4.3)':
     dependencies:
-      hono: 4.12.29
+      hono: 4.12.30
       zod: 4.4.3
 
   '@img/colour@1.0.0': {}
@@ -7050,7 +7050,7 @@ snapshots:
 
   highlight.js@10.7.3: {}
 
-  hono@4.12.29: {}
+  hono@4.12.30: {}
 
   hoopy@0.1.4: {}
 
