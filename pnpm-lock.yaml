@@ -61,8 +61,8 @@ importers:
         specifier: ^2.14.0
         version: 2.22.0
       '@slack/webhook':
-        specifier: ^7.0.4
-        version: 7.2.0
+        specifier: ^8.0.0
+        version: 8.0.0
       typescript:
         specifier: ^5.7.3
         version: 5.9.3
@@ -1349,9 +1349,13 @@ packages:
     resolution: {integrity: sha512-sZ9lIgJhPX2qft/tKWiklFlc0o1FWeI7QtciZJfW1+ErH1eGGHvOZ8e73sleTCFEFJp1q/R0WeS8Oa7AsiDprg==}
     engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
 
-  '@slack/webhook@7.2.0':
-    resolution: {integrity: sha512-iGL0S6NI9Bv/kg3FS0J5EaLF1kd7uw5pdrfndqz+h1yhgguiVpRL7ReJg9Cia5knS9hUSCRY5MTjeroBwxdKtw==}
-    engines: {node: '>= 18', npm: '>= 8.6.0'}
+  '@slack/types@3.0.0':
+    resolution: {integrity: sha512-KNOqpnNAlsFt5Jk9XBclslQ0lobRIg/0tnhpmvZJAglHJx9E8oceN8hC3gaBzkR6UzQ9Wzq4rLsJ98wUcxWPfw==}
+    engines: {node: '>= 20', npm: '>=9.6.4'}
+
+  '@slack/webhook@8.0.0':
+    resolution: {integrity: sha512-j3VhO6u1rZYDvY2LXDzymGQGHW4NqWLyKkOgrXeE20CsrI39j0E5gHuss+PgVDqSBx4OTUKccF/Vcm9ICC4S5w==}
+    engines: {node: '>= 20', npm: '>=9.6.4'}
 
   '@speed-highlight/core@1.2.17':
     resolution: {integrity: sha512-Z92FwKpCtfaW1V0jTU/fh3QzYEZN8wDwrzRIBoADCJfn4mJCNcJN/XegifX7BDrQ8/h9Xh/JnbyMchL0FqXrkg==}
@@ -5561,17 +5565,15 @@ snapshots:
 
   '@slack/types@2.22.0': {}
 
-  '@slack/webhook@7.2.0':
+  '@slack/types@3.0.0': {}
+
+  '@slack/webhook@8.0.0':
     dependencies:
-      '@slack/types': 2.22.0
-      '@types/node': 26.1.1
+      '@slack/types': 3.0.0
+      '@types/node': 24.13.3
       '@types/retry': 0.12.0
-      axios: 1.18.1
       p-retry: 4.6.2
       retry: 0.13.1
-    transitivePeerDependencies:
-      - debug
-      - supports-color
 
   '@speed-highlight/core@1.2.17': {}
 
@@ -5694,6 +5696,7 @@ snapshots:
   '@types/node@26.1.1':
     dependencies:
       undici-types: 8.3.0
+    optional: true
 
   '@types/retry@0.12.0': {}
 
@@ -8365,7 +8368,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 26.1.1
+      '@types/node': 24.13.3
       long: 5.3.2
 
   proxy-from-env@2.1.0: {}
@@ -8986,7 +8989,8 @@ snapshots:
 
   undici-types@7.18.2: {}
 
-  undici-types@8.3.0: {}
+  undici-types@8.3.0:
+    optional: true
 
   undici@7.28.0: {}
 
