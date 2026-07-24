@@ -24,8 +24,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.4(@types/node@24.13.3)
       contentful-management:
-        specifier: ^11.50.1
-        version: 11.76.0
+        specifier: ^12.0.0
+        version: 12.8.0
       contentful-migration:
         specifier: ^5.0.0
         version: 5.1.0(@types/node@24.13.3)
@@ -1706,9 +1706,6 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  axios@1.15.2:
-    resolution: {integrity: sha512-wLrXxPtcrPTsNlJmKjkPnNPK2Ihe0hn0wGSaTEiHRPxwjvJwT3hKmXF4dpqxmPO9SoNb2FsYXj/xEo0gHN+D5A==}
-
   axios@1.18.1:
     resolution: {integrity: sha512-3nTvFlvpn9Zu/RkHUqtc7/+al4UpRW5az71ap5zccp6e8RAYEzhMTecX8Dz1wWDYrPpUoB1HAQEGEAEvUr7S9g==}
 
@@ -2031,10 +2028,6 @@ packages:
   contentful-management@11.76.0:
     resolution: {integrity: sha512-KsqIZ65q1A6IP55sxTfuAMhBTNJfgGxlVZBoV2ghBuR1LaZZyTqway5vj9KHRDl/Z1uOQQsYSiz+FayMxBXXEw==}
     engines: {node: '>=18'}
-
-  contentful-management@12.3.2:
-    resolution: {integrity: sha512-HyajRHdfJ3RIsyRZlbv/EJ+2K9w5VNdskP42KTLKSijnkRIZh/SMq06AT0wuVtt2IYj5JiS6lr0ZhfpV828tqQ==}
-    engines: {node: '>=20'}
 
   contentful-management@12.8.0:
     resolution: {integrity: sha512-lARtEZYn2MYf80hz9nCYiLbJWvg95TTnOWmCZouMZtgNS1273dN27Vaz7weHQ3oSQuk7LeYXaXdGFhFPKlpilw==}
@@ -2424,10 +2417,6 @@ packages:
 
   foreach@2.0.6:
     resolution: {integrity: sha512-k6GAGDyqLe9JaebCsFCoudPPWfihKu8pylYXRlqP1J7ms39iPoTtk2fviNglIeQEwdh0bQeKJ01ZPyuyQvKzwg==}
-
-  form-data@4.0.5:
-    resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
-    engines: {node: '>= 6'}
 
   form-data@4.0.6:
     resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
@@ -5963,14 +5952,6 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios@1.15.2:
-    dependencies:
-      follow-redirects: 1.16.0
-      form-data: 4.0.5
-      proxy-from-env: 2.1.0
-    transitivePeerDependencies:
-      - debug
-
   axios@1.18.1:
     dependencies:
       follow-redirects: 1.16.0
@@ -6071,7 +6052,7 @@ snapshots:
       '@oclif/plugin-help': 6.2.41
       contentful: 11.12.7
       contentful-export: 7.22.5
-      contentful-management: 12.3.2
+      contentful-management: 12.8.0
       fs-extra: 11.3.4
       lodash: 4.17.23
       ts-morph: 27.0.2
@@ -6428,21 +6409,10 @@ snapshots:
   contentful-management@11.76.0:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.15.2
-      contentful-sdk-core: 9.4.5
-      fast-copy: 3.0.2
-      globals: 15.15.0
-    transitivePeerDependencies:
-      - debug
-
-  contentful-management@12.3.2:
-    dependencies:
-      '@contentful/rich-text-types': 16.8.5
       axios: 1.18.1
       contentful-sdk-core: 9.4.5
       fast-copy: 3.0.2
       globals: 15.15.0
-      process: 0.11.10
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -6895,14 +6865,6 @@ snapshots:
       tiny-inflate: 1.0.3
 
   foreach@2.0.6: {}
-
-  form-data@4.0.5:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      es-set-tostringtag: 2.1.0
-      hasown: 2.0.4
-      mime-types: 2.1.35
 
   form-data@4.0.6:
     dependencies:
