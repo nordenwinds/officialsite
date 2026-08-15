@@ -56,7 +56,7 @@ importers:
         version: 0.6.1(hono@4.13.1)
       '@hono/zod-openapi':
         specifier: ^1.0.0
-        version: 1.5.1(hono@4.13.1)(zod@4.4.3)
+        version: 1.5.2(hono@4.13.1)(zod@4.4.3)
       '@slack/types':
         specifier: ^2.14.0
         version: 2.22.0
@@ -705,8 +705,8 @@ packages:
     peerDependencies:
       hono: '>=4.0.0'
 
-  '@hono/zod-openapi@1.5.1':
-    resolution: {integrity: sha512-ZaDdEIkn6PEGjIYHXJeyByg6yhvLzI+UXn968pWtahpwcQ6HMjQYXI3zNffTl0Wl9QZ79nUnGqiN1erEIu23fA==}
+  '@hono/zod-openapi@1.5.2':
+    resolution: {integrity: sha512-FPlspM6+qObGoMfux+0SSE0of0tGO+BVo3havhKzZMxRyz/ql89kuCd/7POd70aW3T4kz/aVL6gNZ6sVd0ItUQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       hono: '>=4.10.0'
@@ -3261,8 +3261,8 @@ packages:
     peerDependencies:
       typescript: ^5.x
 
-  openapi3-ts@4.6.0:
-    resolution: {integrity: sha512-a4sfn6L2sIShhtzJqmjGrARvxAW/3F2BJDdyRVvNF9VhAsZSh5hSyI3a9TNvmzBxXmq66nY5LNT5bQcBxYAZZg==}
+  openapi3-ts@4.6.1:
+    resolution: {integrity: sha512-XW9MOldkhoICNeXVzzmXzmOW5G73ppOEGmh7fLCqHjgfdEYCGGN+00MlVCeUZgovjjfC56j9tvtDt1zGabNjjA==}
 
   ora@5.4.1:
     resolution: {integrity: sha512-5b6Y85tPxZZ7QytO+BQzysW31HJku27cRIlkbAXaNx+BdcVi+LlRFmVXzeF6a7JCwJpyw5c4b+YSVImQIrBpuQ==}
@@ -4403,7 +4403,7 @@ snapshots:
 
   '@asteasolutions/zod-to-openapi@8.5.0(zod@4.4.3)':
     dependencies:
-      openapi3-ts: 4.6.0
+      openapi3-ts: 4.6.1
       zod: 4.4.3
 
   '@astrojs/check@0.9.10(prettier@3.9.6)(typescript@5.9.3)':
@@ -4904,12 +4904,12 @@ snapshots:
     dependencies:
       hono: 4.13.1
 
-  '@hono/zod-openapi@1.5.1(hono@4.13.1)(zod@4.4.3)':
+  '@hono/zod-openapi@1.5.2(hono@4.13.1)(zod@4.4.3)':
     dependencies:
       '@asteasolutions/zod-to-openapi': 8.5.0(zod@4.4.3)
       '@hono/zod-validator': 0.9.0(hono@4.13.1)(zod@4.4.3)
       hono: 4.13.1
-      openapi3-ts: 4.6.0
+      openapi3-ts: 4.6.1
       zod: 4.4.3
 
   '@hono/zod-validator@0.9.0(hono@4.13.1)(zod@4.4.3)':
@@ -8035,7 +8035,7 @@ snapshots:
       typescript: 5.9.3
       yargs-parser: 21.1.1
 
-  openapi3-ts@4.6.0:
+  openapi3-ts@4.6.1:
     dependencies:
       yaml: 2.9.0
 
