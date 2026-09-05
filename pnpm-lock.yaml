@@ -46,7 +46,7 @@ importers:
         version: 14.0.2
       zod:
         specifier: ^4.0.0
-        version: 4.5.2
+        version: 4.5.4
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^5.0.0
@@ -56,7 +56,7 @@ importers:
         version: 0.6.1(hono@4.13.5)
       '@hono/zod-openapi':
         specifier: ^1.0.0
-        version: 1.6.1(hono@4.13.5)(zod@4.5.2)
+        version: 1.6.1(hono@4.13.5)(zod@4.5.4)
       '@slack/types':
         specifier: ^3.0.0
         version: 3.1.0
@@ -4584,9 +4584,6 @@ packages:
   youch@4.1.0-beta.10:
     resolution: {integrity: sha512-rLfVLB4FgQneDr0dv1oddCVZmKjcJ6yX6mS4pU82Mq/Dt9a3cLZQ62pDBL4AUO+uVrCvtWz3ZFUL2HFAFJ/BXQ==}
 
-  zod@4.5.2:
-    resolution: {integrity: sha512-XkYXCol10+ba/6F/cueWV+TezUeOqXW0hdeJt5CdXjTYeAgAQg5N03RQdJ80mhfFE72+pblvYMW4wy2Qp4Qbrg==}
-
   zod@4.5.4:
     resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
 
@@ -4595,10 +4592,10 @@ packages:
 
 snapshots:
 
-  '@asteasolutions/zod-to-openapi@9.1.0(zod@4.5.2)':
+  '@asteasolutions/zod-to-openapi@9.1.0(zod@4.5.4)':
     dependencies:
       openapi3-ts: 4.6.1
-      zod: 4.5.2
+      zod: 4.5.4
 
   '@astrojs/check@0.9.10(prettier@3.9.6)(typescript@5.9.3)':
     dependencies:
@@ -5097,18 +5094,18 @@ snapshots:
     dependencies:
       hono: 4.13.5
 
-  '@hono/zod-openapi@1.6.1(hono@4.13.5)(zod@4.5.2)':
+  '@hono/zod-openapi@1.6.1(hono@4.13.5)(zod@4.5.4)':
     dependencies:
-      '@asteasolutions/zod-to-openapi': 9.1.0(zod@4.5.2)
-      '@hono/zod-validator': 0.9.0(hono@4.13.5)(zod@4.5.2)
+      '@asteasolutions/zod-to-openapi': 9.1.0(zod@4.5.4)
+      '@hono/zod-validator': 0.9.0(hono@4.13.5)(zod@4.5.4)
       hono: 4.13.5
       openapi3-ts: 4.6.1
-      zod: 4.5.2
+      zod: 4.5.4
 
-  '@hono/zod-validator@0.9.0(hono@4.13.5)(zod@4.5.2)':
+  '@hono/zod-validator@0.9.0(hono@4.13.5)(zod@4.5.4)':
     dependencies:
       hono: 4.13.5
-      zod: 4.5.2
+      zod: 4.5.4
 
   '@img/colour@1.1.0': {}
 
@@ -9604,8 +9601,6 @@ snapshots:
       '@speed-highlight/core': 1.2.24
       cookie: 1.1.1
       youch-core: 0.3.3
-
-  zod@4.5.2: {}
 
   zod@4.5.4: {}
 
