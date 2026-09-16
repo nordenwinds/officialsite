@@ -113,7 +113,7 @@ importers:
         version: 7.3.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0)
       contentful:
         specifier: ^11.4.4
-        version: 11.12.9
+        version: 11.12.10
       openapi-fetch:
         specifier: ^0.17.0
         version: 0.17.0
@@ -1339,8 +1339,8 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@rollup/rollup-linux-x64-gnu@4.63.1':
-    resolution: {integrity: sha512-gfI5T24WLLuFfSKw7Go/zDXjAAV0fny0swTaDv+WjK7vqcw4cRhFfdsyKL1n+ukI+ooBxn3bVQnyrn06WpI50w==}
+  '@rollup/rollup-linux-x64-gnu@4.63.3':
+    resolution: {integrity: sha512-SXagRwnI2Wlwlitllu59UK/nGVbD1CKPcNqDplHwIC4BqJcpXFjD32d1R/RbuISa95HdQrZM3/7v4bKiowFaLA==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
@@ -1773,9 +1773,6 @@ packages:
   axios@1.18.1:
     resolution: {integrity: sha512-3nTvFlvpn9Zu/RkHUqtc7/+al4UpRW5az71ap5zccp6e8RAYEzhMTecX8Dz1wWDYrPpUoB1HAQEGEAEvUr7S9g==}
 
-  axios@1.19.0:
-    resolution: {integrity: sha512-ht/iuYZXEjFxLH/Hkezgd7m6JKlHHXEUSneaDz8uZe1Gj5QZtCnpyDsckvAiEnT89OEbCLmnte4R4sn7P0EKFw==}
-
   axios@1.20.0:
     resolution: {integrity: sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==}
 
@@ -2130,10 +2127,6 @@ packages:
 
   contentful@11.12.10:
     resolution: {integrity: sha512-/fUK6ySEZzLhiKFuUAxO7sFXxZeuEGKmhKQFdV/Iikm430up8v85PAkyi1N/dYTBS3l+yww9bfNssWHljExn+g==}
-    engines: {node: '>=18'}
-
-  contentful@11.12.9:
-    resolution: {integrity: sha512-3eSYeXRiQOOmkwwAqwPXeTE37iiE/Ku4LOh1p5bj2CxgaLVLk6O2Ep1DdDwoGMonyTNrkbCFXfbXCkrTPYBWHw==}
     engines: {node: '>=18'}
 
   cookie-es@1.2.3:
@@ -5668,7 +5661,7 @@ snapshots:
   '@rollup/rollup-linux-x64-gnu@4.62.4':
     optional: true
 
-  '@rollup/rollup-linux-x64-gnu@4.63.1':
+  '@rollup/rollup-linux-x64-gnu@4.63.3':
     optional: true
 
   '@samverschueren/stream-to-observable@0.3.1(rxjs@6.6.7)':
@@ -6152,16 +6145,6 @@ snapshots:
       - debug
       - supports-color
 
-  axios@1.19.0:
-    dependencies:
-      follow-redirects: 1.16.0
-      form-data: 4.0.6
-      https-proxy-agent: 5.0.1
-      proxy-from-env: 2.1.0
-    transitivePeerDependencies:
-      - debug
-      - supports-color
-
   axios@1.20.0:
     dependencies:
       follow-redirects: 1.16.0
@@ -6260,7 +6243,7 @@ snapshots:
     dependencies:
       '@oclif/core': 4.10.4
       '@oclif/plugin-help': 6.2.41
-      contentful: 11.12.9
+      contentful: 11.12.10
       contentful-export: 7.22.5
       contentful-management: 12.3.2
       fs-extra: 11.3.4
@@ -6549,11 +6532,11 @@ snapshots:
 
   contentful-export@7.22.5:
     dependencies:
-      axios: 1.19.0
+      axios: 1.20.0
       bfj: 9.1.3
       bluebird: 3.7.2
       cli-table3: 0.6.5
-      contentful: 11.12.9
+      contentful: 11.12.10
       contentful-batch-libs: 10.1.6
       contentful-management: 11.76.0
       date-fns: 4.1.0
@@ -6642,7 +6625,7 @@ snapshots:
   contentful-management@12.3.2:
     dependencies:
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.19.0
+      axios: 1.20.0
       contentful-sdk-core: 9.4.5
       fast-copy: 3.0.2
       globals: 15.15.0
@@ -6699,7 +6682,7 @@ snapshots:
       process: 0.11.10
       qs: 6.16.0
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.63.1
+      '@rollup/rollup-linux-x64-gnu': 4.63.3
 
   contentful-sdk-core@9.4.5:
     dependencies:
@@ -6717,20 +6700,6 @@ snapshots:
       axios: 1.20.0
       contentful-resolve-response: 2.0.1
       contentful-sdk-core: 10.0.0
-      json-stringify-safe: 5.0.1
-      tslib: 2.8.1
-      type-fest: 4.41.0
-    transitivePeerDependencies:
-      - debug
-      - supports-color
-
-  contentful@11.12.9:
-    dependencies:
-      '@contentful/content-source-maps': 0.12.3
-      '@contentful/rich-text-types': 17.2.7
-      axios: 1.19.0
-      contentful-resolve-response: 2.0.1
-      contentful-sdk-core: 9.4.5
       json-stringify-safe: 5.0.1
       tslib: 2.8.1
       type-fest: 4.41.0
