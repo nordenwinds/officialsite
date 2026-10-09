@@ -19,16 +19,16 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^24.0.0
-        version: 24.19.0
+        version: 24.19.1
       contentful-cli:
         specifier: ^4.0.0
-        version: 4.0.10(@types/node@24.19.0)
+        version: 4.0.10(@types/node@24.19.1)
       contentful-management:
         specifier: ^11.50.1
         version: 11.76.0
       contentful-migration:
         specifier: ^5.0.0
-        version: 5.1.1(@types/node@24.19.0)
+        version: 5.1.1(@types/node@24.19.1)
       typescript:
         specifier: ^5.7.3
         version: 5.9.3
@@ -1405,9 +1405,6 @@ packages:
 
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
-
-  '@types/node@24.19.0':
-    resolution: {integrity: sha512-zY+5tKxXdhGh1PYI0ac+7juvEu4OI6vWtVVoj5i2m42jxAY1U+zHGt6QCyOFwykdP62sM3MJ9stoYYUw5aCWew==}
 
   '@types/node@24.19.1':
     resolution: {integrity: sha512-aS3/DG0oM05K0RIXXP+hKjinGG5IgSSVGzswZxW3O0sS3pH4/fycXundUC9XsszgKCk4gHXylTEK6hyFxVxnoQ==}
@@ -5133,12 +5130,12 @@ snapshots:
   '@img/sharp-win32-x64@0.35.4':
     optional: true
 
-  '@inquirer/external-editor@1.0.3(@types/node@24.19.0)':
+  '@inquirer/external-editor@1.0.3(@types/node@24.19.1)':
     dependencies:
       chardet: 2.2.0
       iconv-lite: 0.7.3
     optionalDependencies:
-      '@types/node': 24.19.0
+      '@types/node': 24.19.1
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
@@ -5637,10 +5634,6 @@ snapshots:
   '@types/nlcst@2.0.3':
     dependencies:
       '@types/unist': 3.0.3
-
-  '@types/node@24.19.0':
-    dependencies:
-      undici-types: 7.24.6
 
   '@types/node@24.19.1':
     dependencies:
@@ -6265,7 +6258,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  contentful-cli@4.0.10(@types/node@24.19.0):
+  contentful-cli@4.0.10(@types/node@24.19.1):
     dependencies:
       '@contentful/app-action-utils': 1.4.1
       ast-types: 0.16.3
@@ -6281,14 +6274,14 @@ snapshots:
       contentful-export: 8.5.0
       contentful-import: 10.4.0
       contentful-management: 12.17.0
-      contentful-migration: 5.1.1(@types/node@24.19.0)
+      contentful-migration: 5.1.1(@types/node@24.19.1)
       emojic: 1.1.18
       execa: 5.1.1
       figlet: 1.11.4
       find-up: 5.0.0
       https-proxy-agent: 7.0.6(supports-color@10.2.2)
-      inquirer: 8.2.7(@types/node@24.19.0)
-      inquirer-autocomplete-prompt: 2.0.1(inquirer@8.2.7(@types/node@24.19.0))
+      inquirer: 8.2.7(@types/node@24.19.1)
+      inquirer-autocomplete-prompt: 2.0.1(inquirer@8.2.7(@types/node@24.19.1))
       inquirer-select-directory: 1.2.0
       listr: 0.14.3
       lodash: 4.18.1
@@ -6434,7 +6427,7 @@ snapshots:
       - debug
       - supports-color
 
-  contentful-migration@5.1.1(@types/node@24.19.0):
+  contentful-migration@5.1.1(@types/node@24.19.1):
     dependencies:
       '@hapi/hoek': 11.0.7
       axios: 1.20.0
@@ -6445,7 +6438,7 @@ snapshots:
       contentful-management: 12.19.0
       didyoumean2: 7.0.4
       https-proxy-agent: 5.0.1
-      inquirer: 8.2.7(@types/node@24.19.0)
+      inquirer: 8.2.7(@types/node@24.19.1)
       joi: 17.13.8
       kind-of: 6.0.3
       listr2: 3.14.0
@@ -7155,11 +7148,11 @@ snapshots:
 
   inline-style-parser@0.2.7: {}
 
-  inquirer-autocomplete-prompt@2.0.1(inquirer@8.2.7(@types/node@24.19.0)):
+  inquirer-autocomplete-prompt@2.0.1(inquirer@8.2.7(@types/node@24.19.1)):
     dependencies:
       ansi-escapes: 4.3.2
       figures: 3.2.0
-      inquirer: 8.2.7(@types/node@24.19.0)
+      inquirer: 8.2.7(@types/node@24.19.1)
       picocolors: 1.1.1
       run-async: 2.4.1
       rxjs: 7.8.2
@@ -7189,9 +7182,9 @@ snapshots:
       strip-ansi: 3.0.1
       through: 2.3.8
 
-  inquirer@8.2.7(@types/node@24.19.0):
+  inquirer@8.2.7(@types/node@24.19.1):
     dependencies:
-      '@inquirer/external-editor': 1.0.3(@types/node@24.19.0)
+      '@inquirer/external-editor': 1.0.3(@types/node@24.19.1)
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       cli-cursor: 3.1.0
