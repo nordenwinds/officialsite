@@ -2,21 +2,21 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/yumemi-inc/slackapp" {
-  version     = "0.2.7"
+  version     = "0.2.9"
   constraints = "~> 0.2.4"
   hashes = [
-    "h1:0hV9+ZumbtoDCmav5kaomd0AqkOBZF+sfcksKtSg2oI=",
-    "h1:4akAFt0FiwQ5LgFZwchfAyNXcT2njXxj/56yX0JqhaI=",
-    "h1:9Cs5KJ2T5bKbtI8esngWBVQmmdxQ+IL7Wul9NdXYZTs=",
-    "h1:P+OfMeaVEqzE6Yc62ZLRaTTBctakPQgjg7jLzCVvRwo=",
-    "h1:PNNDwfVMtXSM59n7HTAGm219PlWPPulVlf71SEdlH9A=",
-    "h1:bhRoVv/5DrXwDOxVZ6LOoxs8ym4sv8x3su1Q+FAOWm8=",
-    "zh:09905e16d8edd43efd96b8bb93270b90624b3f28aaa8501c96da7a190118301a",
-    "zh:10b3d59e42923c858f354c440b3ba1b3d34b1852daa4c6644ca7ffb0aebb9beb",
-    "zh:7b23a28e7321673c8251b6d67bd155ebd30250526338d5628d053c5268d01ce4",
-    "zh:94bf38fe5599591af65be8e75eb5ffc7c2af453a97a6d78c6e0b44851df1d00f",
-    "zh:daaa994a38c506faf03b77b6869b0bd9af2552d970742a1b52d0a775d0b356a7",
-    "zh:e5dc0c342d53a39459872ab1038224554365ffd20c7bc318d7074450509141ab",
+    "h1:TkPhRtvNMoMDleW0dkHGVqzg+N+BUwL+wPcIeUq6XzI=",
+    "h1:TtoPexlhoK0sVTqKGwy1JLb1Ad/jipjUPelztrQ6ojw=",
+    "h1:bm2FqzoBNIs/ROAP7ufxy7/GU4etxDoQB/l3m48Ffpk=",
+    "h1:c8ziyG758ahBhozscfI64xQfX0xERoPV0xiWijzHF8E=",
+    "h1:k28KDUSEu/UFzPL01uDrQrkmHBGLDGaxFB3C5IZkcDw=",
+    "h1:wax4UuwMBBWEbdTuY/pS3LnMi59l6ENbNA5VxA+BYjA=",
+    "zh:14d22db5cc669b04ba0cad7fd20787a464a8126859baef019135380d13530b20",
+    "zh:1eab8d90d4f83920d773ee6876707949680d9c182a2220ecc27631807f018951",
+    "zh:65e463d2dc6681ec9db1fecd9d9d208efbb2466871da63e879399e931849035f",
+    "zh:7dec283c4bd475e5a82ca7dea93095040aba68ff2c83979eca4ace19a7f17e63",
+    "zh:97728b9acc95ae6265c6518c21f3bbde1355916e20e42ce5af9349934a1dcea8",
+    "zh:d0527b30691a89cfe7365ed19a96488c8c0243923cb4e97b9452ac841188accb",
     "zh:f809ab383cca0a5f83072981c64208cbd7fa67e986a86ee02dd2c82333221e32",
   ]
 }
