@@ -68,7 +68,7 @@ importers:
         version: 5.9.3
       undici:
         specifier: ^8.0.0
-        version: 8.12.1
+        version: 8.12.2
       wrangler:
         specifier: ^4.0.0
         version: 4.151.0(@cloudflare/workers-types@5.20261014.1)
@@ -4327,8 +4327,8 @@ packages:
     resolution: {integrity: sha512-RYONW2MeafgYlkVOKYKkA/Ag7BmXqgIWCa8t1m0JcxrQg9pI9lEqRhAOruOBCbAohOa/gkCF+iPi9hrgvTzu6Q==}
     engines: {node: '>=20.18.1'}
 
-  undici@8.12.1:
-    resolution: {integrity: sha512-usz3OVQBeh1LxNn0DzU0voLXMgn5CU/WUdpBsY6Ti5afNao+vTkmn4H/NxoXolc10cOqe2+YIG0Hspq2rsl64w==}
+  undici@8.12.2:
+    resolution: {integrity: sha512-XtuDWVdqTLr3NAxm2ly9/hU6kUsJOgGh1RASzMBbsw6aWCOaQzHdW+QQDfdERjfJ2V5vL5pRPa4RetO9UfivDg==}
     engines: {node: '>=22.19.0'}
 
   undici@8.12.3:
@@ -9493,7 +9493,7 @@ snapshots:
 
   undici@7.29.1: {}
 
-  undici@8.12.1: {}
+  undici@8.12.2: {}
 
   undici@8.12.3: {}
 
