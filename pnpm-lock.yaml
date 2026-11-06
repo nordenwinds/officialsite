@@ -59,7 +59,7 @@ importers:
         version: 1.6.3(hono@4.13.14)(zod@4.6.7)
       '@slack/types':
         specifier: ^3.0.0
-        version: 3.2.0
+        version: 3.3.0
       '@slack/webhook':
         specifier: ^7.0.4
         version: 7.2.0
@@ -1285,8 +1285,8 @@ packages:
     resolution: {integrity: sha512-sZ9lIgJhPX2qft/tKWiklFlc0o1FWeI7QtciZJfW1+ErH1eGGHvOZ8e73sleTCFEFJp1q/R0WeS8Oa7AsiDprg==}
     engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
 
-  '@slack/types@3.2.0':
-    resolution: {integrity: sha512-IN4gdtlzQt8UJoj+1v+qAHeR4TxHO0KMlIs841SFfDQAcFFnsrWaGsEAE4goxVt8O/JOAFaGGdrFTzhNBop/Fg==}
+  '@slack/types@3.3.0':
+    resolution: {integrity: sha512-11r2kM9Zy/UlaV6OwPibZueVlyNJ5xtHEHK/iYDnPLyhQcxRtsifNAwNhJ1Lm0nszW4jrWCHThXCHCNJC/hvqg==}
     engines: {node: '>= 20', npm: '>=9.6.4'}
 
   '@slack/webhook@7.2.0':
@@ -5681,7 +5681,7 @@ snapshots:
 
   '@slack/types@2.22.0': {}
 
-  '@slack/types@3.2.0': {}
+  '@slack/types@3.3.0': {}
 
   '@slack/webhook@7.2.0':
     dependencies:
