@@ -50,7 +50,7 @@ importers:
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^5.0.0
-        version: 5.20261106.1
+        version: 5.20261107.1
       '@hono/swagger-ui':
         specifier: ^0.6.0
         version: 0.6.2(hono@4.13.17)
@@ -71,7 +71,7 @@ importers:
         version: 8.12.4
       wrangler:
         specifier: ^4.0.0
-        version: 4.158.0(@cloudflare/workers-types@5.20261106.1)
+        version: 4.158.0(@cloudflare/workers-types@5.20261107.1)
 
   apps/web:
     dependencies:
@@ -545,8 +545,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@5.20261106.1':
-    resolution: {integrity: sha512-uQtZyYehF0hwImaFi0/z/BWeTC/DMKpEo+nCySs5WZwoMhnIqLnN3sVjS7GCBc222EWf+F6khsHPWIvPEaP6JA==}
+  '@cloudflare/workers-types@5.20261107.1':
+    resolution: {integrity: sha512-Q23LVprqgqdoxBYaH3YyTrtmeJZMzVarvcTZjZC6FnQIqrr+Vm/ASdWtezOQ+oq3FvhoGr1Xe7BAU3XZfkqUQw==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -5045,7 +5045,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20261104.1':
     optional: true
 
-  '@cloudflare/workers-types@5.20261106.1': {}
+  '@cloudflare/workers-types@5.20261107.1': {}
 
   '@colors/colors@1.5.0':
     optional: true
@@ -9498,7 +9498,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20261104.1
       '@cloudflare/workerd-windows-64': 1.20261104.1
 
-  wrangler@4.158.0(@cloudflare/workers-types@5.20261106.1):
+  wrangler@4.158.0(@cloudflare/workers-types@5.20261107.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.2(unenv@2.0.0-rc.24)(workerd@1.20261104.1)
@@ -9510,7 +9510,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20261104.1
     optionalDependencies:
-      '@cloudflare/workers-types': 5.20261106.1
+      '@cloudflare/workers-types': 5.20261107.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - '@types/node'
